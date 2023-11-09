@@ -19,7 +19,7 @@ public class ServicesInUkrainianPage {
 
     public String getFAQQuestionServiceDenialTitleText() {
         return getFAQQuestionServiceDenialElement()
-                .$x("//div[@class='ant-collapse-header-text']")
+                .$x(".//div[@class='ant-collapse-header-text']")
                 .getText();
     }
 
@@ -35,7 +35,7 @@ public class ServicesInUkrainianPage {
 
     public String getFAQQuestionWhereToComplainTitleText() {
         return getFAQQuestionWhereToComplainElement()
-                .$x("//div[@class='ant-collapse-header-text']")
+                .$x(".//div[@class='ant-collapse-header-text']")
                 .getText();
     }
 
@@ -51,7 +51,7 @@ public class ServicesInUkrainianPage {
 
     public String getFAQQuestionWhatComplainContainsTitleText() {
         return getFAQQuestionWhatComplaintContainsElement()
-                .$x("//div[@class='ant-collapse-header-text']")
+                .$x(".//div[@class='ant-collapse-header-text']")
                 .getText();
     }
 
