@@ -17,8 +17,8 @@ public class TestRunner {
         Configuration.timeout = getDefaultTimeOut() * 1000L;
     }
 
-    @BeforeMethod
-    public void navigateToUrl() {
-        homePage.open();
-    }
+//    @BeforeMethod
+//    public void navigateToUrl() {
+//        homePage.open();
+//    }
 }
