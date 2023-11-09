@@ -5,6 +5,30 @@ import com.codeborne.selenide.SelenideElement;
 
 public class ServicesInUkrainianPage {
 
+    public SelenideElement getMainTitleElement() {
+        return Selenide.$x("//div[@class='title']");
+    }
+
+    public String getMainTitleText() {
+        return getMainTitleElement().$x(".//div[@class='text']").getText();
+    }
+
+    public SelenideElement getMainContentElement() {
+        return Selenide.$x("//div[@class='content']");
+    }
+
+    public String getMainContentTitleText() {
+        return getMainContentElement()
+                .$x(".//div[@class='content-title']")
+                .getText();
+    }
+
+    public String getMainContentText() {
+        return getMainContentElement()
+                .$x(".//div[@class='content-text']")
+                .getText();
+    }
+
     public SelenideElement getFAQTitleElement() {
         return Selenide.$x("//div[@class='faq-title']");
     }
