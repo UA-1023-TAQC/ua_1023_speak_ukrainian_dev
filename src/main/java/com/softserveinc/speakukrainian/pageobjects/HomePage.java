@@ -13,6 +13,4 @@ public class HomePage {
         Selenide.open(getHomePageUrl());
         return this;
     }
-
-
 }
