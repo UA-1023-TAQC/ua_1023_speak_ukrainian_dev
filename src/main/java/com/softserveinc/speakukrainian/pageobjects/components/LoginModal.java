@@ -1,9 +1,11 @@
 package com.softserveinc.speakukrainian.pageobjects.components;
 
 import com.codeborne.selenide.SelenideElement;
+import lombok.Getter;
 
 import static com.codeborne.selenide.Selenide.$x;
 
+@Getter
 public class LoginModal {
 
     private final SelenideElement closeBtn = $x("//span[@aria-label='close']");
@@ -34,16 +36,19 @@ public class LoginModal {
         return new FacebookLogin();
     }
 
-    public void setEmailInput(String text){
-        email_input.sendKeys(text);
+    public LoginModal setEmailInput(String email){
+        email_input.sendKeys(email);
+        return this;
     }
 
-    public void setPasswordInput(String text){
-        password_input.sendKeys(text);
+    public LoginModal setPasswordInput(String password){
+        password_input.sendKeys(password);
+        return this;
     }
 
-    public void clickEyeBtn(){
+    public LoginModal clickEyeBtn(){
         eye_label.click();
+        return this;
     }
 
     public UserHomePage clickSubmitBtn(){
