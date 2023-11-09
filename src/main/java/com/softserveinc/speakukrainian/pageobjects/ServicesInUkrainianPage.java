@@ -3,85 +3,57 @@ package com.softserveinc.speakukrainian.pageobjects;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 
+import lombok.Getter;
+
+
+@Getter
 public class ServicesInUkrainianPage {
 
-    public SelenideElement getMainTitleElement() {
-        return Selenide.$x("//div[@class='title']");
-    }
+    private final SelenideElement mainTitle = Selenide.$x("//div[@class='title']");
+    private final SelenideElement mainContent = Selenide.$x("//div[@class='content']");
+    private final SelenideElement faqTitle = Selenide.$x("//div[@class='faq-title']");
+    private final SelenideElement faqQuestionServiceDenial = Selenide.$x("//div[@class='ant-collapse-item panel'][1]");
+    private final SelenideElement faqQuestionWhereToComplain = Selenide.$x("//div[@class='ant-collapse-item panel'][2]");
+    private final SelenideElement faqQuestionWhatComplainContains = Selenide.$x("//div[@class='ant-collapse-item panel'][3]");
+
 
     public String getMainTitleText() {
-        return getMainTitleElement().$x(".//div[@class='text']").getText();
-    }
-
-    public SelenideElement getMainContentElement() {
-        return Selenide.$x("//div[@class='content']");
+        return mainTitle.$x(".//div[@class='text']").getText();
     }
 
     public String getMainContentTitleText() {
-        return getMainContentElement()
-                .$x(".//div[@class='content-title']")
-                .getText();
+        return mainContent.$x(".//div[@class='content-title']").getText();
     }
 
     public String getMainContentText() {
-        return getMainContentElement()
-                .$x(".//div[@class='content-text']")
-                .getText();
-    }
-
-    public SelenideElement getFAQTitleElement() {
-        return Selenide.$x("//div[@class='faq-title']");
+        return mainContent.$x(".//div[@class='content-text']").getText();
     }
 
     public String getFAQTitleText() {
-        return getFAQTitleElement().getText();
-    }
-
-    public SelenideElement getFAQQuestionServiceDenialElement() {
-        return Selenide.$x("//div[@class='ant-collapse-item panel'][1]");
+        return faqTitle.getText();
     }
 
     public String getFAQQuestionServiceDenialTitleText() {
-        return getFAQQuestionServiceDenialElement()
-                .$x(".//div[@class='ant-collapse-header-text']")
-                .getText();
+        return faqQuestionServiceDenial.$x(".//div[@class='ant-collapse-header-text']").getText();
     }
 
     public String getFAQQuestionServiceDenialContentText() {
-        return getFAQQuestionServiceDenialElement()
-                .$x(".//div[@class='ant-collapse-content-box']/p")
-                .getText();
-    }
-
-    public SelenideElement getFAQQuestionWhereToComplainElement() {
-        return Selenide.$x("//div[@class='ant-collapse-item panel'][2]");
+        return faqQuestionServiceDenial.$x(".//div[@class='ant-collapse-content-box']/p").getText();
     }
 
     public String getFAQQuestionWhereToComplainTitleText() {
-        return getFAQQuestionWhereToComplainElement()
-                .$x(".//div[@class='ant-collapse-header-text']")
-                .getText();
+        return faqQuestionWhereToComplain.$x(".//div[@class='ant-collapse-header-text']").getText();
     }
 
     public String getFAQQuestionWhereToComplainContentText() {
-        return getFAQQuestionWhereToComplainElement()
-                .$x(".//div[@class='ant-collapse-content-box']/p")
-                .getText();
-    }
-
-    public SelenideElement getFAQQuestionWhatComplaintContainsElement() {
-        return Selenide.$x("//div[@class='ant-collapse-item panel'][3]");
+        return faqQuestionWhereToComplain.$x(".//div[@class='ant-collapse-content-box']/p").getText();
     }
 
     public String getFAQQuestionWhatComplainContainsTitleText() {
-        return getFAQQuestionWhatComplaintContainsElement()
-                .$x(".//div[@class='ant-collapse-header-text']")
-                .getText();
+        return faqQuestionWhatComplainContains.$x(".//div[@class='ant-collapse-header-text']").getText();
     }
 
     public String getFAQQuestionWhatComplainContainsContentText() {
-        return getFAQQuestionWhatComplaintContainsElement()
-                .$x(".//div[@class='ant-collapse-content-box']/p")
-                .getText();
+        return faqQuestionWhatComplainContains.$x(".//div[@class='ant-collapse-content-box']/p").getText();
     }
 }
