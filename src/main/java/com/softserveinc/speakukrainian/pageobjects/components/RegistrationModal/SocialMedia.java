@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selenide.$x;
 public class SocialMedia {
 
     public SelenideElement getGoogleRegistrationLinkIcon(){
-        return $x("//a[contains(@href, \"google\")]')");
+        return $x(".//a[contains(@href, \"google\")]')");
     }
 
     public void clickGoogleRegistrationLinkIcon(){
@@ -15,7 +15,7 @@ public class SocialMedia {
     }
 
     public SelenideElement getFacebookRegistrationLinkIcon(){
-        return $x("//a[contains(@href, \"facebook\")]')");
+        return $x(".//a[contains(@href, \"facebook\")]')");
     }
 
     public void clickFacebookRegistrationLinkIcon(){
