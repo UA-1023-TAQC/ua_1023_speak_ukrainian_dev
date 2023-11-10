@@ -1,13 +1,9 @@
 package com.softserveinc.speakukrainian.pageobjects.components;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import com.softserveinc.speakukrainian.pageobjects.ClubsPage;
+import com.softserveinc.speakukrainian.pageobjects.*;
 import lombok.Getter;
 
-import java.time.Duration;
-
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
 
 @Getter
@@ -19,13 +15,18 @@ public class Header {
     private final SelenideElement news = $x("//header//div[@class='center-side']/ul/li[3]/span[2]/a");
     private final SelenideElement about = $x("//header//div[@class='center-side']/ul/li[4]/span[2]/a");
     private final SelenideElement servicesInUkrainian = $x("//header//div[@class='center-side']/ul/li[5]/span[2]/a");
-    private final SelenideElement city = $x("//header//div[@class='right-side-menu']/div[contains(@class,'city')]/span");
-    private final SelenideElement addClub = $x("//header//div[@class='right-side-menu']/button[contains(@class,'add-club-button')]/span");
-    private final SelenideElement userProfile = $x("//header//div[@class='right-side-menu']/div[contains(@class,'user-profile')]");
+    private final SelenideElement city = $x("//header//div[contains(@class,'city')]/span");
+    private final SelenideElement addClub = $x("//header//button[contains(@class,'add-club-button')]/span");
+    private final SelenideElement userProfile = $x("//header//div[contains(@class,'user-profile')]");
 
     public ClubsPage openClubsPage(){
         clubs.click();
         return new ClubsPage();
+    }
+
+    public ChallengeMenu openChallengeMenu(){
+        challenge.click();
+        return new ChallengeMenu();
     }
 
     public NewsPage openNewsPage(){
@@ -43,9 +44,24 @@ public class Header {
         return new ServicesInUkrainianPage();
     }
 
+    public CitiesMenu openCitiesMenu(){
+        city.click();
+        return new CitiesMenu();
+    }
+
+    public AddClubModal openAddClubModal(){
+        addClub.click();
+        return new AddClubModal();
+    }
+
     public GuestProfileMenu openGuestProfileMenu(){
-        $x("//div[contains(@class,'user-profile')]").click();
+        userProfile.click();
         return new GuestProfileMenu();
+    }
+
+    public ProfileMenu openProfileMenu(){
+        userProfile.click();
+        return new ProfileMenu();
     }
 
     public String getLogoURL(){
