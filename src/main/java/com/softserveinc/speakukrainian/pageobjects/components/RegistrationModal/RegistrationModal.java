@@ -31,25 +31,25 @@ public class RegistrationModal {
     private final SelenideElement emailLabel = $x("//label[@title='Email']");
     private final SelenideElement emailInput = $x("//input[@id='email']");
     private final SelenideElement emailIcon = $x("//span[@aria-label='mail']");
-    private final ElementsCollection emailError = emailInput.$$x("//div[@class='ant-form-item-explain-error']");
+    private final ElementsCollection emailError = emailInput.$$x(".//div[@class='ant-form-item-explain-error']");
 
     private final SelenideElement passwordLabel = $x("//label[@title='Пароль']");
     private final SelenideElement passwordInput = $x("//input[@id='password']");
-    private final ElementsCollection passwordError = passwordInput.$$x("//div[@class='ant-form-item-explain-error']");
-    private final SelenideElement passwordEyeToggle = $x("//span[@aria-label='phone']");
+    private final ElementsCollection passwordError = passwordInput.$$x(".//div[@class='ant-form-item-explain-error']");
+    private final SelenideElement passwordEyeToggle = $x("//span[@aria-label='ant-input-password-icon']");
 
     private final SelenideElement confirmPasswordLabel = $x("//label[@title='Підтвердження паролю']");
     private final SelenideElement confirmPasswordInput = $x("//input[@id='confirm']");
-    private final ElementsCollection confirmPasswordError = confirmPasswordInput.$$x("//div[@class='ant-form-item-explain-error']\"");
-    private final SelenideElement confirmPasswordEyeToggle = confirmPasswordInput.$x("//div[@class='ant-form-item-explain-error']");
+    private final ElementsCollection confirmPasswordError = confirmPasswordInput.$$x(".//div[@class='ant-form-item-explain-error']");
+    private final SelenideElement confirmPasswordEyeToggle = confirmPasswordInput.$x("//span[@aria-label='ant-input-password-icon']");
 
-    private final SelenideElement registerBtn = $x("");
+    private final SelenideElement registerBtn = $x("//button[@class='registration-button']");
 
     public String getTitleText(){
         return title.getText();
     }
 
-    public SelenideElement getRegIcons(){
+    public SelenideElement socialMedia(){
         return $x("//div[@class='items-active']");
     }
 
