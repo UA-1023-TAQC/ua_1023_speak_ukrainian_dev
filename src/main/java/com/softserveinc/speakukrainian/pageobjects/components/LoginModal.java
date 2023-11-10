@@ -17,6 +17,8 @@ public class LoginModal {
     private final SelenideElement eye_label = $x("//span[@aria-label='eye']");
     private final SelenideElement submitBtn = $x("//button[@type='submit']");
     private final SelenideElement forgot_password = $x("//a[@class='restore-password-button']");
+    private final SelenideElement checkCircleElement = $x("//span[@aria-label='check-circle']");
+    private final SelenideElement closeCircleElement = $x("//span[@aria-label='close-circle']");
 
     public void clickCloseBtn(){
         closeBtn.click();
@@ -59,6 +61,14 @@ public class LoginModal {
     public ResetPasswordModal clickForgotPassword(){
         forgot_password.click();
         return new ResetPasswordModal();
+    }
+
+    public boolean checkCircleElementDisplayed(){
+        return checkCircleElement.isDisplayed();
+    }
+
+    public boolean checkCloseElementDisplayed(){
+        return closeCircleElement.isDisplayed();
     }
 
 }
