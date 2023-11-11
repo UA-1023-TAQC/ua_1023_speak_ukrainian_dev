@@ -13,6 +13,8 @@ public abstract class HomePageGuest{
 
     public static final SelenideElement CLUBS_HEADER = $x("//div[@class='categories-header']");
 
+    public static final SelenideElement CHALLENGE_BLOCK = $x("//div[@class='about-challenge']");
+
     public SelenideElement getMainBannerBlock() {
         return MAIN_BANNER;
     }
@@ -25,6 +27,11 @@ public abstract class HomePageGuest{
     public SelenideElement getClubsHeader(){
         SelenideElement header = CLUBS_HEADER;
         return header;
+    }
+
+    public SelenideElement getChallengeBlock(){
+        SelenideElement challenge = CHALLENGE_BLOCK;
+        return challenge;
     }
 
 }

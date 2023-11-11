@@ -1,10 +1,13 @@
 package com.softserveinc.speakukrainian.pageobjects.homePageGuest;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.softserveinc.speakukrainian.pageobjects.ClubsPage;
 import lombok.Getter;
+import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.open;
 
 @Getter
 public class ClubsItemsComponent extends HomePageGuest {
