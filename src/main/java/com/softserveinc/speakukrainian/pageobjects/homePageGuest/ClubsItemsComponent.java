@@ -24,14 +24,22 @@ public class ClubsItemsComponent extends HomePageGuest {
         return getListClubsItems().get(index);
     }
 
-    public String getListClubsItemsTitle(int index) {
+    public SelenideElement getListClubsItemsTitle(int index) {
         SelenideElement title = getListClubsElement(index).$x(".//div[@class='name']");
-        return title.getText();
+        return title;
     }
 
-    public String getListClubsItemsDescription(int index) {
+    public String getListClubsItemsTitleText(int index) {
+        return getListClubsItemsTitle(index).getText();
+    }
+
+    public SelenideElement getListClubsItemsDescription(int index) {
         SelenideElement description = getListClubsElement(index).$x(".//div[@class='description']");
-        return description.getText();
+        return description;
+    }
+
+    public String getListClubsItemsDescriptionText(int index) {
+        return getListClubsItemsDescription(index).getText();
     }
 
     public SelenideElement getListClubsItemsIcon(int index) {
@@ -79,5 +87,6 @@ public class ClubsItemsComponent extends HomePageGuest {
         getClubsHeaderButton().click();
         return new ClubsPage();
     }
+
 
 }
