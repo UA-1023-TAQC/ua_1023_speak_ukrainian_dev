@@ -88,5 +88,4 @@ public class ClubsItemsComponent extends HomePageGuest {
         return new ClubsPage();
     }
 
-
 }

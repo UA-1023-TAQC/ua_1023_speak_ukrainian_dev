@@ -21,18 +21,15 @@ public abstract class HomePageGuest{
     }
 
     public ElementsCollection getListClubsItems(){
-        ElementsCollection list = LIST_CLUBS_ITEMS;
-        return list;
+        return LIST_CLUBS_ITEMS;
     }
 
     public SelenideElement getClubsHeader(){
-        SelenideElement header = CLUBS_HEADER;
-        return header;
+        return CLUBS_HEADER;
     }
 
     public SelenideElement getChallengeBlock(){
-        SelenideElement challenge = CHALLENGE_BLOCK;
-        return challenge;
+        return CHALLENGE_BLOCK;
     }
 
 }
