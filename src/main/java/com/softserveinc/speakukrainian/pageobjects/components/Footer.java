@@ -42,6 +42,7 @@ public class Footer {
     public String getSponsorAltTextByIndex(int index) {
         return sponsorsList.get(index).$("img").getAttribute("alt");
     }
+
     public void clickOnSponsorByIndex(int index) {
         sponsorsList.get(index).click();
     }
