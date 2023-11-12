@@ -33,8 +33,8 @@ public class AddClubModal {
     private final ElementsCollection Workday = $$("//div[@id=\"basic_workDay\"]/div");
     private final SelenideElement InputTimeFrom = $x(".//div[1]/input[@placeholder='HH:mm']");
     private final SelenideElement InputTimeTo = $x(".//div[3]/input[@placeholder='HH:mm']");
-    private final ElementsCollection HourTimeTo= $$("//ul[@class=\"ant-picker-time-panel-column\"][1]/li");
-    private final ElementsCollection MinutesTimeTo = $$("//ul[@class=\"ant-picker-time-panel-column\"][2]/li");
+    private final ElementsCollection HourTime= $$("//ul[@class=\"ant-picker-time-panel-column\"][1]/li");
+    private final ElementsCollection MinutesTime = $$("//ul[@class=\"ant-picker-time-panel-column\"][2]/li");
     private final SelenideElement ContactPhoneNumber = $x("//input[@id=\"basic_contactТелефон\"]");
     private final SelenideElement ContactFacebook = $x("//input[@id=\"basic_contactFacebook\"]");
     private final SelenideElement ContactWhatsApp = $x("//input[@id=\"basic_contactWhatsApp\"]");
@@ -126,7 +126,7 @@ public class AddClubModal {
         return this;
     }
 
-    public AddClubModal selectWorkday(int index, String timeFrom, String timeTo){
+    public AddClubModal selectWorkdayByInput(int index, String timeFrom, String timeTo){
         if (index >= 0 && index < Workday.size()){
             SelenideElement selectedWorkday = Workday.get(index);
             selectedWorkday.click();
@@ -141,6 +141,28 @@ public class AddClubModal {
             }
         }
         return this;
+    }
+
+    public AddClubModal selectWorkdayByBtn(int index, int indexHourTime, int indexMinutesTime){
+        if (index >= 0 && index < Workday.size()){
+            SelenideElement selectedWorkday = Workday.get(index);
+            selectedWorkday.click();
+
+            SelenideElement selectedInputTimeFrom = selectedWorkday.$(".//div[1]/input[@placeholder='HH:mm']");
+            selectedInputTimeFrom.click();
+            SpecifyingAppropriateTime(indexHourTime, indexMinutesTime);
+            SpecifyingAppropriateTime(indexHourTime, indexMinutesTime);
+        }
+        return this;
+    }
+
+    public void SpecifyingAppropriateTime(int indexHourTime, int indexMinutesTime){
+        if (indexHourTime >= 0 && indexHourTime < HourTime.size()){
+            HourTime.get(indexHourTime).click();
+        }
+        if (indexMinutesTime >= 0 && indexMinutesTime < MinutesTime.size()){
+            MinutesTime.get(indexMinutesTime).click();
+        }
     }
 
     public AddClubModal setContactPhoneNumber(String number){
