@@ -159,5 +159,4 @@ public class NewsPage {
         clubsClosePreReview.click();
         return this;
     }
-
 }
