@@ -1,8 +1,6 @@
 package com.softserveinc.speakukrainian.pageobjects.components;
 
-import com.codeborne.selenide.Selenide;
 import com.softserveinc.speakukrainian.pageobjects.ClubsPage;
-import com.softserveinc.speakukrainian.pageobjects.NewsPage;
 
 import java.time.Duration;
 
