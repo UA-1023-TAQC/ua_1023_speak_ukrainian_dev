@@ -1,10 +1,11 @@
-package com.softserveinc.speakukrainian.pageobjects.homePageGuest;
+package com.softserveinc.speakukrainian.pageobjects.homePage.homePageGuest;
 
 import com.codeborne.selenide.SelenideElement;
+import com.softserveinc.speakukrainian.pageobjects.homePage.homePageGuest.BaseHomePageGuest;
 import lombok.Getter;
 
 @Getter
-public class ChallengeComponent extends HomePageGuest{
+public class ChallengeComponent extends BaseHomePageGuest {
 
     public SelenideElement getChallengeImg() {
         SelenideElement challengeImg = getChallengeBlock().$x(".//img");

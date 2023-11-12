@@ -1,16 +1,14 @@
-package com.softserveinc.speakukrainian.pageobjects.homePageGuest;
+package com.softserveinc.speakukrainian.pageobjects.homePage.homePageGuest;
 
-import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.softserveinc.speakukrainian.pageobjects.ClubsPage;
 import lombok.Getter;
-import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.open;
 
 @Getter
-public class ClubsItemsComponent extends HomePageGuest {
+public class ClubsItemsComponent extends BaseHomePageGuest {
 
     public static final SelenideElement ARROW_PREV =
             $x("//span[@class='anticon anticon-arrow-left arrows-prev']");

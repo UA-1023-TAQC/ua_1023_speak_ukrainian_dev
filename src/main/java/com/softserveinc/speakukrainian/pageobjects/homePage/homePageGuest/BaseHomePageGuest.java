@@ -1,11 +1,11 @@
-package com.softserveinc.speakukrainian.pageobjects.homePageGuest;
+package com.softserveinc.speakukrainian.pageobjects.homePage.homePageGuest;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public abstract class HomePageGuest{
+public abstract class BaseHomePageGuest {
     public static final ElementsCollection MAIN_BANNER =
             $$x("/html/body/div[1]/div/div[2]/main/div/div[2]/div/div/div/div/div");
 

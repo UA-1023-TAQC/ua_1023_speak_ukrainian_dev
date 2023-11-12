@@ -1,4 +1,4 @@
-package com.softserveinc.speakukrainian.pageobjects.homePageGuest;
+package com.softserveinc.speakukrainian.pageobjects.homePage.homePageGuest;
 
 import com.codeborne.selenide.SelenideElement;
 import lombok.Getter;

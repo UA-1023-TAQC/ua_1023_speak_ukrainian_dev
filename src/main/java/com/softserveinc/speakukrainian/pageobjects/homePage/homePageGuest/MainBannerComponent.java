@@ -1,4 +1,4 @@
-package com.softserveinc.speakukrainian.pageobjects.homePageGuest;
+package com.softserveinc.speakukrainian.pageobjects.homePage.homePageGuest;
 
 import com.codeborne.selenide.SelenideElement;
 import com.softserveinc.speakukrainian.pageobjects.ClubsPage;
@@ -7,7 +7,7 @@ import lombok.Getter;
 import static com.codeborne.selenide.Selenide.$x;
 
 @Getter
-public class MainBannerComponent extends HomePageGuest{
+public class MainBannerComponent extends BaseHomePageGuest {
 
     public static final SelenideElement ARROW_LEFT =
             $x("//span[@class='anticon anticon-arrow-left arrow']");
