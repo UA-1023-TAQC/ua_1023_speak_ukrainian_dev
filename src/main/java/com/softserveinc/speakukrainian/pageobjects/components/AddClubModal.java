@@ -4,11 +4,13 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import lombok.Getter;
 
+import java.io.File;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
 
 @Getter
 public class AddClubModal {
@@ -101,11 +103,12 @@ public class AddClubModal {
         return ListCenterName;
     }
 
-    public void clickListCenterName(int index){
+    public AddClubModal clickListCenterName(int index){
         if (index >= 0 && index < ListCenterName.size()){
             SelenideElement center = ListCenterName.get(index);
             center.shouldBe(visible, Duration.ofSeconds(1)).click();
         }
+        return this;
     }
 
     public AddClubModal clickNextStepBtn(){
@@ -173,6 +176,36 @@ public class AddClubModal {
     public AddClubModal clickBackBtn(){
         BackBtn.click();
         return this;
+    }
+
+    public AddClubModal clickDownloadLogo(String filePath){
+        DownloadLogo.click();
+        SelenideElement input = $x("//input[@id=\"basic_urlLogo\"]");
+        input.uploadFile(new File(filePath));
+        return this;
+    }
+
+    public AddClubModal clickDownloadCoverArt(String filePath){
+        DownloadCoverArt.click();
+        SelenideElement input = $x("//input[@id=\"basic_urlBackground\"]");
+        input.uploadFile(new File(filePath));
+        return this;
+    }
+
+    public AddClubModal clickAddGallery(String filePath){
+        AddGallery.click();
+        SelenideElement input = $x("//*[@id=\"basic\"]/div[3]/div/div/div/div/span/div/div/span/input");
+        input.uploadFile(new File(filePath));
+        return this;
+    }
+
+    public AddClubModal setDescription(String text){
+        Description.setValue(text);
+        return this;
+    }
+
+    public void clickComplete(){
+        Complete.click();
     }
 
 }
