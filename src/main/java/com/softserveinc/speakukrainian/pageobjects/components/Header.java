@@ -14,10 +14,6 @@ public class Header {
         $x("//*[@id=\"root\"]/div/header/div[2]/ul/li[1]/span[2]/a").click();
         return new ClubsPage();
     }
-    public NewsPage openNewsPage() {
-        Selenide.$x("//*[@id=\"root\"]/div/header/div[2]/ul/li[3]/span[2]/a").click();
-        return new NewsPage();
-    }
     public GuestProfileMenu openGuestProfileMenu(){
         $x("//div[contains(@class,'user-profile')]").click();
         return new GuestProfileMenu();
