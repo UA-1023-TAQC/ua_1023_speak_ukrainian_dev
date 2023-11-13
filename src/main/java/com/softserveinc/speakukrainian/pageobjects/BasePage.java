@@ -8,7 +8,11 @@ public abstract class BasePage {
 
     public void pressArrowDown(int count) {
         for (int i=0; i<count; i++) {
-            actions().sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).build().perform();
+            actions()
+                    .sendKeys(Keys.ARROW_DOWN)
+                    .sendKeys(Keys.ENTER)
+                    .build()
+                    .perform();
         }
     }
 }

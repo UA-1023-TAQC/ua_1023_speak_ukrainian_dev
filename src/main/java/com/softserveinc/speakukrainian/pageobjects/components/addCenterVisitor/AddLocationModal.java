@@ -3,9 +3,11 @@ package com.softserveinc.speakukrainian.pageobjects.components.addCenterVisitor;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.softserveinc.speakukrainian.pageobjects.BasePage;
+import lombok.Getter;
 
 import static com.codeborne.selenide.Selenide.*;
 
+@Getter
 public class AddLocationModal extends BasePage {
 
     public static final SelenideElement TITLE_MODAL = $x("//div[contains(text(), 'Додати локацію')]");
