@@ -1,5 +1,6 @@
-package com.softserveinc.speakukrainian.pageobjects;
+package com.softserveinc.speakukrainian.pageobjects.AboutUsPage;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$x;
@@ -25,6 +26,22 @@ public class AboutUsPage {
     private static final String IVANNA_KOBELEVA_DESCRIPTION_XPATH = MAIN_XPATH_PREFIX + "/div/div[5]/div/div/p[1]";
     private static final String IVANNA_KOBELEVA_GENERAL_INFO_XPATH = MAIN_XPATH_PREFIX + "/div/div[5]/div/div/p[2]";
     private static final String IVANNA_KOBELEVA_PHOTO_XPATH = MAIN_XPATH_PREFIX + "/div/div[5]/div/img";
+    private static final String NAVCHAY_UKRAYINSKOYU_INITIATIVE_MIDDLE_XPATH = MAIN_XPATH_PREFIX + "/div/div[6]/div/div";
+    private static final String NAVCHAY_UKRAYINSKOYU_INITIATIVE_MIDDLE_DESCRIPTION_XPATH = MAIN_XPATH_PREFIX + "/div/div[7]/div/div/div/p";
+    private static final String YOUTUBE_VIDEO_XPATH = MAIN_XPATH_PREFIX + "/div/div[8]/div/div/div";
+    private static final String AMBASSADORS_OF_THE_PROJECT_TITLE_XPATH = MAIN_XPATH_PREFIX + "/div/div[9]/div/div";
+    private static final String AMBASSADORS_OF_THE_FIRST_BLOCK_XPATH = MAIN_XPATH_PREFIX + "/div/div[10]";
+    private static final String AMBASSADORS_OF_THE_SECOND_BLOCK_XPATH = MAIN_XPATH_PREFIX + "/div/div[11]";
+    private static final String AMBASSADORS_OF_THE_THIRD_BLOCK_XPATH = MAIN_XPATH_PREFIX + "/div/div[12]";
+    private static final String AMBASSADORS_OF_THE_FOURTH_BLOCK_XPATH = MAIN_XPATH_PREFIX + "/div/div[13]";
+    private static final String REVIEWS_TITLE = MAIN_XPATH_PREFIX + "/div/div[14]/div";
+    private static final String REVIEWS_List = MAIN_XPATH_PREFIX + "/div/div[15]/div/div";
+
+
+
+
+
+
 
     public SelenideElement getMainPhoto() {
         return $x(MAIN_PHOTO_XPATH);
@@ -165,6 +182,11 @@ public class AboutUsPage {
 
     public SelenideElement getIvannaKobelevaPhoto() {
         return $x(IVANNA_KOBELEVA_PHOTO_XPATH);
+    }
+
+    public AmbassadorBlockComponent getAmbassadorElement(SelenideElement node) {
+        AmbassadorBlockComponent ambassadorBlockComponent = new AmbassadorBlockComponent(node);
+        return ambassadorBlockComponent;
     }
 }
 
