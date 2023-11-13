@@ -33,7 +33,7 @@ public class AddCenterDescriptionModal extends BaseComponent {
         return getUploadLogo().getText();
     }
 
-    public AddCenterDescriptionModal clickUploadLogo(String uploadFile){
+    public AddCenterDescriptionModal uploadLogo(String uploadFile){
         getUploadLogo().setValue(uploadFile);
         return this;
     }
@@ -54,7 +54,7 @@ public class AddCenterDescriptionModal extends BaseComponent {
         return getUploadPhoto().getText();
     }
 
-    public AddCenterDescriptionModal clickUploadPhoto(String uploadFile){
+    public AddCenterDescriptionModal uploadPhoto(String uploadFile){
         getUploadPhoto().setValue(uploadFile);
         return this;
     }
