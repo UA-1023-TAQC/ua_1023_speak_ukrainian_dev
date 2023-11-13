@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.*;
 @Getter
 public class AddLocationModal extends BasePage {
 
-    public static final SelenideElement TITLE_MODAL = $x("//div[contains(text(), 'Додати локацію')]");
+    public static final SelenideElement TITLE_MODAL_ADD_LOCATION = $x("//div[contains(text(), 'Додати локацію')]");
     public static final SelenideElement NAME_OF_LOCATION = $x("//form/span[1]");
     public static final SelenideElement CITY = $x("//span[contains(text(), 'Місто')]");
     public static final SelenideElement CITY_DISTRICT = $x("//span[contains(text(), 'Район міста')]");
@@ -41,7 +41,7 @@ public class AddLocationModal extends BasePage {
 
 
     public SelenideElement getModalTitle() {
-        return TITLE_MODAL;
+        return TITLE_MODAL_ADD_LOCATION;
     }
 
     public String getModalTitleText() {
@@ -137,7 +137,7 @@ public class AddLocationModal extends BasePage {
     }
 
     public AddLocationModal setGeographicalCoordinatesValue(String value) {
-        getInputGeographicalCoordinates().setValue(value);
+        getInputGeographicalCoordinates().setValue(value); //41.40338, 2.17403
         return this;
     }
 
