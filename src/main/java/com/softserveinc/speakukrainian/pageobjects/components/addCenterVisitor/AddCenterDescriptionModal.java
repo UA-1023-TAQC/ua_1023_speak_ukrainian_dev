@@ -8,10 +8,10 @@ import static com.codeborne.selenide.Selenide.$x;
 public class AddCenterDescriptionModal extends BaseComponent {
 
     public static final SelenideElement LOGO = $x("//span[contains(text(), 'Логотип')]");
-    public static final SelenideElement UPLOAD_LOGO = $x("//span[contains(text(), 'Завантажити лого')]");
+    public static final SelenideElement UPLOAD_LOGO = $("#basic_urlLogo");
 
     public static final SelenideElement PHOTO = $x("//span[contains(text(), 'Фото')]");
-    public static final SelenideElement UPLOAD_PHOTO = $x("//span[contains(text(), 'Завантажити фото')]");
+    public static final SelenideElement UPLOAD_PHOTO = $("#basic_urlBackground");
 
     public static final SelenideElement DESCRIPTION = $x("//span[contains(text(), 'Опис')]");
     public static final SelenideElement DESCRIPTION_FIELD = $x("//textarea");
@@ -33,8 +33,9 @@ public class AddCenterDescriptionModal extends BaseComponent {
         return getUploadLogo().getText();
     }
 
-    public void clickUploadLogo(){
-        getUploadLogo().click();
+    public AddCenterDescriptionModal clickUploadLogo(String uploadFile){
+        getUploadLogo().setValue(uploadFile);
+        return this;
     }
 
     public SelenideElement getPhoto(){
@@ -53,8 +54,9 @@ public class AddCenterDescriptionModal extends BaseComponent {
         return getUploadPhoto().getText();
     }
 
-    public void clickUploadPhoto(){
-        getUploadPhoto().click();
+    public AddCenterDescriptionModal clickUploadPhoto(String uploadFile){
+        getUploadPhoto().setValue(uploadFile);
+        return this;
     }
 
     public SelenideElement getDescription(){
