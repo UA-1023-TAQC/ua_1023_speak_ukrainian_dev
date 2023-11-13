@@ -15,9 +15,4 @@ public class HomePageTest extends TestRunner {
                 .openLogin();
 
     }
-
-    @Test
-    public void doNotCommitMe(){
-
-    }
 }
