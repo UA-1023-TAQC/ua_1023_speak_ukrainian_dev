@@ -23,8 +23,8 @@ public class AddCenterMainInformationModal{
     public static final SelenideElement CHECKBOX_LOCATION = $x("//input[@class='ant-checkbox-input']");
     public static final SelenideElement ERROR_LOCATION = $x("//span[contains(text(), 'Локації')]");
     public static final SelenideElement NEXT_STEP_BUTTON = $x("//button[contains(text(), 'Наступнмй крок')]");
-    public final SelenideElement TOOLTIP = $("div[role='tooltip']");
-    public final SelenideElement CLOSE_WINDOW_BUTTON = $x("/html/body/div[5]/div/div/div/div[2]/button");
+    public static final SelenideElement TOOLTIP = $("div[role='tooltip']");
+    public static final SelenideElement CLOSE_WINDOW_BUTTON = $x("/html/body/div[5]/div/div/div/div[2]/button");
 
 
     public ElementsCollection getListMenuItems(){
@@ -162,7 +162,5 @@ public class AddCenterMainInformationModal{
         getCloseWindowButton().click();
         return new HomePageVisitor();
     }
-
-
 
 }
