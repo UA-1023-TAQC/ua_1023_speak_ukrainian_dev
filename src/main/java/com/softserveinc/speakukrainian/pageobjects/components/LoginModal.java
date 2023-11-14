@@ -9,14 +9,14 @@ import static com.codeborne.selenide.Selenide.$x;
 public class LoginModal {
 
     private final SelenideElement closeBtn = $x("//span[@aria-label='close']");
-    private final SelenideElement login_header = $x("//div[@class='login-header']");
-    private final SelenideElement login_using_google = $x("//a[contains(@href, 'google')]");
-    private final SelenideElement login_using_facebook = $x("//a[contains(@href, 'authorize/facebook')]");
-    private final SelenideElement email_input = $x("//input[@id='basic_email']");
-    private final SelenideElement password_input = $x("//input[@id='basic_password']");
-    private final SelenideElement eye_label = $x("//span[@aria-label='eye']");
+    private final SelenideElement loginHeader = $x("//div[@class='login-header']");
+    private final SelenideElement loginUsingGoogle = $x("//a[contains(@href, 'google')]");
+    private final SelenideElement loginUsingFacebook = $x("//a[contains(@href, 'authorize/facebook')]");
+    private final SelenideElement emailInput = $x("//input[@id='basic_email']");
+    private final SelenideElement passwordInput = $x("//input[@id='basic_password']");
+    private final SelenideElement eyeLabel = $x("//span[@aria-label='eye']");
     private final SelenideElement submitBtn = $x("//button[@type='submit']");
-    private final SelenideElement forgot_password = $x("//a[@class='restore-password-button']");
+    private final SelenideElement forgotPassword = $x("//a[@class='restore-password-button']");
     private final SelenideElement checkCircleElement = $x("//span[@aria-label='check-circle']");
     private final SelenideElement closeCircleElement = $x("//span[@aria-label='close-circle']");
 
@@ -25,31 +25,31 @@ public class LoginModal {
     }
 
     public String getTextHeader(){
-        return login_header.getText();
+        return loginHeader.getText();
     }
 
     public GoogleLogin clickLoginGoogle(){
-        login_using_google.click();
+        loginUsingGoogle.click();
         return new GoogleLogin();
     }
 
     public FacebookLogin clickLoginFacebook(){
-        login_using_facebook.click();
+        loginUsingFacebook.click();
         return new FacebookLogin();
     }
 
     public LoginModal setEmailInput(String email){
-        email_input.sendKeys(email);
+        emailInput.sendKeys(email);
         return this;
     }
 
     public LoginModal setPasswordInput(String password){
-        password_input.sendKeys(password);
+        passwordInput.sendKeys(password);
         return this;
     }
 
     public LoginModal clickEyeBtn(){
-        eye_label.click();
+        eyeLabel.click();
         return this;
     }
 
@@ -59,7 +59,7 @@ public class LoginModal {
     }
 
     public ResetPasswordModal clickForgotPassword(){
-        forgot_password.click();
+        forgotPassword.click();
         return new ResetPasswordModal();
     }
 
