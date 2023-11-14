@@ -112,9 +112,9 @@ public class AddCenterMainInformationModal extends BaseComponent {
         return getCreatedLocationError().getText();
     }
 
-    public AddCenterMainInformationModal clickNextStepButton(){
+    public AddCenterContactsModal clickNextStepButton(){
         getNextStepButton().click();
-        return new AddCenterMainInformationModal();
+        return new AddCenterContactsModal();
     }
 
 
