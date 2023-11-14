@@ -4,6 +4,9 @@ import com.codeborne.selenide.SelenideElement;
 import com.softserveinc.speakukrainian.pageobjects.*;
 import lombok.Getter;
 
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
 
 @Getter
@@ -17,6 +20,7 @@ public class Header {
     private final SelenideElement servicesInUkrainian = $x("//header//div[@class='center-side']/ul/li[5]/span[2]/a");
     private final SelenideElement city = $x("//header//div[contains(@class,'city')]/span");
     private final SelenideElement addClub = $x("//header//button[contains(@class,'add-club-button')]/span");
+    private final SelenideElement addClubModal = $x("//div[contains(text(), 'Додати гурток')]/ancestor::div[@role='dialog']");
     private final SelenideElement userProfile = $x("//header//div[contains(@class,'user-profile')]");
 
     public ClubsPage openClubsPage(){
@@ -29,20 +33,20 @@ public class Header {
         return new ChallengeMenu();
     }
 
-    public NewsPage openNewsPage(){
-        news.click();
-        return new NewsPage();
-    }
+//    public NewsPage openNewsPage(){
+//        news.click();
+//        return new NewsPage();
+//    }
 
-    public AboutPage openAboutPage(){
-        about.click();
-        return new AboutPage();
-    }
+//    public AboutPage openAboutPage(){
+//        about.click();
+//        return new AboutPage();
+//    }
 
-    public ServicesInUkrainianPage openServicesInUkrainianPage(){
-        servicesInUkrainian.click();
-        return new ServicesInUkrainianPage();
-    }
+//    public ServicesInUkrainianPage openServicesInUkrainianPage(){
+//        servicesInUkrainian.click();
+//        return new ServicesInUkrainianPage();
+//    }
 
     public CitiesMenu openCitiesMenu(){
         city.click();
@@ -51,6 +55,7 @@ public class Header {
 
     public AddClubModal openAddClubModal(){
         addClub.click();
+        addClubModal.shouldBe(visible, Duration.ofSeconds(2));
         return new AddClubModal();
     }
 
