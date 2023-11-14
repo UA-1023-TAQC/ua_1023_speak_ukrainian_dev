@@ -21,11 +21,11 @@ public class MyProfilePage {
     private final SelenideElement addCenterOption = $x("//body/div[6]/div/ul/li[2]");
     private final AddClubComponent addClubComponent = new AddClubComponent();
     private final AddCenterComponent addCenterComponent = new AddCenterComponent();
-    private final EditProfileComponent editProfileComponent = new EditProfileComponent();
+    private final EditProfileModal editProfileModal = new EditProfileModal();
 
-    public EditProfileComponent editProfile(){
+    public EditProfileModal editProfile(){
         editButton.click();
-        return editProfileComponent;
+        return editProfileModal;
     }
 
     public MyProfilePage checkMyCenters(){
