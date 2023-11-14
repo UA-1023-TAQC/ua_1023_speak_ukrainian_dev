@@ -7,7 +7,7 @@ import lombok.Getter;
 import static com.softserveinc.speakukrainian.utils.PropertyUtil.getHomePageUrl;
 
 @Getter
-public class HomePage {
+public class HomePage extends BasePage {
     private final Header header = new Header();
     public HomePage open() {
         Selenide.open(getHomePageUrl());

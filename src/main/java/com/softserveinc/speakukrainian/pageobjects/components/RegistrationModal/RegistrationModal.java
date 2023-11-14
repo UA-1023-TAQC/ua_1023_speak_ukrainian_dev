@@ -3,11 +3,13 @@ package com.softserveinc.speakukrainian.pageobjects.components.RegistrationModal
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import lombok.Getter;
+import lombok.Setter;
 
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 
 @Getter
+@Setter
 public class RegistrationModal {
 
     private final SelenideElement closeBtn = $x("//button[@aria-label='Close']");
