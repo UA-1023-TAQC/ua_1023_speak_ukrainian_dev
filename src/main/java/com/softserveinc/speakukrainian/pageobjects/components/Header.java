@@ -2,6 +2,7 @@ package com.softserveinc.speakukrainian.pageobjects.components;
 
 import com.codeborne.selenide.SelenideElement;
 import com.softserveinc.speakukrainian.pageobjects.*;
+import com.softserveinc.speakukrainian.pageobjects.AboutUsPage.AboutUsPage;
 import lombok.Getter;
 
 import java.time.Duration;
@@ -33,20 +34,20 @@ public class Header {
         return new ChallengeMenu();
     }
 
-//    public NewsPage openNewsPage(){
-//        news.click();
-//        return new NewsPage();
-//    }
+    public NewsPage openNewsPage(){
+        news.click();
+        return new NewsPage();
+    }
 
-//    public AboutPage openAboutPage(){
-//        about.click();
-//        return new AboutPage();
-//    }
+    public AboutUsPage openAboutPage(){
+        about.click();
+        return new AboutUsPage();
+    }
 
-//    public ServicesInUkrainianPage openServicesInUkrainianPage(){
-//        servicesInUkrainian.click();
-//        return new ServicesInUkrainianPage();
-//    }
+    public ServicesInUkrainianPage openServicesInUkrainianPage(){
+        servicesInUkrainian.click();
+        return new ServicesInUkrainianPage();
+    }
 
     public CitiesMenu openCitiesMenu(){
         city.click();
