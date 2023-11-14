@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 public class RegistrationTest extends TestRunner {
 
     @Test
+    // https://jira.softserve.academy/projects/TUA/issues/TUA-454
     public void verifyFilledTextIsSavedAfterClosingAndReopeningRegistrationModal() {
 
         final String TEST_LAST_NAME = "Вайтович";
