@@ -15,7 +15,11 @@ public class RegistrationModal {
 
     private final SelenideElement googleAuthorize = $x("//a[contains(@href, 'authorize/google')]");
     private final SelenideElement facebookAuthorize = $x("//a[contains(@href, 'authorize/facebook')]");
-//    private final SelenideElement roleSelectionBlock = $x("//div[contains(@class, 'ant-radio-group') and contains(@class, 'ant-radio-group-solid') and contains(@class, 'button-container')]");
+
+    private final SelenideElement userBtn = $$x("//span[starts-with(@class, 'ant-radio-button')]").get(0);
+    private final SelenideElement managerBtn = $$x("//span[starts-with(@class, 'ant-radio-button')]").get(2);
+    private final SelenideElement userText = $$x("//div[@class='button-box']").get(0);
+    private final SelenideElement managerText = $$x("//div[@class='button-box']").get(1);
 
     private final SelenideElement lastNameLabel = $x("//label[@title='Прізвище']");
     private final SelenideElement lastNameInput = $x("//input[@id='lastName']");
@@ -64,6 +68,22 @@ public class RegistrationModal {
 
     public void clickFacebookAuthorize(){
         facebookAuthorize.click();
+    }
+
+    public void clickUserBtn(){
+        userBtn.click();
+    }
+
+    public void clickManagerBtn(){
+        managerBtn.click();
+    }
+
+    public String getUserText(){
+        return userText.getText();
+    }
+
+    public String getManagerText(){
+        return managerText.getText();
     }
 
     public String getLastNameText(){
