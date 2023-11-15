@@ -3,10 +3,11 @@ package com.softserveinc.speakukrainian.pageobjects.components;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.softserveinc.speakukrainian.pageobjects.challenges.ChallengeMovomarathonPage;
+import lombok.Getter;
 
 import static com.codeborne.selenide.Selenide.$x;
 
-// TODO: implement
+@Getter
 public class ChallengeMenu {
 
     private final SelenideElement menu;
