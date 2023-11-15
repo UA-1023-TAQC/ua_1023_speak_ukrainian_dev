@@ -7,7 +7,7 @@ import com.softserveinc.speakukrainian.pageobjects.ClubsPage;
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 
-public class BannerComponent extends HomePageGuest {
+public class BannerComponent extends HomePage {
 
     public static final ElementsCollection MAIN_BANNER =
             $$x("/html/body/div[1]/div/div[2]/main/div/div[2]/div/div/div/div/div");

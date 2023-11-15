@@ -1,7 +1,7 @@
 package com.softserveinc.speakukrainian.utils;
 
 import com.codeborne.selenide.Configuration;
-import com.softserveinc.speakukrainian.pageobjects.HomePage;
+import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 

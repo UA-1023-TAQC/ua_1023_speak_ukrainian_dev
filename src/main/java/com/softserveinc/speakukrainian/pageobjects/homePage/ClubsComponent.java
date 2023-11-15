@@ -7,7 +7,7 @@ import com.softserveinc.speakukrainian.pageobjects.ClubsPage;
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 
-public class ClubsComponent extends HomePageGuest {
+public class ClubsComponent extends HomePage {
 
     public static final ElementsCollection LIST_CLUBS_ITEMS =
             $$x("/html/body/div[1]/div/div[2]/main/div/div[3]/div[2]/div/div/div/div/div/div");
@@ -49,7 +49,7 @@ public class ClubsComponent extends HomePageGuest {
         return new ClubsPage();
     }
 
-    public HomePageGuest clickArrowPrev(int count) {
+    public HomePage clickArrowPrev(int count) {
         SelenideElement arrowPrev = ARROW_PREV;
         for (int i = 0; i <= count; i++) {
             arrowPrev.click();
@@ -57,7 +57,7 @@ public class ClubsComponent extends HomePageGuest {
         return this;
     }
 
-    public HomePageGuest clickArrowNext(int count) {
+    public HomePage clickArrowNext(int count) {
         SelenideElement arrowPrev = ARROW_NEXT;
         for (int i = 0; i <= count; i++) {
             arrowPrev.click();

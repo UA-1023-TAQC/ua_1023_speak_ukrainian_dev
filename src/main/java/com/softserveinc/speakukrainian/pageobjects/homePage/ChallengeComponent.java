@@ -1,10 +1,11 @@
 package com.softserveinc.speakukrainian.pageobjects.homePage;
 
 import com.codeborne.selenide.SelenideElement;
+import com.softserveinc.speakukrainian.pageobjects.ChallengePage;
 
 import static com.codeborne.selenide.Selenide.$x;
 
-public class ChallengeComponent extends HomePageGuest {
+public class ChallengeComponent extends HomePage {
 
     public static final SelenideElement CHALLENGE_BLOCK = $x("//div[@class='about-challenge']");
 

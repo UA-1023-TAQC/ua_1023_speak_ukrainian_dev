@@ -1,12 +1,18 @@
 package com.softserveinc.speakukrainian.pageobjects.homePage;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import com.softserveinc.speakukrainian.pageobjects.BasePage;
 import com.softserveinc.speakukrainian.pageobjects.ClubsPage;
+import com.softserveinc.speakukrainian.pageobjects.SpeakingClub;
+import com.softserveinc.speakukrainian.pageobjects.components.Header;
 import lombok.Getter;
 
 import static com.codeborne.selenide.Selenide.*;
+import static com.softserveinc.speakukrainian.utils.PropertyUtil.getHomePageUrl;
+
 @Getter
-public class HomePageGuest extends BasePage{
+public class HomePage extends BasePage {
 
     public static final SelenideElement TITLE_BLOCK =
             $x("//a[contains(text(), 'Клуб української мови \"Розмовляй\"')]");
@@ -28,6 +34,12 @@ public class HomePageGuest extends BasePage{
 
     public SelenideElement getClubsHeaderButton() {
         return getClubsHeader().$x(".//button");
+    }
+
+    private final Header header = new Header();
+    public HomePage open() {
+        Selenide.open(getHomePageUrl());
+        return this;
     }
 
     public String getClubsHeaderButtonText() {
