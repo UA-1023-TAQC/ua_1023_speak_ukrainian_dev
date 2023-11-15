@@ -5,10 +5,11 @@ import com.softserveinc.speakukrainian.pageobjects.BasePage;
 import com.softserveinc.speakukrainian.pageobjects.components.LeaveComments;
 import com.softserveinc.speakukrainian.pageobjects.components.ManagerChat;
 import com.softserveinc.speakukrainian.pageobjects.components.SignUpForClub;
+import lombok.Getter;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
-
+@Getter
 public class ClubDetailPage extends BasePage {
 
     public static final SelenideElement HEADER_CONTAINER =
