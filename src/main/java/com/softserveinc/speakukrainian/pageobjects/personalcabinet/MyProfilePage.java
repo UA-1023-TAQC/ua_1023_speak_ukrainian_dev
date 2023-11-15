@@ -7,6 +7,8 @@ import com.softserveinc.speakukrainian.pageobjects.components.addCenterVisitor.A
 import lombok.Getter;
 import org.openqa.selenium.Keys;
 
+import java.util.List;
+
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -25,10 +27,16 @@ public class MyProfilePage extends BasePage {
     private final AddClubModal addClubModal = new AddClubModal();
     private final AddCenterMainInformationModal addCenterModal = new AddCenterMainInformationModal();
     private final EditProfileModal editProfileModal = new EditProfileModal();
+    private final List<AbstractPersonalCabinetComponent> personalCabinetComponents= List.of(new VisitorPersonalCabinetComponent(),
+                                                                              new DirectorPersonalCabinetComponent());
 
     public EditProfileModal editProfile(){
         editButton.click();
         return editProfileModal;
+    }
+
+    public String getUserRoleText(){
+        return userRole.text();
     }
 
     public MyProfilePage checkMyCenters(){
