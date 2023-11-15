@@ -2,9 +2,11 @@ package com.softserveinc.speakukrainian.pageobjects.personalcabinet;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.By;
 
 import java.util.NoSuchElementException;
 
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class MessagesPage {
@@ -28,7 +30,8 @@ public class MessagesPage {
     }
 
     public MessagesPage clickOnListBoxItemByText(String text) {
-        listBoxItemByText.shouldBe(Condition.enabled).click();
+        SelenideElement item = $x(String.format("//div[@role='listbox']//div[contains(@title, '%s')]", text));
+        item.shouldBe(Condition.enabled).click();
         return this;
     }
 
