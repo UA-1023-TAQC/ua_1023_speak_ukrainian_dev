@@ -7,17 +7,17 @@ import com.softserveinc.speakukrainian.pageobjects.components.addCenterVisitor.A
 import com.softserveinc.speakukrainian.pageobjects.personalcabinet.MyProfilePage;
 import lombok.Getter;
 
-import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
 @Getter
 public class ProfileMenu {
 
-    private static final SelenideElement DROPDOWN_MENU = $("ul.ant-dropdown-menu");
-    private static final SelenideElement ADD_CLUB = $("//li[contains(@data-menu-id,'add_club')]");
-    private static final SelenideElement ADD_CENTER = $("//li[contains(@data-menu-id,'add_centre')]");
-    private static final SelenideElement SEARCH_CERTIFICATES_LINK = $("//li[contains(@data-menu-id,'search_certificates')]");
-    private static final SelenideElement PROFILE_LINK = $("//li[contains(@data-menu-id,'profile')]");
-    private static final SelenideElement LOGOUT = $("//li[contains(@data-menu-id,'logout')]");
+    private static final SelenideElement DROPDOWN_MENU = $x("ul.ant-dropdown-menu");
+    private static final SelenideElement ADD_CLUB = $x("//li[contains(@data-menu-id,'add_club')]");
+    private static final SelenideElement ADD_CENTER = $x("//li[contains(@data-menu-id,'add_centre')]");
+    private static final SelenideElement SEARCH_CERTIFICATES_LINK = $x("//li[contains(@data-menu-id,'search_certificates')]");
+    private static final SelenideElement PROFILE_LINK = $x("//li[contains(@data-menu-id,'profile')]");
+    private static final SelenideElement LOGOUT = $x("//li[contains(@data-menu-id,'logout')]");
 
     public AddClubModal openAddClubModal(){
         ADD_CLUB.click();
