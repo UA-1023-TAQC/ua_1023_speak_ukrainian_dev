@@ -3,6 +3,7 @@ package com.softserveinc.speakukrainian.pageobjects.components.addCenterVisitor;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.softserveinc.speakukrainian.pageobjects.BasePage;
+import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
 import lombok.Getter;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -219,9 +220,9 @@ public class AddLocationModal extends BasePage {
         return CLOSE_BUTTON;
     }
 
-    public HomePageVisitor clickCloseWindowButton(){
+    public HomePage clickCloseWindowButton(){
         getCloseButton().click();
-        return new HomePageVisitor();
+        return new HomePage();
     }
 
 }
