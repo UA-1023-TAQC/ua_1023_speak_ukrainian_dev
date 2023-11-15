@@ -27,7 +27,7 @@ public class MyProfilePage extends BasePage {
     private final AddClubModal addClubModal = new AddClubModal();
     private final AddCenterMainInformationModal addCenterModal = new AddCenterMainInformationModal();
     private final EditProfileModal editProfileModal = new EditProfileModal();
-    List<AbstractPersonalCabinetComponent> personalCabinetComponents= List.of(new VisitorPersonalCabinetComponent(),
+    private final List<AbstractPersonalCabinetComponent> personalCabinetComponents= List.of(new VisitorPersonalCabinetComponent(),
                                                                               new DirectorPersonalCabinetComponent());
 
     public EditProfileModal editProfile(){

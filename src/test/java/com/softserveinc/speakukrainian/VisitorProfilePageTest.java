@@ -6,13 +6,14 @@ import com.softserveinc.speakukrainian.pageobjects.personalcabinet.VisitorPerson
 import com.softserveinc.speakukrainian.utils.TestRunner;
 import org.testng.annotations.Test;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.softserveinc.speakukrainian.utils.PropertyUtil.getVisitorEmail;
 import static com.softserveinc.speakukrainian.utils.PropertyUtil.getVisitorPassword;
 
 public class VisitorProfilePageTest extends TestRunner {
 
     @Test
-    public void verifyVisitorProfileOpens() {
+    public void verifyVisitorCanOpenApplicationsPage() {
         UserHomePage userHomePage = new HomePage()
                 .getHeader()
                 .openGuestProfileMenu()
@@ -27,6 +28,6 @@ public class VisitorProfilePageTest extends TestRunner {
                 .openMyProfilePage()
                 .getPersonalCabinetComponents().get(0);
 
-        personalCabinet.openApplicationsPage();
+        personalCabinet.openApplicationsPage().getTITLE().shouldHave(text("Заявки на реєстрацію"));
     }
 }
