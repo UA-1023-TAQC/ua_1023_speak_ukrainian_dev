@@ -3,6 +3,7 @@ package com.softserveinc.speakukrainian.pageobjects.personalcabinet;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import lombok.Getter;
+import org.openqa.selenium.Keys;
 
 import java.io.File;
 
@@ -59,7 +60,8 @@ public class EditProfileModal {
     }
 
     public EditProfileModal editFirstName(String newFirstName){
-        firstNameInput.clear();
+//        firstNameInput.clear();
+        firstNameInput.sendKeys(Keys.CONTROL + "a", Keys.DELETE);
         firstNameInput.sendKeys(newFirstName);
         return this;
     }

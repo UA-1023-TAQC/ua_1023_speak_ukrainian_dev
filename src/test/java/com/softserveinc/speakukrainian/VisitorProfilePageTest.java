@@ -66,5 +66,7 @@ public class VisitorProfilePageTest extends TestRunner {
                 .getFirstNameErrorMessage(), "Ім'я повинно починатися та закінчуватися літерою");
         Assert.assertEquals(personalCabinet.editFirstName("Name'")
                 .getFirstNameErrorMessage(), "Ім'я повинно починатися та закінчуватися літерою");
+        Assert.assertEquals(personalCabinet.editFirstName("")
+                .getFirstNameErrorMessage(), "Введіть Ваше ім'я");
     }
 }
