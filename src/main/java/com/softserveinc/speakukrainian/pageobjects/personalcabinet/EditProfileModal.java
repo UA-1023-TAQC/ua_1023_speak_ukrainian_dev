@@ -7,8 +7,7 @@ import lombok.Getter;
 import java.io.File;
 
 import static com.codeborne.selenide.Condition.value;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.*;
 
 @Getter
 public class EditProfileModal {
@@ -28,6 +27,7 @@ public class EditProfileModal {
     private final SelenideElement newPasswordInput = $("#edit_password");
     private final SelenideElement confirmPasswordInput = $("#edit_confirmPassword");
     private final SelenideElement submitButton = $("button.submit-button");
+    private final SelenideElement firstNameErrorMessage = $x("//div[@class='ant-form-item-explain-error']");
 
     public MyProfilePage closeModal(){
         closeButton.click();
@@ -62,6 +62,10 @@ public class EditProfileModal {
         firstNameInput.clear();
         firstNameInput.sendKeys(newFirstName);
         return this;
+    }
+
+    public String getFirstNameErrorMessage(){
+        return firstNameErrorMessage.getText();
     }
 
     public String getCurrentPhoneNumber(){
