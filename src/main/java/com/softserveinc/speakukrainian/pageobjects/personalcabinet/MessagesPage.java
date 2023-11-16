@@ -2,17 +2,16 @@ package com.softserveinc.speakukrainian.pageobjects.personalcabinet;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
 
 import java.util.NoSuchElementException;
+import java.util.Objects;
 
-import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class MessagesPage {
 
     private final SelenideElement searchInput = $x("//div[@class='searchAndFilter']//input[contains(@class, 'searchBox')]");
-    private final SelenideElement listBoxInput = $x("//span[@class='ant-select-selection-search']//input");
+    private final SelenideElement listBox = $x("//span[@class='ant-select-selection-search']//input");
     private final SelenideElement listBoxItemByText = $x("//div[@role='listbox']//div[contains(@title, '%s')]");
     private final SelenideElement unreadMessageFilterBtn = $x("(//div[@class='filterContainer']//button)[1]");
     private final SelenideElement noAnswerFilterBtn = $x("(//div[@class='filterContainer']//button)[2]");
@@ -25,7 +24,7 @@ public class MessagesPage {
     }
 
     public MessagesPage clickOnListBox() {
-        listBoxInput.shouldBe(Condition.enabled).click();
+        listBox.shouldBe(Condition.enabled).click();
         return this;
     }
 
@@ -40,9 +39,21 @@ public class MessagesPage {
         return this;
     }
 
+//  For example, to throw an exception when "aria-checked" is null, add Objects.requireNonNull
+    public boolean isUnreadMessageFilterBtnIsActive(){
+        return Objects.equals(unreadMessageFilterBtn.shouldBe(Condition.enabled)
+                .getAttribute("aria-checked"), "true");
+    }
+
     public MessagesPage clickOnNoAnswerFilterBtn() {
         noAnswerFilterBtn.shouldBe(Condition.enabled).click();
         return this;
+    }
+
+//  For example, to throw an exception when "aria-checked" is null, add Objects.requireNonNull
+    public boolean isNoAnswerFilterBtnIsActive(){
+        return Objects.equals(noAnswerFilterBtn.shouldBe(Condition.enabled)
+                .getAttribute("aria-checked"), "true");
     }
 
     public boolean isNoMessageTextVisible() {
