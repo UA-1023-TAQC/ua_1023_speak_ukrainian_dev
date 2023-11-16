@@ -2,9 +2,6 @@ package com.softserveinc.speakukrainian.pageobjects.ClubsPage;
 
 import com.codeborne.selenide.SelenideElement;
 import com.softserveinc.speakukrainian.pageobjects.BasePage;
-import com.softserveinc.speakukrainian.pageobjects.components.LeaveComments;
-import com.softserveinc.speakukrainian.pageobjects.components.ManagerChat;
-import com.softserveinc.speakukrainian.pageobjects.components.SignUpForClub;
 import lombok.Getter;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -58,9 +55,9 @@ public class ClubDetailPage extends BasePage {
         return HEADER_BUTTON;
     }
 
-    public ManagerChat clickMainContainerButton(){
+    public ManagerChatModal clickMainContainerButton(){
         getHeaderContainerButton().click();
-        return new ManagerChat();
+        return new ManagerChatModal();
     }
 
     public String getHeaderContainerButtonText(){
@@ -80,9 +77,9 @@ public class ClubDetailPage extends BasePage {
     }
 
 
-    public SignUpForClub clickMainContentButton(){
+    public SignUpForClubModal clickMainContentButton(){
         getMainContentButton().click();
-        return new SignUpForClub();
+        return new SignUpForClubModal();
     }
 
     public String getMainContentButtonText(){
@@ -97,9 +94,9 @@ public class ClubDetailPage extends BasePage {
         return getCommentsButton().getText();
     }
 
-    public LeaveComments clickCommentsButton(){
+    public LeaveCommentsModal clickCommentsButton(){
         getCommentsButton().click();
-        return new LeaveComments();
+        return new LeaveCommentsModal();
     }
 
     public SelenideElement getComments() {
