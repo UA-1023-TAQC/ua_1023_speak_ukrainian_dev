@@ -64,8 +64,8 @@ public class LeaveCommentsModal extends ClubDetailPage {
     /**
      * The method returns each element of checkbox of the modal window to set the rating
      *
-     * @param positionRate css value of the aria-posinset selector
-     * @return xpath defined with the specified selector
+     * @param positionRate aria-posinset attribute of specified element
+     * @return xpath defined with the specified aria-posinset attribute
      */
     public SelenideElement getRatePositionCheckbox(String positionRate) {
         return $x(String.format("//div[@class='ant-col ant-form-item-control css-18v7s9k']//div[@aria-posinset='%s']", positionRate));
