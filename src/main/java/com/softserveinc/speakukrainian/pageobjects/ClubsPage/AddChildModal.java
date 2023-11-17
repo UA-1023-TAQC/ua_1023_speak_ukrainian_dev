@@ -2,6 +2,8 @@ package com.softserveinc.speakukrainian.pageobjects.ClubsPage;
 
 import com.codeborne.selenide.SelenideElement;
 
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.image;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -36,18 +38,18 @@ public class AddChildModal extends SignUpForClubModal{
 
 
     public AddChildModal setLastName(String text){
-        INPUT_LAST_NAME.setValue(text);
+        INPUT_LAST_NAME.shouldBe(empty).setValue(text);
         return this;
     }
 
     public AddChildModal setName(String text){
-        INPUT_NAME.setValue(text);
+        INPUT_NAME.shouldBe(empty).setValue(text);
         return this;
     }
 
 
     public AddChildModal setAge(String text){
-        INPUT_AGE.setValue(text);
+        INPUT_AGE.shouldBe(empty).setValue(text);
         return this;
     }
 

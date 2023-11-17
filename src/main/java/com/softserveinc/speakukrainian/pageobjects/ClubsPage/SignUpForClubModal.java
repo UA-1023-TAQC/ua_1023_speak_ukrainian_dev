@@ -2,6 +2,8 @@ package com.softserveinc.speakukrainian.pageobjects.ClubsPage;
 
 import com.codeborne.selenide.SelenideElement;
 
+import static com.codeborne.selenide.Condition.empty;
+import static com.codeborne.selenide.Condition.image;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -76,7 +78,7 @@ public class SignUpForClubModal {
     }
 
     public SignUpForClubModal setInputText(String text) {
-        getInput().setValue(text);
+        getInput().shouldBe(empty).setValue(text);
         return this;
     }
 
@@ -103,7 +105,7 @@ public class SignUpForClubModal {
     }
 
     public SelenideElement getCreatedChildImg(){
-        return getCreatedChild().$x("//img");
+        return getCreatedChild().$x("//img").shouldBe(image);
     }
 
     public String getCreatedName(){

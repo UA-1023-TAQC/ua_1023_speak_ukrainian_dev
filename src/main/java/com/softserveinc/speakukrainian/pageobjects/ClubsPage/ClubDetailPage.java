@@ -4,6 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import com.softserveinc.speakukrainian.pageobjects.BasePage;
 import lombok.Getter;
 
+import static com.codeborne.selenide.Condition.image;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 @Getter
@@ -32,7 +33,7 @@ public class ClubDetailPage extends BasePage {
     }
 
     public SelenideElement getHeaderContainerImg() {
-        return HEADER_IMG;
+        return HEADER_IMG.shouldBe(image);
     }
 
     public SelenideElement getHeaderContainerTitle() {
