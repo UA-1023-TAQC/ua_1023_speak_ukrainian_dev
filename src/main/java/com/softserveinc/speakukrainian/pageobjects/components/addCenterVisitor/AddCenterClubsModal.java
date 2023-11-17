@@ -1,6 +1,7 @@
 package com.softserveinc.speakukrainian.pageobjects.components.addCenterVisitor;
 
 import com.codeborne.selenide.SelenideElement;
+import com.softserveinc.speakukrainian.pageobjects.HomePage;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
@@ -37,8 +38,8 @@ public class AddCenterClubsModal extends BaseComponent {
         return new AddCenterDescriptionModal();
     }
 
-    public HomePageVisitor clickCloseWindowButton(){
+    public HomePage clickCloseWindowButton(){
         getFinishButton().click();
-        return new HomePageVisitor();
+        return new HomePage();
     }
 }

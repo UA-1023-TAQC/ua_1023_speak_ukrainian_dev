@@ -27,6 +27,7 @@ public class ManagerChatModal {
     public static final SelenideElement CLOSE_BUTTON_CHAT_MODAL =
             $x("/html/body/div[5]/div/div[2]/div/div[2]/button");
 
+
     public ElementsCollection getListContacts() {
         return LINKS_CONTACTS;
     }

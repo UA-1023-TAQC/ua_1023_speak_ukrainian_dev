@@ -8,8 +8,8 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class AddChildModal extends SignUpForClubModal{
-    public static final SelenideElement MALE = $x("//input[@value='MALE");
-    public static final SelenideElement FEMALE = $x("//input[@value='FEMALE");
+    public static final SelenideElement MALE = $x("//input[@value='MALE']");
+    public static final SelenideElement FEMALE = $x("//input[@value='FEMALE']");
     public static final SelenideElement INPUT_NAME = $("#add-child_firstName");
     public static final SelenideElement INPUT_LAST_NAME = $("#add-child_firstName");
     public static final SelenideElement INPUT_AGE = $("#add-child_firstName");

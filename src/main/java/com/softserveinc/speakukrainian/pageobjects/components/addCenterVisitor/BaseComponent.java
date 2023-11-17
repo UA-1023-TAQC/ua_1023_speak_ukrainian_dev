@@ -3,6 +3,7 @@ package com.softserveinc.speakukrainian.pageobjects.components.addCenterVisitor;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.softserveinc.speakukrainian.pageobjects.BasePage;
+import com.softserveinc.speakukrainian.pageobjects.HomePage;
 
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
@@ -62,8 +63,8 @@ public class BaseComponent extends BasePage {
         return CLOSE_WINDOW_BUTTON;
     }
 
-    public HomePageVisitor clickCloseWindowButton(){
+    public HomePage clickCloseWindowButton(){
         getCloseWindowButton().click();
-        return new HomePageVisitor();
+        return new HomePage();
     }
 }
