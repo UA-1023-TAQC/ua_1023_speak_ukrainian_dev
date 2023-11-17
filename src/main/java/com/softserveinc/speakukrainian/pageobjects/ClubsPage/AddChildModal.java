@@ -29,11 +29,11 @@ public class AddChildModal extends SignUpForClubModal{
 
 
     public String getInputTitle(String textInputTitle){
-        return $x("//label[contains(text(), 'textInputTitle')]").getText();
+        return $x("//label[contains(text(), '" + textInputTitle + "')]").getText();
     }
 
     public String getErrorText(String textError){
-        return $x("//div[contains(text(), 'textError')]").getText();
+        return $x("//div[contains(text(), '" + textError + "')]").getText();
     }
 
 
