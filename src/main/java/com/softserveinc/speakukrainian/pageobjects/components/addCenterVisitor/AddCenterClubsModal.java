@@ -38,8 +38,8 @@ public class AddCenterClubsModal extends BaseComponent {
         return new AddCenterDescriptionModal();
     }
 
-    public HomePage clickCloseWindowButton(){
+    public HomePageVisitor clickCloseWindowButton(){
         getFinishButton().click();
-        return new HomePage();
+        return new HomePageVisitor();
     }
 }

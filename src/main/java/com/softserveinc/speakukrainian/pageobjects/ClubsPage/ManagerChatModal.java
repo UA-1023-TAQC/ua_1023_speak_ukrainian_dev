@@ -6,7 +6,7 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Condition.empty;
 import static com.codeborne.selenide.Selenide.*;
 
-public class ManagerChatModal {
+public class ManagerChatModal extends ClubDetailPage{
 
     public static final SelenideElement TITLE_CHAT_MODAL =
             $x("//div[@class='MessageToClubManager_title__GVetP']");

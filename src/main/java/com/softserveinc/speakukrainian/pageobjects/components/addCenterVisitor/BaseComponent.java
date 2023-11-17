@@ -63,8 +63,8 @@ public class BaseComponent extends BasePage {
         return CLOSE_WINDOW_BUTTON;
     }
 
-    public HomePage clickCloseWindowButton(){
+    public HomePageVisitor clickCloseWindowButton(){
         getCloseWindowButton().click();
-        return new HomePage();
+        return new HomePageVisitor();
     }
 }

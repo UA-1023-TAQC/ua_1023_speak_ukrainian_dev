@@ -220,9 +220,9 @@ public class AddLocationModal extends BasePage {
         return CLOSE_BUTTON;
     }
 
-    public HomePage clickCloseWindowButton(){
+    public HomePageVisitor clickCloseWindowButton(){
         getCloseButton().click();
-        return new HomePage();
+        return new HomePageVisitor();
     }
 
 }

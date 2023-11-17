@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Condition.image;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
-public class SignUpForClubModal {
+public class SignUpForClubModal extends ClubDetailPage{
 
     public static final SelenideElement TITLE_MODAL = $("#:ri:");
     public static final SelenideElement TITLE_CLUB =

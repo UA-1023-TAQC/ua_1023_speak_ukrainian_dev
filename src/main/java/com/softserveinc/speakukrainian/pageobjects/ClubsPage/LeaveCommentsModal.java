@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 
-public class LeaveCommentsModal {
+public class LeaveCommentsModal extends ClubDetailPage{
 
     public static final SelenideElement TITLE_COMMENTS_MODAL =
             $x("//span[@class='comment-edit-title']");
