@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 
-public class LeaveCommentsModal extends ClubDetailPage{
+public class LeaveCommentsModal extends ClubDetailPage {
 
     public static final SelenideElement TITLE_COMMENTS_MODAL =
             $x("//span[@class='comment-edit-title']");
@@ -33,6 +33,7 @@ public class LeaveCommentsModal extends ClubDetailPage{
 
 
     /**
+     * The method returns the title of each input field of the modal window
      *
      * @param inputTitle title attribute of specified element
      * @return xpath defined with the specified title attribute
@@ -41,11 +42,12 @@ public class LeaveCommentsModal extends ClubDetailPage{
         return $x(String.format("//label[@title='%s']", inputTitle));
     }
 
-    public String  getFormInputTitleText(String inputTitle) {
+    public String getFormInputTitleText(String inputTitle) {
         return getFormInputTitle(inputTitle).getText();
     }
 
     /**
+     * The method returns each element of input field of the modal window
      *
      * @param value value attribute of specified element
      * @return xpath defined with the specified value attribute
@@ -54,12 +56,13 @@ public class LeaveCommentsModal extends ClubDetailPage{
         return $x(String.format("//input[@value='%s']", value));
     }
 
-    public LeaveCommentsModal setFormInputValue(String value,String inputText) {
+    public LeaveCommentsModal setFormInputValue(String value, String inputText) {
         getFormInput(value).shouldBe(empty).setValue(inputText);
         return this;
     }
 
     /**
+     * The method returns each element of checkbox of the modal window to set the rating
      *
      * @param positionRate css value of the aria-posinset selector
      * @return xpath defined with the specified selector
@@ -68,58 +71,58 @@ public class LeaveCommentsModal extends ClubDetailPage{
         return $x(String.format("//div[@class='ant-col ant-form-item-control css-18v7s9k']//div[@aria-posinset='%s']", positionRate));
     }
 
-    public LeaveCommentsModal setRatePosition(String positionRate){
+    public LeaveCommentsModal setRatePosition(String positionRate) {
         getRatePositionCheckbox(positionRate).click();
         return this;
     }
 
-    public SelenideElement getTitleCommentsModal(){
+    public SelenideElement getTitleCommentsModal() {
         return TITLE_COMMENTS_MODAL;
     }
 
-    public String getTitleCommentsModalText(){
+    public String getTitleCommentsModalText() {
         return getTitleCommentsModal().getText();
     }
 
-    public SelenideElement getTypeComment(){
+    public SelenideElement getTypeComment() {
         return TYPE_COMMENT;
     }
 
-    public String getTypeCommentText(){
+    public String getTypeCommentText() {
         return getTypeComment().getText();
     }
 
-    public LeaveCommentsModal clickTypeComment(){
+    public LeaveCommentsModal clickTypeComment() {
         getTypeComment().click();
         return this;
     }
 
-    public SelenideElement getTypeClaim(){
+    public SelenideElement getTypeClaim() {
         return TYPE_CLAIM;
     }
 
-    public String getTypeClaimText(){
+    public String getTypeClaimText() {
         return getTypeClaim().getText();
     }
 
-    public LeaveCommentsModal clickTypeClaim(){
+    public LeaveCommentsModal clickTypeClaim() {
         getTypeClaim().click();
         return this;
     }
 
-    public SelenideElement getSubtitleCommentsModal(){
+    public SelenideElement getSubtitleCommentsModal() {
         return SUBTITLE_COMMENTS_MODAL;
     }
 
-    public String getSubtitleCommentsModalText(){
+    public String getSubtitleCommentsModalText() {
         return getSubtitleCommentsModal().getText();
     }
 
-    public SelenideElement getDescriptionTextarea(){
+    public SelenideElement getDescriptionTextarea() {
         return DESCRIPTION_TEXTAREA;
     }
 
-    public LeaveCommentsModal setDescriptionTextarea(String text){
+    public LeaveCommentsModal setDescriptionTextarea(String text) {
         getDescriptionTextarea().setValue(text);
         return this;
     }
@@ -128,25 +131,25 @@ public class LeaveCommentsModal extends ClubDetailPage{
         return SEND_BUTTON_COMMENTS_MODAL;
     }
 
-    public String getSendButtonCommentsModalText(){
+    public String getSendButtonCommentsModalText() {
         return getSendButtonCommentsModal().getText();
     }
 
-    public ClubDetailPage clickSendButtonCommentsModal(){
+    public ClubDetailPage clickSendButtonCommentsModal() {
         getSendButtonCommentsModal().click();
         return new ClubDetailPage();
     }
 
-    public ClubDetailPage clickCloseButtonCommentModal(){
+    public ClubDetailPage clickCloseButtonCommentModal() {
         CLOSE_BUTTON_COMMENTS_MODAL.click();
         return new ClubDetailPage();
     }
 
-    public SelenideElement getNoteClaim(){
+    public SelenideElement getNoteClaim() {
         return NOTE_CLAIM;
     }
 
-    public String getNoteClaimText(){
+    public String getNoteClaimText() {
         return getNoteClaim().getText();
     }
 
