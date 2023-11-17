@@ -34,8 +34,8 @@ public class LeaveCommentsModal extends ClubDetailPage{
 
     /**
      *
-     * @param inputTitle css value of the title selector
-     * @return xpath defined with the specified selector
+     * @param inputTitle title attribute of specified element
+     * @return xpath defined with the specified title attribute
      */
     public SelenideElement getFormInputTitle(String inputTitle) {
         return $x(String.format("//label[@title='%s']", inputTitle));
@@ -47,8 +47,8 @@ public class LeaveCommentsModal extends ClubDetailPage{
 
     /**
      *
-     * @param value css value of the value selector
-     * @return xpath defined with the specified selector
+     * @param value value attribute of specified element
+     * @return xpath defined with the specified value attribute
      */
     public SelenideElement getFormInput(String value) {
         return $x(String.format("//input[@value='%s']", value));

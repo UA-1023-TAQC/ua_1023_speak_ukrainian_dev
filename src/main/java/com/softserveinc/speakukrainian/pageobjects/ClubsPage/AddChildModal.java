@@ -29,7 +29,7 @@ public class AddChildModal extends SignUpForClubModal{
 
     /**
      *
-     * @param textInputTitle text contains in title of input
+     * @param textInputTitle text contained in the title of input
      * @return xpath defined with the specified text in title of input
      */
     public String getInputTitle(String textInputTitle){
