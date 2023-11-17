@@ -31,6 +31,12 @@ public class LeaveCommentsModal extends ClubDetailPage{
     public static final SelenideElement CLOSE_BUTTON_COMMENTS_MODAL =
             $x("/html/body/div[6]/div/div[2]/div/div[2]/button");
 
+
+    /**
+     *
+     * @param inputTitle css value of the title selector
+     * @return xpath defined with the specified selector
+     */
     public SelenideElement getFormInputTitle(String inputTitle) {
         return $x(String.format("//label[@title='%s']", inputTitle));
     }
@@ -39,6 +45,11 @@ public class LeaveCommentsModal extends ClubDetailPage{
         return getFormInputTitle(inputTitle).getText();
     }
 
+    /**
+     *
+     * @param value css value of the value selector
+     * @return xpath defined with the specified selector
+     */
     public SelenideElement getFormInput(String value) {
         return $x(String.format("//input[@value='%s']", value));
     }
@@ -48,6 +59,11 @@ public class LeaveCommentsModal extends ClubDetailPage{
         return this;
     }
 
+    /**
+     *
+     * @param positionRate css value of the aria-posinset selector
+     * @return xpath defined with the specified selector
+     */
     public SelenideElement getRatePositionCheckbox(String positionRate) {
         return $x(String.format("//div[@class='ant-col ant-form-item-control css-18v7s9k']//div[@aria-posinset='%s']", positionRate));
     }

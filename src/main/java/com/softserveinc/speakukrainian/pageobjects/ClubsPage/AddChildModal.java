@@ -27,10 +27,20 @@ public class AddChildModal extends SignUpForClubModal{
     }
 
 
+    /**
+     *
+     * @param textInputTitle text contains in title of input
+     * @return xpath defined with the specified text in title of input
+     */
     public String getInputTitle(String textInputTitle){
         return $x("//label[contains(text(), '" + textInputTitle + "')]").getText();
     }
 
+    /**
+     *
+     * @param textError text error message of input
+     * @return xpath defined with the specified text error message of input
+     */
     public String getErrorText(String textError){
         return $x("//div[contains(text(), '" + textError + "')]").getText();
     }
