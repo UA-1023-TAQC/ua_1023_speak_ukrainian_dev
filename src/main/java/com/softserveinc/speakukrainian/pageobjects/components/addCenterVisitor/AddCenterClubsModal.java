@@ -1,7 +1,6 @@
 package com.softserveinc.speakukrainian.pageobjects.components.addCenterVisitor;
 
 import com.codeborne.selenide.SelenideElement;
-import com.softserveinc.speakukrainian.pageobjects.HomePage;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
