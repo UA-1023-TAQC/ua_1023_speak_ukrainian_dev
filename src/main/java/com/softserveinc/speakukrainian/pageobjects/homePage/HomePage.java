@@ -3,7 +3,7 @@ package com.softserveinc.speakukrainian.pageobjects.homePage;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.softserveinc.speakukrainian.pageobjects.BasePage;
-import com.softserveinc.speakukrainian.pageobjects.ClubsPage;
+import com.softserveinc.speakukrainian.pageobjects.ClubsPage.ClubsPage;
 import com.softserveinc.speakukrainian.pageobjects.SpeakingClub;
 import com.softserveinc.speakukrainian.pageobjects.components.Header;
 import lombok.Getter;
