@@ -56,10 +56,6 @@ public class LeaveCommentsModal extends ClubDetailPage {
         return $x(String.format("//input[@value='%s']", value));
     }
 
-    public LeaveCommentsModal setFormInputValue(String value, String inputText) {
-        getFormInput(value).shouldBe(empty).setValue(inputText);
-        return this;
-    }
 
     /**
      * The method returns each element of checkbox of the modal window to set the rating
