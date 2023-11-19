@@ -24,8 +24,7 @@ public class BannerComponent extends HomePage {
     }
 
     public SelenideElement getBannerTitle(int index) {
-        var title = getListBannerElement(index).$x(".//h2");
-        return title;
+        return getListBannerElement(index).$x(".//h2");
     }
 
     public String getBannerTitleText(int index) {
