@@ -8,6 +8,10 @@ import static com.codeborne.selenide.Selenide.actions;
 
 public abstract class BasePage {
 
+    protected final Header header = new Header();
+    protected final Footer footer = new Footer();
+
+
     public void pressArrowDown(int count) {
         for (int i=0; i<count; i++) {
             actions()

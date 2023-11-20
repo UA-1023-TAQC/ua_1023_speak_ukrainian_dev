@@ -31,4 +31,20 @@ public class PropertyUtil {
         return getProperty("default.browser");
     }
 
+    public static String getVisitorEmail() {
+        return getProperty("user.email");
+    }
+
+    public static String getVisitorPassword() {
+        return getProperty("user.password");
+    }
+
+    public static String getDirectorEmail() {
+        return getProperty("lead.email");
+    }
+
+    public static String getDirectorPassword() {
+        return getProperty("lead.password");
+    }
+
 }
