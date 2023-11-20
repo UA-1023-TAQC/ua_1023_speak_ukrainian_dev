@@ -1,9 +1,9 @@
 package com.softserveinc.speakukrainian.pageobjects.components;
 
 import com.codeborne.selenide.SelenideElement;
-import com.softserveinc.speakukrainian.pageobjects.HomePage;
 import com.softserveinc.speakukrainian.pageobjects.SearchCertificatesPage;
 import com.softserveinc.speakukrainian.pageobjects.components.addCenterVisitor.AddCenterMainInformationModal;
+import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
 import com.softserveinc.speakukrainian.pageobjects.personalcabinet.MyProfilePage;
 import lombok.Getter;
 

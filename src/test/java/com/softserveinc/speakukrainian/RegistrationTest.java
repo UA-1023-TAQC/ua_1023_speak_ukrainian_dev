@@ -1,7 +1,7 @@
 package com.softserveinc.speakukrainian;
 
-import com.softserveinc.speakukrainian.pageobjects.HomePage;
 import com.softserveinc.speakukrainian.pageobjects.components.RegistrationModal.RegistrationModal;
+import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
 import com.softserveinc.speakukrainian.utils.TestRunner;
 import org.testng.asserts.SoftAssert;
 import org.testng.annotations.Test;
@@ -14,7 +14,7 @@ public class RegistrationTest extends TestRunner {
 
         final String TEST_LAST_NAME = "Вайтович";
         final String TEST_FIRST_NAME = "Світлана";
-        final String TEST_PHONE = "671234567";
+        final String TEST_PHONE = "0671234567";
         final String TEST_EMAIL = "svitlanawhite@gmail.com";
         final String TEST_PASSWORD = "12345678";
 

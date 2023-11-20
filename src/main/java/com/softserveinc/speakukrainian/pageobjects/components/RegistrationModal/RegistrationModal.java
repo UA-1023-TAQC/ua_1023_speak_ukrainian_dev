@@ -101,8 +101,8 @@ public class RegistrationModal {
         return firstNameLabel.getText();
     }
 
-    public RegistrationModal setFirstName(String lastName){
-        lastNameInput.sendKeys(lastName);
+    public RegistrationModal setFirstName(String firstName){
+        firstNameInput.sendKeys(firstName);
         return this;
     }
 
