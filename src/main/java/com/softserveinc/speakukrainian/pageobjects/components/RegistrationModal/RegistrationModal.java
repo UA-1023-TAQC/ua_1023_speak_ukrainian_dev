@@ -92,6 +92,10 @@ public class RegistrationModal {
         return lastNameLabel.getText();
     }
 
+    public String getLastNameValue(){
+        return lastNameInput.getValue();
+    }
+
     public RegistrationModal setLastName(String lastName){
         lastNameInput.sendKeys(lastName);
         return this;
@@ -99,6 +103,10 @@ public class RegistrationModal {
 
     public String getFirstNameText(){
         return firstNameLabel.getText();
+    }
+
+    public String getFirstNameValue(){
+        return firstNameInput.getValue();
     }
 
     public RegistrationModal setFirstName(String firstName){
@@ -110,6 +118,10 @@ public class RegistrationModal {
         return phoneNumberLabel.getText();
     }
 
+    public String getPhoneNumberValue(){
+        return phoneNumberInput.getValue();
+    }
+
     public RegistrationModal setPhoneNumber(String phoneNumber){
         phoneNumberInput.sendKeys(phoneNumber);
         return this;
@@ -117,6 +129,10 @@ public class RegistrationModal {
 
     public String getEmailText(){
         return emailLabel.getText();
+    }
+
+    public String getEmailValue(){
+        return emailInput.getValue();
     }
 
     public RegistrationModal setEmail(String email){
@@ -128,6 +144,10 @@ public class RegistrationModal {
         return passwordLabel.getText();
     }
 
+    public String getPasswordValue(){
+        return passwordInput.getValue();
+    }
+
     public RegistrationModal setPassword(String password){
         passwordInput.sendKeys(password);
         return this;
@@ -135,6 +155,10 @@ public class RegistrationModal {
 
     public String getConfirmPasswordText(){
         return confirmPasswordLabel.getText();
+    }
+
+    public String getConfirmPasswordValue(){
+        return confirmPasswordInput.getValue();
     }
 
     public RegistrationModal setConfirmPassword(String confirmPassword){

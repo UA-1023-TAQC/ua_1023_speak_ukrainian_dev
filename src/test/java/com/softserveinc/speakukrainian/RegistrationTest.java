@@ -38,12 +38,12 @@ public class RegistrationTest extends TestRunner {
 
         SoftAssert softAssert = new SoftAssert();
 
-        softAssert.assertEquals(TEST_LAST_NAME, newRegistrationModal.getLastNameText());
-        softAssert.assertEquals(TEST_FIRST_NAME, newRegistrationModal.getFirstNameText());
-        softAssert.assertEquals(TEST_PHONE, newRegistrationModal.getPhoneNumberText());
-        softAssert.assertEquals(TEST_EMAIL, newRegistrationModal.getEmailText());
-        softAssert.assertEquals(TEST_PASSWORD, newRegistrationModal.getPasswordText());
-        softAssert.assertEquals(TEST_PASSWORD, newRegistrationModal.getConfirmPasswordText());
+        softAssert.assertEquals(newRegistrationModal.getLastNameValue(),TEST_LAST_NAME);
+        softAssert.assertEquals(newRegistrationModal.getFirstNameValue(), TEST_FIRST_NAME);
+        softAssert.assertEquals(newRegistrationModal.getPhoneNumberValue(), TEST_PHONE);
+        softAssert.assertEquals(newRegistrationModal.getEmailValue(), TEST_EMAIL);
+        softAssert.assertEquals(newRegistrationModal.getPasswordValue(), TEST_PASSWORD);
+        softAssert.assertEquals(newRegistrationModal.getConfirmPasswordValue(), TEST_PASSWORD);
 
         softAssert.assertAll();
     }
