@@ -18,12 +18,10 @@ public class AdvancedSearch {
     private final SelenideElement remoteCheckbox = $x("//*[@id=\"basic_isOnline\"]/label/span[1]");
     private final SelenideElement remoteCheckboxLabel = $x("//*[@id=\"basic_isOnline\"]/label/span[2]");
     private final SelenideElement cityDropDownMenu =   $x("//*[@id='basic']/div[2]");
-
     private final SelenideElement districtDropDownMenu = $x("//*[@id='basic']/div[3]");
     private final SelenideElement subwayStationDropDownMenu = $x("//*[@id='basic']/div[4]");
     private final ElementsCollection categoriesCheckboxesBlock = $$("div#basic_categoriesName " +
             "input[type='checkbox']");
-
 
     public String getTitleText() {
         return titleComponent.text();
@@ -72,7 +70,7 @@ public class AdvancedSearch {
     }
 
     public void clickOnSubwayStationDropDownMenu(){
-       subwayStationDropDownMenu.click();
+        subwayStationDropDownMenu.click();
     }
 
     public AdvancedSearch selectSubwayStationFromDropDown(String stationName) {
