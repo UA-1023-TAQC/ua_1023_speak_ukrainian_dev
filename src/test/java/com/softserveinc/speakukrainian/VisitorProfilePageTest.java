@@ -9,6 +9,7 @@ import com.softserveinc.speakukrainian.utils.TestRunner;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.Assertion;
+import org.testng.asserts.SoftAssert;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.softserveinc.speakukrainian.utils.PropertyUtil.getVisitorEmail;
@@ -48,25 +49,27 @@ public class VisitorProfilePageTest extends TestRunner {
                 .openProfileMenu()
                 .openMyProfilePage()
                 .editProfile();
-        Assert.assertEquals(personalCabinet.editFirstName("AfBbCcDdEeFfGgHhIiJjKkLlMmNn")
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(personalCabinet.editFirstName("AfBbCcDdEeFfGgHhIiJjKkLlMmNn")
                 .getFirstNameErrorMessage(), "Ім'я не може містити більше, ніж 25 символів");
-        Assert.assertEquals(personalCabinet.editFirstName("AfBbCcDdEeFfGgHhIiJjKkLlMm")
+        softAssert.assertEquals(personalCabinet.editFirstName("AfBbCcDdEeFfGgHhIiJjKkLlMm")
                 .getFirstNameErrorMessage(), "Ім'я не може містити більше, ніж 25 символів");
-        Assert.assertEquals(personalCabinet.editFirstName("!@#$%^&,")
+        softAssert.assertEquals(personalCabinet.editFirstName("!@#$%^&,")
                 .getFirstNameErrorMessage(), "Ім'я не може містити спеціальні символи");
-        Assert.assertEquals(personalCabinet.editFirstName("1234")
+        softAssert.assertEquals(personalCabinet.editFirstName("1234")
                 .getFirstNameErrorMessage(), "Ім'я не може містити цифри");
-        Assert.assertEquals(personalCabinet.editFirstName("-Name")
+        softAssert.assertEquals(personalCabinet.editFirstName("-Name")
                 .getFirstNameErrorMessage(), "Ім'я повинно починатися та закінчуватися літерою");
-        Assert.assertEquals(personalCabinet.editFirstName("< Name>")
+        softAssert.assertEquals(personalCabinet.editFirstName("< Name>")
                 .getFirstNameErrorMessage(), "Ім'я не може містити спеціальні символи");
-        Assert.assertEquals(personalCabinet.editFirstName("'Name")
+        softAssert.assertEquals(personalCabinet.editFirstName("'Name")
                 .getFirstNameErrorMessage(), "Ім'я повинно починатися та закінчуватися літерою");
-        Assert.assertEquals(personalCabinet.editFirstName("Name-")
+        softAssert.assertEquals(personalCabinet.editFirstName("Name-")
                 .getFirstNameErrorMessage(), "Ім'я повинно починатися та закінчуватися літерою");
-        Assert.assertEquals(personalCabinet.editFirstName("Name'")
+        softAssert.assertEquals(personalCabinet.editFirstName("Name'")
                 .getFirstNameErrorMessage(), "Ім'я повинно починатися та закінчуватися літерою");
-        Assert.assertEquals(personalCabinet.editFirstName("")
+        softAssert.assertEquals(personalCabinet.editFirstName("")
                 .getFirstNameErrorMessage(), "Введіть Ваше ім'я");
+        softAssert.assertAll();
     }
 }
