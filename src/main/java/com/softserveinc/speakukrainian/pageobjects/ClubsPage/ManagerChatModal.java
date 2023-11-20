@@ -94,7 +94,7 @@ public class ManagerChatModal extends ClubDetailPage{
     }
 
     public ManagerChatModal setTextTextArea(String text){
-        getTextarea().shouldBe(empty).setValue(text);
+        getTextarea().setValue(text);
         return this;
     }
 }

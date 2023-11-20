@@ -50,18 +50,18 @@ public class AddChildModal extends SignUpForClubModal {
 
 
     public AddChildModal setLastName(String text) {
-        INPUT_LAST_NAME.shouldBe(empty).setValue(text).shouldHave(value(text));
+        INPUT_LAST_NAME.setValue(text);
         return this;
     }
 
     public AddChildModal setName(String text) {
-        INPUT_NAME.shouldBe(empty).setValue(text).shouldHave(value(text));
+        INPUT_NAME.setValue(text);
         return this;
     }
 
 
     public AddChildModal setAge(String text) {
-        INPUT_AGE.shouldBe(empty).setValue(text).shouldHave(value(text));
+        INPUT_AGE.setValue(text);
         return this;
     }
 

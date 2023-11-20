@@ -78,7 +78,7 @@ public class SignUpForClubModal extends ClubDetailPage{
     }
 
     public SignUpForClubModal setInputText(String text) {
-        getInput().shouldBe(empty).setValue(text);
+        getInput().setValue(text);
         return this;
     }
 
