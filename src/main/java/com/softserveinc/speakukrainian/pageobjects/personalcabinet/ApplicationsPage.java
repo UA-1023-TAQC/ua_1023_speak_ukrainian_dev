@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 @Getter
 public class ApplicationsPage {
 
-    private final SelenideElement TITLE = $("div.contentTitle");
+    private final SelenideElement title = $("div.contentTitle");
 
    //TODO
 

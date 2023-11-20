@@ -28,6 +28,6 @@ public class VisitorProfilePageTest extends TestRunner {
                 .openMyProfilePage()
                 .getPersonalCabinetComponents().get(0);
 
-        personalCabinet.openApplicationsPage().getTITLE().shouldHave(text("Заявки на реєстрацію"));
+        personalCabinet.openApplicationsPage().getTitle().shouldHave(text("Заявки на реєстрацію"));
     }
 }
