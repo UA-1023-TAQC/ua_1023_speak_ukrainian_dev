@@ -24,6 +24,7 @@ public class Header {
     private final SelenideElement addClub = $x("//header//button[contains(@class,'add-club-button')]/span");
     private final SelenideElement addClubModal = $x("//div[contains(text(), 'Додати гурток')]/ancestor::div[@role='dialog']");
     private final SelenideElement userProfile = $x("//header//div[contains(@class,'user-profile')]");
+    private final SelenideElement advancedSearchBtn = $x("//span[contains(@title,'Розширений пошук')]");
 
     public ClubsPage openClubsPage(){
         clubs.click();
