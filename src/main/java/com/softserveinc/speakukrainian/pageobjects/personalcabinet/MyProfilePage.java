@@ -27,8 +27,6 @@ public class MyProfilePage extends BasePage {
     private final AddClubModal addClubModal = new AddClubModal();
     private final AddCenterMainInformationModal addCenterModal = new AddCenterMainInformationModal();
     private final EditProfileModal editProfileModal = new EditProfileModal();
-    private final List<AbstractPersonalCabinetComponent> personalCabinetComponents= List.of(new VisitorPersonalCabinetComponent(),
-                                                                              new DirectorPersonalCabinetComponent());
 
     public EditProfileModal editProfile(){
         editButton.click();
@@ -55,6 +53,14 @@ public class MyProfilePage extends BasePage {
         addClubCenterButton.click();
         addCenterOption.click();
         return addCenterModal;
+    }
+
+    public VisitorPersonalCabinetComponent getVisitorPersonalCabinet(){
+        return new VisitorPersonalCabinetComponent();
+    }
+
+    public DirectorPersonalCabinetComponent getDirectorPersonalCabinet(){
+        return new DirectorPersonalCabinetComponent();
     }
 
 }

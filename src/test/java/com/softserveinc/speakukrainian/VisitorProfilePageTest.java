@@ -22,12 +22,13 @@ public class VisitorProfilePageTest extends TestRunner {
                 .setPasswordInput(getVisitorPassword())
                 .clickSubmitBtn();
 
-        VisitorPersonalCabinetComponent personalCabinet = (VisitorPersonalCabinetComponent)new HomePage()
+        new HomePage()
                 .getHeader()
                 .openProfileMenu()
                 .openMyProfilePage()
-                .getPersonalCabinetComponents().get(0);
-
-        personalCabinet.openApplicationsPage().getTitle().shouldHave(text("Заявки на реєстрацію"));
+                .getVisitorPersonalCabinet()
+                .openApplicationsPage()
+                .getTitle()
+                .shouldHave(text("Заявки на реєстрацію"));
     }
 }
