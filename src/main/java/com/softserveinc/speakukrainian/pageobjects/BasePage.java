@@ -8,8 +8,8 @@ import static com.codeborne.selenide.Selenide.actions;
 
 public abstract class BasePage {
 
-    protected static final Header HEADER = new Header();
-    protected static final Footer FOOTER = new Footer();
+    protected final Header header = new Header();
+    protected final Footer footer = new Footer();
 
 
     public void pressArrowDown(int count) {
