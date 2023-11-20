@@ -3,7 +3,7 @@ package com.softserveinc.speakukrainian;
 import com.softserveinc.speakukrainian.pageobjects.HomePage;
 import com.softserveinc.speakukrainian.pageobjects.components.RegistrationModal.RegistrationModal;
 import com.softserveinc.speakukrainian.utils.TestRunner;
-import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 import org.testng.annotations.Test;
 
 public class RegistrationTest extends TestRunner {
@@ -36,11 +36,15 @@ public class RegistrationTest extends TestRunner {
                 .openGuestProfileMenu()
                 .openRegister();
 
-        Assert.assertEquals(TEST_LAST_NAME, newRegistrationModal.getLastNameText());
-        Assert.assertEquals(TEST_FIRST_NAME, newRegistrationModal.getFirstNameText());
-        Assert.assertEquals(TEST_PHONE, newRegistrationModal.getPhoneNumberText());
-        Assert.assertEquals(TEST_EMAIL, newRegistrationModal.getEmailText());
-        Assert.assertEquals(TEST_PASSWORD, newRegistrationModal.getPasswordText());
-        Assert.assertEquals(TEST_PASSWORD, newRegistrationModal.getConfirmPasswordText());
+        SoftAssert softAssert = new SoftAssert();
+
+        softAssert.assertEquals(TEST_LAST_NAME, newRegistrationModal.getLastNameText());
+        softAssert.assertEquals(TEST_FIRST_NAME, newRegistrationModal.getFirstNameText());
+        softAssert.assertEquals(TEST_PHONE, newRegistrationModal.getPhoneNumberText());
+        softAssert.assertEquals(TEST_EMAIL, newRegistrationModal.getEmailText());
+        softAssert.assertEquals(TEST_PASSWORD, newRegistrationModal.getPasswordText());
+        softAssert.assertEquals(TEST_PASSWORD, newRegistrationModal.getConfirmPasswordText());
+
+        softAssert.assertAll();
     }
 }
