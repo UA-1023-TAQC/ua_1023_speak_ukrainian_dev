@@ -1,14 +1,19 @@
 package com.softserveinc.speakukrainian.pageobjects.personalcabinet;
 
 import com.codeborne.selenide.SelenideElement;
+import com.softserveinc.speakukrainian.pageobjects.BasePage;
+import com.softserveinc.speakukrainian.pageobjects.components.AddClubModal;
+import com.softserveinc.speakukrainian.pageobjects.components.addCenterVisitor.AddCenterMainInformationModal;
 import lombok.Getter;
 import org.openqa.selenium.Keys;
+
+import java.util.List;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 @Getter
-public class MyProfilePage {
+public class MyProfilePage extends BasePage {
 
     private final SelenideElement userName = $("div.user-name");
     private final SelenideElement userRole = $("div.user-role");
@@ -19,13 +24,17 @@ public class MyProfilePage {
     private final SelenideElement addClubCenterButton = $("div.add-club-dropdown button");
     private final SelenideElement addClubOption = $x("//body/div[6]/div/ul/li[1]");
     private final SelenideElement addCenterOption = $x("//body/div[6]/div/ul/li[2]");
-    private final AddClubComponent addClubComponent = new AddClubComponent();
-    private final AddCenterComponent addCenterComponent = new AddCenterComponent();
-    private final EditProfileComponent editProfileComponent = new EditProfileComponent();
+    private final AddClubModal addClubModal = new AddClubModal();
+    private final AddCenterMainInformationModal addCenterModal = new AddCenterMainInformationModal();
+    private final EditProfileModal editProfileModal = new EditProfileModal();
 
-    public EditProfileComponent editProfile(){
+    public EditProfileModal editProfile(){
         editButton.click();
-        return editProfileComponent;
+        return editProfileModal;
+    }
+
+    public String getUserRoleText(){
+        return userRole.text();
     }
 
     public MyProfilePage checkMyCenters(){
@@ -34,16 +43,24 @@ public class MyProfilePage {
         return this;
     }
 
-    public AddClubComponent addClub(){
+    public AddClubModal addClub(){
         addClubCenterButton.click();
         addClubOption.click();
-        return addClubComponent;
+        return addClubModal;
     }
 
-    public AddCenterComponent addCenter(){
+    public AddCenterMainInformationModal addCenter(){
         addClubCenterButton.click();
         addCenterOption.click();
-        return addCenterComponent;
+        return addCenterModal;
+    }
+
+    public VisitorPersonalCabinetComponent getVisitorPersonalCabinet(){
+        return new VisitorPersonalCabinetComponent();
+    }
+
+    public DirectorPersonalCabinetComponent getDirectorPersonalCabinet(){
+        return new DirectorPersonalCabinetComponent();
     }
 
 }
