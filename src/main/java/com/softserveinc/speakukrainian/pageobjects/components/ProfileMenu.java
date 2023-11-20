@@ -12,35 +12,35 @@ import static com.codeborne.selenide.Selenide.$x;
 @Getter
 public class ProfileMenu {
 
-    private static final SelenideElement DROPDOWN_MENU = $x("ul.ant-dropdown-menu");
-    private static final SelenideElement ADD_CLUB = $x("//li[contains(@data-menu-id,'add_club')]");
-    private static final SelenideElement ADD_CENTER = $x("//li[contains(@data-menu-id,'add_centre')]");
-    private static final SelenideElement SEARCH_CERTIFICATES_LINK = $x("//li[contains(@data-menu-id,'search_certificates')]");
-    private static final SelenideElement PROFILE_LINK = $x("//li[contains(@data-menu-id,'profile')]");
-    private static final SelenideElement LOGOUT = $x("//li[contains(@data-menu-id,'logout')]");
+    private final SelenideElement dropdownMenu = $x("ul.ant-dropdown-menu");
+    private final SelenideElement addClubBtn = $x("//li[contains(@data-menu-id,'add_club')]");
+    private final SelenideElement addCenterBtn = $x("//li[contains(@data-menu-id,'add_centre')]");
+    private final SelenideElement searchCertificatesLink = $x("//li[contains(@data-menu-id,'search_certificates')]");
+    private final SelenideElement profileLink = $x("//li[contains(@data-menu-id,'profile')]");
+    private final SelenideElement logoutBtn = $x("//li[contains(@data-menu-id,'logout')]");
 
     public AddClubModal openAddClubModal(){
-        ADD_CLUB.click();
+        addClubBtn.click();
         return new AddClubModal();
     }
 
     public AddCenterMainInformationModal openAddCenterModal(){
-        ADD_CENTER.click();
+        addCenterBtn.click();
         return new AddCenterMainInformationModal();
     }
 
     public SearchCertificatesPage openSearchCertificatesPage(){
-        SEARCH_CERTIFICATES_LINK.click();
+        searchCertificatesLink.click();
         return new SearchCertificatesPage();
     }
 
     public MyProfilePage openMyProfilePage(){
-        PROFILE_LINK.click();
+        profileLink.click();
         return new MyProfilePage();
     }
 
     public HomePage logout(){
-        LOGOUT.click();
+        logoutBtn.click();
         return new HomePage();
     }
 
