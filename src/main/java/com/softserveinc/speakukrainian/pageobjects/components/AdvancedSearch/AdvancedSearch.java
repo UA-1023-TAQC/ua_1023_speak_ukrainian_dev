@@ -17,9 +17,10 @@ public class AdvancedSearch {
     private final SelenideElement ageInput = $x("//*[@id=\"basic_age\"]/div/div[2]/input");
     private final SelenideElement remoteCheckbox = $x("//*[@id=\"basic_isOnline\"]/label/span[1]");
     private final SelenideElement remoteCheckboxLabel = $x("//*[@id=\"basic_isOnline\"]/label/span[2]");
-    private final SelenideElement cityDropDownMenu = $x("//input[@id='basic_cityName']");
-    private final SelenideElement districtDropDownMenu = $x("//input[@id='basic_districtName']");
-    private final SelenideElement nearestSubwayStationDropDownMenu = $x("//input[@id='basic_stationName']");
+    private final SelenideElement cityDropDownMenu =   $x("//*[@id='basic']/div[2]");
+
+    private final SelenideElement districtDropDownMenu = $x("//*[@id='basic']/div[3]");
+    private final SelenideElement subwayStationDropDownMenu = $x("//*[@id='basic']/div[4]");
     private final ElementsCollection categoriesCheckboxesBlock = $$("div#basic_categoriesName " +
             "input[type='checkbox']");
 
@@ -52,19 +53,31 @@ public class AdvancedSearch {
         return centreRadioButtonLabel.text();
     }
 
-    public CityDropDownMenuSearch clickOnCityDropDownMenu() {
+    public void clickOnCityDropDownMenu(){
         cityDropDownMenu.click();
-        return new CityDropDownMenuSearch();
     }
 
-    public DistrictDropDownMenuSearch clickOnDistrictDropDownMenu() {
+    public AdvancedSearch selectCityFromDropDown(String cityName){
+        $x("//div[contains(@title, '" + cityName + "')]").click();
+        return new AdvancedSearch();
+    }
+
+    public void clickOnDistrictDropDownMenu(){
         districtDropDownMenu.click();
-        return new DistrictDropDownMenuSearch();
     }
 
-    public SubwayStationDropDownMenuSearch clickOnSubwayStationDropDownMenu() {
-        nearestSubwayStationDropDownMenu.click();
-        return new SubwayStationDropDownMenuSearch();
+    public AdvancedSearch selectDistrictFromDropDown(String district){
+        $x("//div[contains(@title, '" + district + "')]").click();
+        return new AdvancedSearch();
+    }
+
+    public void clickOnSubwayStationDropDownMenu(){
+       subwayStationDropDownMenu.click();
+    }
+
+    public AdvancedSearch selectSubwayStationFromDropDown(String stationName) {
+        $x("//div[contains(@title, '" + stationName + "')]").click();
+        return new AdvancedSearch();
     }
 
     public String getRemoteCheckboxText() {
