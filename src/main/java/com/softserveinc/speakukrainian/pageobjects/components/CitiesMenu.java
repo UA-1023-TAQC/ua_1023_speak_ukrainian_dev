@@ -10,6 +10,7 @@ import static com.codeborne.selenide.Selenide.$x;
 @Getter
 public class CitiesMenu {
     private final SelenideElement citiesMenu;
+
     public CitiesMenu() {
         this.citiesMenu = $x("/html/body/div[4]/div");
     }
