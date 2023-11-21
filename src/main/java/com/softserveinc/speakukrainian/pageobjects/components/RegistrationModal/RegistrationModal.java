@@ -3,11 +3,13 @@ package com.softserveinc.speakukrainian.pageobjects.components.RegistrationModal
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import lombok.Getter;
+import lombok.Setter;
 
 import static com.codeborne.selenide.Selenide.$$x;
 import static com.codeborne.selenide.Selenide.$x;
 
 @Getter
+@Setter
 public class RegistrationModal {
 
     private final SelenideElement closeBtn = $x("//button[@aria-label='Close']");
@@ -90,6 +92,10 @@ public class RegistrationModal {
         return lastNameLabel.getText();
     }
 
+    public String getLastNameValue(){
+        return lastNameInput.getValue();
+    }
+
     public RegistrationModal setLastName(String lastName){
         lastNameInput.sendKeys(lastName);
         return this;
@@ -99,13 +105,21 @@ public class RegistrationModal {
         return firstNameLabel.getText();
     }
 
-    public RegistrationModal setFirstName(String lastName){
-        lastNameInput.sendKeys(lastName);
+    public String getFirstNameValue(){
+        return firstNameInput.getValue();
+    }
+
+    public RegistrationModal setFirstName(String firstName){
+        firstNameInput.sendKeys(firstName);
         return this;
     }
 
     public String getPhoneNumberText(){
         return phoneNumberLabel.getText();
+    }
+
+    public String getPhoneNumberValue(){
+        return phoneNumberInput.getValue();
     }
 
     public RegistrationModal setPhoneNumber(String phoneNumber){
@@ -117,6 +131,10 @@ public class RegistrationModal {
         return emailLabel.getText();
     }
 
+    public String getEmailValue(){
+        return emailInput.getValue();
+    }
+
     public RegistrationModal setEmail(String email){
         emailInput.sendKeys(email);
         return this;
@@ -126,6 +144,10 @@ public class RegistrationModal {
         return passwordLabel.getText();
     }
 
+    public String getPasswordValue(){
+        return passwordInput.getValue();
+    }
+
     public RegistrationModal setPassword(String password){
         passwordInput.sendKeys(password);
         return this;
@@ -133,6 +155,10 @@ public class RegistrationModal {
 
     public String getConfirmPasswordText(){
         return confirmPasswordLabel.getText();
+    }
+
+    public String getConfirmPasswordValue(){
+        return confirmPasswordInput.getValue();
     }
 
     public RegistrationModal setConfirmPassword(String confirmPassword){
