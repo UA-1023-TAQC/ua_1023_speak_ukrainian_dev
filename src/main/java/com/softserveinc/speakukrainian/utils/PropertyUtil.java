@@ -47,4 +47,8 @@ public class PropertyUtil {
         return getProperty("lead.password");
     }
 
+    public static String getAdminEmail() { return getProperty("admin.email"); }
+
+    public static String getAdminPassword() { return getProperty("admin.password"); }
+
 }

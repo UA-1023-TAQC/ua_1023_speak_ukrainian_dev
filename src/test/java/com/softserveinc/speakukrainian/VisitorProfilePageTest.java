@@ -1,6 +1,5 @@
 package com.softserveinc.speakukrainian;
 
-
 import com.softserveinc.speakukrainian.pageobjects.components.Header;
 import com.softserveinc.speakukrainian.pageobjects.components.ProfileMenu;
 import com.softserveinc.speakukrainian.pageobjects.components.UserHomePage;
