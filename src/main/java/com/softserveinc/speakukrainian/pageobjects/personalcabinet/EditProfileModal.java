@@ -29,6 +29,7 @@ public class EditProfileModal {
     private final SelenideElement confirmPasswordInput = $("#edit_confirmPassword");
     private final SelenideElement submitButton = $("button.submit-button");
     private final SelenideElement firstNameErrorMessage = $x("//div[@class='ant-form-item-explain-error']");
+    private final SelenideElement lastNameErrorMessage = $x("//div[@class='ant-form-item-explain-error']");
 
     private final SelenideElement errorMessage = $x("./div[@class='ant-form-item-explain-error']");
 
@@ -52,9 +53,13 @@ public class EditProfileModal {
     }
 
     public EditProfileModal editLastName(String newLastName){
-        lastNameInput.clear();
+        //lastNameInput.clear();
+        lastNameInput.sendKeys(Keys.CONTROL + "a", Keys.DELETE);
         lastNameInput.sendKeys(newLastName);
         return this;
+    }
+    public String getLastNameErrorMessage(){
+        return lastNameErrorMessage.getText();
     }
 
     public String getCurrentFirstName(){

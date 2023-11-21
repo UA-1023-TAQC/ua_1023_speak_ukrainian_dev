@@ -1,8 +1,9 @@
 package com.softserveinc.speakukrainian;
 
-import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
 import com.softserveinc.speakukrainian.pageobjects.components.Header;
+import com.softserveinc.speakukrainian.pageobjects.components.ProfileMenu;
 import com.softserveinc.speakukrainian.pageobjects.components.UserHomePage;
+import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
 import com.softserveinc.speakukrainian.pageobjects.personalcabinet.EditProfileModal;
 import com.softserveinc.speakukrainian.pageobjects.personalcabinet.VisitorPersonalCabinetComponent;
 import com.softserveinc.speakukrainian.utils.TestRunner;
@@ -71,6 +72,41 @@ public class VisitorProfilePageTest extends TestRunner {
                 .getFirstNameErrorMessage(), "Ім'я повинно починатися та закінчуватися літерою");
         softAssert.assertEquals(personalCabinet.editFirstName("")
                 .getFirstNameErrorMessage(), "Введіть Ваше ім'я");
+        softAssert.assertAll();
+    }
+  
+  @Test
+    public void testEnteringInvalidDataIntoLastNameField(){
+        new Header()
+                .openGuestProfileMenu()
+                .openLogin()
+                .setEmailInput(getVisitorEmail())
+                .setPasswordInput(getVisitorPassword())
+                .clickSubmitBtn();
+        EditProfileModal openEditModal = new Header()
+                .openProfileMenu()
+                .openMyProfilePage()
+                .editProfile();
+
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(openEditModal.editLastName("AfBbCcDdEeFfGgHhIiJjKkLlMmNn")
+                .getLastNameErrorMessage(),"Прізвище не може містити більше, ніж 25 символів");
+        softAssert.assertEquals(openEditModal.editLastName("!@#$%^&,")
+                .getLastNameErrorMessage(),"Прізвище не може містити спеціальні символи");
+        softAssert.assertEquals(openEditModal.editLastName("1234")
+                .getLastNameErrorMessage(),"Прізвище не може містити цифри");
+        softAssert.assertEquals(openEditModal.editLastName("-Lastname")
+                .getLastNameErrorMessage(),"Прізвище повинно починатися і закінчуватися літерою");
+        softAssert.assertEquals(openEditModal.editLastName("< Lastname>")
+                .getLastNameErrorMessage(),"Прізвище не може містити спеціальні символи");
+        softAssert.assertEquals(openEditModal.editLastName("'Lastname")
+                .getLastNameErrorMessage(),"Прізвище повинно починатися і закінчуватися літерою");
+        softAssert.assertEquals(openEditModal.editLastName("Lastname-")
+                .getLastNameErrorMessage(),"Прізвище повинно починатися і закінчуватися літерою");
+        softAssert.assertEquals(openEditModal.editLastName("Lastname'")
+                .getLastNameErrorMessage(),"Прізвище повинно починатися і закінчуватися літерою");
+        softAssert.assertEquals(openEditModal.editLastName("")
+                .getLastNameErrorMessage(),"Будь ласка введіть Ваше прізвище");
         softAssert.assertAll();
     }
 
