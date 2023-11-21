@@ -74,8 +74,8 @@ public class VisitorProfilePageTest extends TestRunner {
                 .getFirstNameErrorMessage(), "Введіть Ваше ім'я");
         softAssert.assertAll();
     }
-
-    @Test
+  
+  @Test
     public void testEnteringInvalidDataIntoLastNameField(){
         new Header()
                 .openGuestProfileMenu()
@@ -107,6 +107,35 @@ public class VisitorProfilePageTest extends TestRunner {
                 .getLastNameErrorMessage(),"Прізвище повинно починатися і закінчуватися літерою");
         softAssert.assertEquals(openEditModal.editLastName("")
                 .getLastNameErrorMessage(),"Будь ласка введіть Ваше прізвище");
+        softAssert.assertAll();
+    }
+
+    @Test
+    //https://jira.softserve.academy/projects/TUA/issues/TUA-356
+    public void verifyPhoneErrorMessage() {
+        UserHomePage login = new Header()
+                .openGuestProfileMenu()
+                .openLogin()
+                .setEmailInput(getVisitorEmail())
+                .setPasswordInput(getVisitorPassword())
+                .clickSubmitBtn();
+        EditProfileModal personalCabinet = new Header()
+                .openProfileMenu()
+                .openMyProfilePage()
+                .editProfile();
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(personalCabinet
+                .editPhoneNumber("06895")
+                .getErrorMessage(), "Телефон не відповідає вказаному формату");
+        softAssert.assertEquals(personalCabinet
+                .editPhoneNumber("06593859632586")
+                .getErrorMessage(), "Телефон не відповідає вказаному формату");
+        softAssert.assertEquals(personalCabinet
+                .editPhoneNumber("jngeoлщшогнеп")
+                .getErrorMessage(), "Телефон не може містити літери");
+        softAssert.assertEquals(personalCabinet
+                .editPhoneNumber("")
+                .getErrorMessage(), "Будь ласка введіть Ваш номер телефону");
         softAssert.assertAll();
     }
 }
