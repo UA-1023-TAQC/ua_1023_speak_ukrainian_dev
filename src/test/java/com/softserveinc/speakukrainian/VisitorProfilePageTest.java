@@ -1,6 +1,6 @@
 package com.softserveinc.speakukrainian;
 
-import com.softserveinc.speakukrainian.pageobjects.HomePage;
+import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
 import com.softserveinc.speakukrainian.pageobjects.components.Header;
 import com.softserveinc.speakukrainian.pageobjects.components.UserHomePage;
 import com.softserveinc.speakukrainian.pageobjects.personalcabinet.EditProfileModal;
