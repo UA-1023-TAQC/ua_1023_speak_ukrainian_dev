@@ -3,10 +3,12 @@ package com.softserveinc.speakukrainian.pageobjects.personalcabinet;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
+import java.time.Duration;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 
 import static com.codeborne.selenide.Selenide.$x;
+import static com.softserveinc.speakukrainian.utils.WebElementUtil.isDisplayed;
 
 public class MessagesPage {
 
@@ -57,11 +59,9 @@ public class MessagesPage {
     }
 
     public boolean isNoMessageTextVisible() {
-        try {
-            return noMessageText.shouldBe(Condition.visible).isDisplayed();
-        } catch (NoSuchElementException e) {
-            return false;
-        }
+
+        return isDisplayed(noMessageText, Duration.ofSeconds(5));
+
     }
 
     public Integer getTotalOfUnreadMessages() {
