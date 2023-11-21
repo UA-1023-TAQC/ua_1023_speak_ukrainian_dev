@@ -7,7 +7,6 @@ public class TestRunnerWithAdmin extends TestRunner {
     @BeforeMethod
     public void loginAsAdmin() {
         {
-            homePage.open();
             homePage
                     .getHeader()
                     .openGuestProfileMenu()

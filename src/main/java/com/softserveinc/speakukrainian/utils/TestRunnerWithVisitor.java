@@ -7,7 +7,6 @@ public class TestRunnerWithVisitor extends TestRunner {
     @BeforeMethod
     public void loginAsVisitor() {
         {
-            homePage.open();
             homePage
                     .getHeader()
                     .openGuestProfileMenu()

@@ -6,7 +6,6 @@ public class TestRunnerWithDirector extends TestRunner {
     @BeforeMethod
     public void loginAsDirector() {
         {
-            homePage.open();
             homePage
                     .getHeader()
                     .openGuestProfileMenu()
