@@ -21,4 +21,12 @@ public abstract class BasePage {
                     .perform();
         }
     }
+
+    public Header getHeader() {
+        return new Header();
+    }
+
+    public Footer getFooter() {
+        return new Footer();
+    }
 }
