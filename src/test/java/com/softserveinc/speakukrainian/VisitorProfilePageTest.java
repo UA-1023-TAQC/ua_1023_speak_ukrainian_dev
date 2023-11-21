@@ -1,6 +1,6 @@
 package com.softserveinc.speakukrainian;
 
-import com.softserveinc.speakukrainian.pageobjects.HomePage;
+import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
 import com.softserveinc.speakukrainian.pageobjects.components.Header;
 import com.softserveinc.speakukrainian.pageobjects.components.UserHomePage;
 import com.softserveinc.speakukrainian.pageobjects.personalcabinet.EditProfileModal;
@@ -71,6 +71,35 @@ public class VisitorProfilePageTest extends TestRunner {
                 .getFirstNameErrorMessage(), "Ім'я повинно починатися та закінчуватися літерою");
         softAssert.assertEquals(personalCabinet.editFirstName("")
                 .getFirstNameErrorMessage(), "Введіть Ваше ім'я");
+        softAssert.assertAll();
+    }
+
+    @Test
+    //https://jira.softserve.academy/projects/TUA/issues/TUA-356
+    public void verifyPhoneErrorMessage() {
+        UserHomePage login = new Header()
+                .openGuestProfileMenu()
+                .openLogin()
+                .setEmailInput(getVisitorEmail())
+                .setPasswordInput(getVisitorPassword())
+                .clickSubmitBtn();
+        EditProfileModal personalCabinet = new Header()
+                .openProfileMenu()
+                .openMyProfilePage()
+                .editProfile();
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(personalCabinet
+                .editPhoneNumber("06895")
+                .getErrorMessage(), "Телефон не відповідає вказаному формату");
+        softAssert.assertEquals(personalCabinet
+                .editPhoneNumber("06593859632586")
+                .getErrorMessage(), "Телефон не відповідає вказаному формату");
+        softAssert.assertEquals(personalCabinet
+                .editPhoneNumber("jngeoлщшогнеп")
+                .getErrorMessage(), "Телефон не може містити літери");
+        softAssert.assertEquals(personalCabinet
+                .editPhoneNumber("")
+                .getErrorMessage(), "Будь ласка введіть Ваш номер телефону");
         softAssert.assertAll();
     }
 }

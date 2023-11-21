@@ -30,6 +30,8 @@ public class EditProfileModal {
     private final SelenideElement submitButton = $("button.submit-button");
     private final SelenideElement firstNameErrorMessage = $x("//div[@class='ant-form-item-explain-error']");
 
+    private final SelenideElement errorMessage = $x("./div[@class='ant-form-item-explain-error']");
+
     public MyProfilePage closeModal(){
         closeButton.click();
         return new MyProfilePage();
@@ -110,6 +112,10 @@ public class EditProfileModal {
     public MyProfilePage submitChanges(){
         submitButton.click();
         return new MyProfilePage();
+    }
+
+    public String getErrorMessage(){
+        return errorMessage.getText();
     }
 
 }
