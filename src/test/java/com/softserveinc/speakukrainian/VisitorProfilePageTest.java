@@ -7,6 +7,7 @@ import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
 import com.softserveinc.speakukrainian.pageobjects.personalcabinet.EditProfileModal;
 import com.softserveinc.speakukrainian.pageobjects.personalcabinet.VisitorPersonalCabinetComponent;
 import com.softserveinc.speakukrainian.utils.TestRunner;
+import com.softserveinc.speakukrainian.utils.TestRunnerWithVisitor;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.Assertion;
@@ -16,17 +17,10 @@ import static com.codeborne.selenide.Condition.text;
 import static com.softserveinc.speakukrainian.utils.PropertyUtil.getVisitorEmail;
 import static com.softserveinc.speakukrainian.utils.PropertyUtil.getVisitorPassword;
 
-public class VisitorProfilePageTest extends TestRunner {
+public class VisitorProfilePageTest extends TestRunnerWithVisitor {
 
     @Test
     public void verifyVisitorCanOpenApplicationsPage() {
-        UserHomePage userHomePage = new HomePage()
-                .getHeader()
-                .openGuestProfileMenu()
-                .openLogin()
-                .setEmailInput(getVisitorEmail())
-                .setPasswordInput(getVisitorPassword())
-                .clickSubmitBtn();
 
         new HomePage()
                 .getHeader()
@@ -40,12 +34,6 @@ public class VisitorProfilePageTest extends TestRunner {
 
     @Test
     public void verifyNameErrorMessage(){
-        UserHomePage login = new Header()
-                .openGuestProfileMenu()
-                .openLogin()
-                .setEmailInput(getVisitorEmail())
-                .setPasswordInput(getVisitorPassword())
-                .clickSubmitBtn();
 
         EditProfileModal personalCabinet = new Header()
                 .openProfileMenu()
@@ -77,12 +65,7 @@ public class VisitorProfilePageTest extends TestRunner {
   
   @Test
     public void testEnteringInvalidDataIntoLastNameField(){
-        new Header()
-                .openGuestProfileMenu()
-                .openLogin()
-                .setEmailInput(getVisitorEmail())
-                .setPasswordInput(getVisitorPassword())
-                .clickSubmitBtn();
+
         EditProfileModal openEditModal = new Header()
                 .openProfileMenu()
                 .openMyProfilePage()
@@ -113,12 +96,7 @@ public class VisitorProfilePageTest extends TestRunner {
     @Test
     //https://jira.softserve.academy/projects/TUA/issues/TUA-356
     public void verifyPhoneErrorMessage() {
-        UserHomePage login = new Header()
-                .openGuestProfileMenu()
-                .openLogin()
-                .setEmailInput(getVisitorEmail())
-                .setPasswordInput(getVisitorPassword())
-                .clickSubmitBtn();
+
         EditProfileModal personalCabinet = new Header()
                 .openProfileMenu()
                 .openMyProfilePage()
