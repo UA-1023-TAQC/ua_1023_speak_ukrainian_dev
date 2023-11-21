@@ -1,16 +1,18 @@
 package com.softserveinc.speakukrainian.pageobjects.ClubsPage;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.codeborne.selenide.Selenide.$$;
 
 
 @Getter
 public class ClubsPage {
-    private final List<SelenideElement> clubsCard = $$(".content-clubs-list .content-clubs-block");
+    private final ElementsCollection clubsCard = $$(".content-clubs-list .content-clubs-block");
 
     public List<ClubCard> getClubsCard() {
         List<ClubCard> result = new ArrayList<>(clubsCard.size());
