@@ -34,13 +34,13 @@ public class NewsPage extends BasePage {
     private final SelenideElement clubsPreReviewDownload = $("button.download-button");
     private final SelenideElement clubsClosePreReview = $("button.ant-modal-close");
 
-    private final ElementsCollection newsCard = $$("div.news-content> :first-child>div");
+    private final ElementsCollection newsCards = $$("div.news-content> :first-child>div");
 
-    public List<NewsCard> getNewsCardList() {
-        newsCard.shouldHave(sizeGreaterThan(0));
-        List<NewsCard> result = new ArrayList<>(newsCard.size());
-        for (SelenideElement card: newsCard) {
-            result.add(new NewsCard(card));
+    public List<NewsCardComponent> getNewsCardList() {
+        newsCards.shouldHave(sizeGreaterThan(0));
+        List<NewsCardComponent> result = new ArrayList<>(newsCards.size());
+        for (SelenideElement card: newsCards) {
+            result.add(new NewsCardComponent(card));
         }
         return result;
     }

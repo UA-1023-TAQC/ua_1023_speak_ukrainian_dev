@@ -2,7 +2,7 @@ package com.softserveinc.speakukrainian;
 
 import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
 import com.softserveinc.speakukrainian.pageobjects.news.DetailsNewsPage;
-import com.softserveinc.speakukrainian.pageobjects.news.NewsCard;
+import com.softserveinc.speakukrainian.pageobjects.news.NewsCardComponent;
 import com.softserveinc.speakukrainian.utils.TestRunner;
 import org.testng.annotations.Test;
 
@@ -13,7 +13,7 @@ public class NewsPageTest extends TestRunner {
     @Test
     public void verifyUserCanOpenArticleInDifferentWays(){
         //Click on third main image in article blocks
-        NewsCard card = new HomePage()
+        NewsCardComponent card = new HomePage()
                 .getHeader()
                 .openNewsPage()
                 .getNewsCardList()

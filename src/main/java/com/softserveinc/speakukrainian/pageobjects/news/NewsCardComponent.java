@@ -5,14 +5,14 @@ import lombok.Getter;
 
 
 @Getter
-public class NewsCard {
+public class NewsCardComponent {
     public SelenideElement node;
     private final SelenideElement newsTitle;
     private final SelenideElement newsImage;
     private final SelenideElement newsDetail;
     private final SelenideElement newsDate;
 
-    public NewsCard(SelenideElement card) {
+    public NewsCardComponent(SelenideElement card) {
         this.node = card;
         this.newsTitle = node.$("div#newsTitle");
         this.newsImage = node.$("div#newsImage");
