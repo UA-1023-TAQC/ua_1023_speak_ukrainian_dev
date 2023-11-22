@@ -1,21 +1,23 @@
-package com.softserveinc.speakukrainian.pageobjects;
+package com.softserveinc.speakukrainian.pageobjects.news;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import com.softserveinc.speakukrainian.pageobjects.BasePage;
 import com.softserveinc.speakukrainian.pageobjects.ClubsPage.ClubsPage;
-import com.softserveinc.speakukrainian.pageobjects.components.Header;
 import lombok.Getter;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
+
 @Getter
-public class NewsPage {
-    private final Header header = new Header();
-    private final ElementsCollection newsTitleList = Selenide.$$x("//div[@id=\"newsTitle\"]");
-    private final ElementsCollection newsPhotoList = Selenide.$$x("//div[@id=\"newsImage\"]");
-    private final ElementsCollection newsDetailList = Selenide.$$x("//div[@id=\"detailButton\"]/a");
-    private final ElementsCollection newsDateList = Selenide.$$x("//div[@id=\"newsDate\"]");
-    private final SelenideElement rightArrow = Selenide.$("span.anticon-right");
-    private final SelenideElement leftArrow = Selenide.$("span.anticon-left");
+public class NewsPage extends BasePage {
+    private final SelenideElement rightArrow = $("span.anticon-right");
+    private final SelenideElement leftArrow = $("span.anticon-left");
     private final SelenideElement title = Selenide.$x("//div[@class=\"city-name-box-small-screen\"]/h2");
     private final SelenideElement titleSideBar = Selenide.$x("//div[@class=\"sider-header\"]/h2");
     private final ElementsCollection clubsName = Selenide.$$x("//div[@class=\"title\"]/div[@class=\"name\"]");
@@ -29,8 +31,19 @@ public class NewsPage {
     private final ElementsCollection clubPreReviewContacts = Selenide.$$x("//div[@class=\"ant-modal-body\"]//span[@class=\"contact-name\"]");
     private final SelenideElement clubPreReviewButton = Selenide.$x("//div[@class=\"ant-modal-body\"]//button[@type=\"button\"]//a");
     private final SelenideElement clubsPreReviewDesc = Selenide.$x("//div[@class=\"ant-modal-body\"]//div[@class=\"description\"]");
-    private final SelenideElement clubsPreReviewDownload = Selenide.$("button.download-button");
-    private final SelenideElement clubsClosePreReview = Selenide.$("button.ant-modal-close");
+    private final SelenideElement clubsPreReviewDownload = $("button.download-button");
+    private final SelenideElement clubsClosePreReview = $("button.ant-modal-close");
+
+    private final ElementsCollection newsCard = $$("div.news-content> :first-child>div");
+
+    public List<NewsCard> getNewsCardList() {
+        newsCard.shouldHave(sizeGreaterThan(0));
+        List<NewsCard> result = new ArrayList<>(newsCard.size());
+        for (SelenideElement card: newsCard) {
+            result.add(new NewsCard(card));
+        }
+        return result;
+    }
 
     public String getTitle() {
         return title.getText();
@@ -44,30 +57,6 @@ public class NewsPage {
     public NewsPage clickLeftArrow() {
         leftArrow.click();
         return this;
-    }
-
-
-    public String getNewsTitleByIndex(int index) {
-        String title = "";
-        if (index >= 0 && index < newsTitleList.size()) {
-            title = newsTitleList.get(index).getText();
-        }
-        return title;
-    }
-
-    public NewsPage clickOnNewsDetailButtonByIndex(int index) {
-        if (index >= 0 && index < newsDetailList.size()) {
-            newsDetailList.get(index).click();
-        }
-        return this;
-    }
-
-    public String getNewsDateByIndex(int index) {
-        String date = "";
-        if (index >= 0 && index < newsDateList.size()) {
-            date = newsDateList.get(index).getText();
-        }
-        return date;
     }
 
     public String getSideBarTitle() {
