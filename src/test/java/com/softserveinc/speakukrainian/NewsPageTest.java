@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Condition.text;
 
 public class NewsPageTest extends TestRunner {
 
-    @Test
+    @Test(description = "TUA-33: Verify that the user can open any article in different ways")
     public void verifyUserCanOpenArticleInDifferentWays(){
         //Click on third main image in article blocks
         NewsCardComponent card = new HomePage()
