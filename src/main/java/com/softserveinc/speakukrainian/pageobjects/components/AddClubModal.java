@@ -3,6 +3,7 @@ package com.softserveinc.speakukrainian.pageobjects.components;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import lombok.Getter;
+import org.openqa.selenium.By;
 
 import java.io.File;
 import java.time.Duration;
@@ -10,7 +11,6 @@ import java.time.Duration;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.$x;
-import static com.codeborne.selenide.Selenide.*;
 
 @Getter
 public class AddClubModal {
@@ -18,7 +18,7 @@ public class AddClubModal {
     private final SelenideElement CloseBtn = $x("/html/body/div[6]/div/div[2]/div/div[2]/button");
     private final SelenideElement title = $x("//div[contains(text(), 'Додати гурток')]");
     private final SelenideElement ClubName = $x("//input[@id='basic_name']");
-    private final ElementsCollection Categories = $$("//div[@id='basic_categories']/label");
+    private final ElementsCollection Categories = $$(By.xpath("//div[@id='basic_categories']/label"));
     private final SelenideElement InputAgeFrom = $x("//input[@id='basic_ageFrom']");
     private final SelenideElement IncreaseAgeFromBtn = $x("//*[@id=\"basic\"]/div[3]/div/div/div/div/span/div[1]/div/div/div/div/div/div[1]/span[1]");
     private final SelenideElement DecreaseAgeFromBtn = $x("//*[@id=\"basic\"]/div[3]/div/div/div/div/span/div[1]/div/div/div/div/div/div[1]/span[2]");
@@ -27,7 +27,7 @@ public class AddClubModal {
     private final SelenideElement DecreaseAgeToBtn = $x("//*[@id=\"basic\"]/div[3]/div/div/div/div/span/div[2]/div/div/div/div/div/div[1]/span[2]");
     private final SelenideElement CenterName = $x("//input[@id='basic_centerId']");
     private final ElementsCollection ListCenterName = $$("//div[@class='rc-virtual-list-holder-inner']/div");
-    private final SelenideElement NextStepBtn = $x("//span[contains(text(), 'Наступний крок')]]");
+    private final SelenideElement NextStepBtn = $x("//span[contains(text(), 'Наступний крок')]");
     private final SelenideElement AddLocation = $x("//span[contains(text(), 'Додати локацію')]");
     private final SelenideElement ToggleBtn = $x("//button[@class='ant-switch css-13usanc ant-switch-checked']");
     private final ElementsCollection Workday = $$("//div[@id=\"basic_workDay\"]/div");
@@ -47,6 +47,7 @@ public class AddClubModal {
     private final SelenideElement AddGallery = $x("//*[@id=\"basic\"]/div[3]/div/div/div/div/span/div/div/span");
     private final SelenideElement Description = $x("//textarea[@id='basic_description']");
     private final SelenideElement Complete = $x("//*[@id=\"basic\"]/div[5]/button[2]");
+    private final SelenideElement CurrentLocation = $x("//*[@id=\"basic\"]/div[1]/div/div/div/div/div/div/div/ul/li/div/div/h4");
 
     public void clickCloseBtn(){
         CloseBtn.click();
