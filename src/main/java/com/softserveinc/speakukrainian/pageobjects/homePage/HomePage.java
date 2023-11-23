@@ -36,7 +36,6 @@ public class HomePage extends BasePage {
         return getClubsHeader().$x(".//button");
     }
 
-    private final Header header = new Header();
     public HomePage open() {
         Selenide.open(getHomePageUrl());
         return this;

@@ -14,5 +14,4 @@ public class HomePageTest extends TestRunner {
                 .openLogin();
 
     }
-
 }
