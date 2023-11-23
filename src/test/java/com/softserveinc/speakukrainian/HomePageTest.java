@@ -6,7 +6,6 @@ import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
 import com.softserveinc.speakukrainian.utils.TestRunner;
 import org.testng.annotations.Test;
 
-import static com.codeborne.selenide.Condition.visible;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
@@ -26,10 +25,10 @@ public class HomePageTest extends TestRunner {
         AdvancedSearch open = new HomePage()
                 .getHeader()
                 .clickAdvancedSearchBtn();
-        assertTrue(open.isDisplayed(), "Advanced Search Element is not displayed");
+        assertTrue(open.componentIsDisplayed(), "Advanced Search Component is not displayed");
         AdvancedSearch close = new HomePage()
                 .getHeader()
                 .clickAdvancedSearchBtn();
-        assertFalse(close.isDisplayed(), "Advanced Search Element is displayed");
+        assertFalse(close.componentIsDisplayed(), "Advanced Search Component is displayed");
     }
 }
