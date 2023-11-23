@@ -3,6 +3,7 @@ package com.softserveinc.speakukrainian.pageobjects.components.AdvancedSearch;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import lombok.Getter;
+import org.openqa.selenium.NoSuchElementException;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -110,4 +111,9 @@ public class AdvancedSearch {
         ageInput.sendKeys(String.valueOf(age));
         return this;
     }
+
+    public boolean isDisplayed() {
+       return this.titleComponent.isDisplayed();
+    }
+
 }

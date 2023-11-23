@@ -4,6 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import com.softserveinc.speakukrainian.pageobjects.*;
 import com.softserveinc.speakukrainian.pageobjects.AboutUsPage.AboutUsPage;
 import com.softserveinc.speakukrainian.pageobjects.ClubsPage.ClubsPage;
+import com.softserveinc.speakukrainian.pageobjects.components.AdvancedSearch.AdvancedSearch;
 import lombok.Getter;
 
 import java.time.Duration;
@@ -74,5 +75,13 @@ public class Header {
 
     public String getLogoURL(){
         return logo.$x("/parent::a").getAttribute("href");
+    }
+
+    public SelenideElement getAdvancedSearchBtn(){
+        return advancedSearchBtn;
+    }
+    public AdvancedSearch clickAdvancedSearchBtn(){
+        getAdvancedSearchBtn().click();
+        return new AdvancedSearch();
     }
 }
