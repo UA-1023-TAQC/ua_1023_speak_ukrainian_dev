@@ -1,4 +1,4 @@
-package com.softserveinc.speakukrainian;
+package com.softserveinc.speakukrainian.guest;
 
 import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
 import com.softserveinc.speakukrainian.utils.TestRunner;
@@ -14,7 +14,7 @@ public class MovomarathonPage extends TestRunner {
                 .getHeader()
                 .openChallengeMenu()
                 .openMovomarathonChallenge()
-                .getPageTitle()
-                .shouldHave(text("Мовомаратон «30 років - 30 кроків»"));
+                .getPageTitleText()
+                .equals("Мовомаратон «30 років - 30 кроків»");
     }
 }
