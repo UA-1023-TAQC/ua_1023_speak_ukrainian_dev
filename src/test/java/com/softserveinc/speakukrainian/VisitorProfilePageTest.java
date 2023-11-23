@@ -22,7 +22,7 @@ public class VisitorProfilePageTest extends TestRunnerWithVisitor {
     @Test
     public void verifyVisitorCanOpenApplicationsPage() {
 
-        new HomePage()
+        homePage
                 .getHeader()
                 .openProfileMenu()
                 .openMyProfilePage()

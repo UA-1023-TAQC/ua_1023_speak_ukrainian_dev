@@ -18,7 +18,7 @@ public class AddClubModal {
     private final SelenideElement CloseBtn = $x("/html/body/div[6]/div/div[2]/div/div[2]/button");
     private final SelenideElement title = $x("//div[contains(text(), 'Додати гурток')]");
     private final SelenideElement ClubName = $x("//input[@id='basic_name']");
-    private final ElementsCollection Categories = $$("//div[@id='basic_categories']/label");
+    private final ElementsCollection Categories = $$x("//div[@id='basic_categories']/label");
     private final SelenideElement InputAgeFrom = $x("//input[@id='basic_ageFrom']");
     private final SelenideElement IncreaseAgeFromBtn = $x("//*[@id=\"basic\"]/div[3]/div/div/div/div/span/div[1]/div/div/div/div/div/div[1]/span[1]");
     private final SelenideElement DecreaseAgeFromBtn = $x("//*[@id=\"basic\"]/div[3]/div/div/div/div/span/div[1]/div/div/div/div/div/div[1]/span[2]");
