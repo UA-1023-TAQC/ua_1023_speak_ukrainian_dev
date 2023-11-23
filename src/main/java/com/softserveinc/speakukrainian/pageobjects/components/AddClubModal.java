@@ -27,7 +27,7 @@ public class AddClubModal {
     private final SelenideElement DecreaseAgeToBtn = $x("//*[@id=\"basic\"]/div[3]/div/div/div/div/span/div[2]/div/div/div/div/div/div[1]/span[2]");
     private final SelenideElement CenterName = $x("//input[@id='basic_centerId']");
     private final ElementsCollection ListCenterName = $$("//div[@class='rc-virtual-list-holder-inner']/div");
-    private final SelenideElement NextStepBtn = $x("//span[contains(text(), 'Наступний крок')]]");
+    private final SelenideElement NextStepBtn = $x("//span[contains(text(), 'Наступний крок')]");
     private final SelenideElement AddLocation = $x("//span[contains(text(), 'Додати локацію')]");
     private final SelenideElement ToggleBtn = $x("//button[@class='ant-switch css-13usanc ant-switch-checked']");
     private final ElementsCollection Workday = $$("//div[@id=\"basic_workDay\"]/div");
