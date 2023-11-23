@@ -6,6 +6,7 @@ import lombok.Getter;
 import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.Selenide.actions;
+@Getter
 public abstract class BasePage {
 
     protected final Header header = new Header();
