@@ -4,6 +4,7 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.softserveinc.speakukrainian.pageobjects.BasePage;
+import com.softserveinc.speakukrainian.pageobjects.ClubsPage.ClubCardComponent;
 import com.softserveinc.speakukrainian.pageobjects.ClubsPage.ClubsPage;
 import lombok.Getter;
 
@@ -35,12 +36,22 @@ public class NewsPage extends BasePage {
     private final SelenideElement clubsClosePreReview = $("button.ant-modal-close");
 
     private final ElementsCollection newsCards = $$("div.news-content> :first-child>div");
+    private final ElementsCollection clubCards = $$("div.club-sider>div:not(.sider-header)");
 
     public List<NewsCardComponent> getNewsCardList() {
         newsCards.shouldHave(sizeGreaterThan(0));
         List<NewsCardComponent> result = new ArrayList<>(newsCards.size());
         for (SelenideElement card: newsCards) {
             result.add(new NewsCardComponent(card));
+        }
+        return result;
+    }
+
+    public List<ClubCardComponent> getClubCardList() {
+        clubCards.shouldHave(sizeGreaterThan(0));
+        List<ClubCardComponent> result = new ArrayList<>(clubCards.size());
+        for (SelenideElement card: clubCards) {
+            result.add(new ClubCardComponent(card));
         }
         return result;
     }

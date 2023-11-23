@@ -21,7 +21,7 @@ public class Header {
     private final SelenideElement news = $x("//header//div[@class='center-side']/ul/li[3]/span[2]/a");
     private final SelenideElement about = $x("//header//div[@class='center-side']/ul/li[4]/span[2]/a");
     private final SelenideElement servicesInUkrainian = $x("//header//div[@class='center-side']/ul/li[5]/span[2]/a");
-    private final SelenideElement city = $x("//header//div[contains(@class,'city')]/span");
+    private final SelenideElement city = $x("//header//div[contains(@class,'city')]");
     private final SelenideElement addClub = $x("//header//button[contains(@class,'add-club-button')]/span");
     private final SelenideElement addClubModal = $x("//div[contains(text(), 'Додати гурток')]/ancestor::div[@role='dialog']");
     private final SelenideElement userProfile = $x("//header//div[contains(@class,'user-profile')]");
