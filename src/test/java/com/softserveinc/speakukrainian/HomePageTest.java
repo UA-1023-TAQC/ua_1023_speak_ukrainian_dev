@@ -12,6 +12,6 @@ public class HomePageTest extends TestRunner {
                 .getHeader()
                 .openGuestProfileMenu()
                 .openLogin();
-
     }
+
 }
