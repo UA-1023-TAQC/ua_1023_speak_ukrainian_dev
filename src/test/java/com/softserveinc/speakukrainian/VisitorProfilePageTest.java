@@ -1,21 +1,14 @@
 package com.softserveinc.speakukrainian;
 
 import com.softserveinc.speakukrainian.pageobjects.components.Header;
-import com.softserveinc.speakukrainian.pageobjects.components.ProfileMenu;
-import com.softserveinc.speakukrainian.pageobjects.components.UserHomePage;
+import com.softserveinc.speakukrainian.pageobjects.components.addCenterVisitor.AddCenterMainInformationModal;
 import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
 import com.softserveinc.speakukrainian.pageobjects.personalcabinet.EditProfileModal;
-import com.softserveinc.speakukrainian.pageobjects.personalcabinet.VisitorPersonalCabinetComponent;
-import com.softserveinc.speakukrainian.utils.TestRunner;
 import com.softserveinc.speakukrainian.utils.TestRunnerWithVisitor;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.Assertion;
 import org.testng.asserts.SoftAssert;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.softserveinc.speakukrainian.utils.PropertyUtil.getVisitorEmail;
-import static com.softserveinc.speakukrainian.utils.PropertyUtil.getVisitorPassword;
 
 public class VisitorProfilePageTest extends TestRunnerWithVisitor {
 
@@ -116,4 +109,21 @@ public class VisitorProfilePageTest extends TestRunnerWithVisitor {
                 .getErrorMessage(), "Будь ласка введіть Ваш номер телефону");
         softAssert.assertAll();
     }
+
+    @Test(description = "TUA-252 [Center] Verify that error messages is displayed after user leaves fields empty and " +
+            "clicks 'Наступний крок' button on 'Основна інформація' tab")
+    public void verifyErrorMessagesDisplayedAfterUserLeavesFieldsEmptyAndClicksNextButtonOnAddCenterModal() {
+        AddCenterMainInformationModal addCenterMainInformationModal = new Header()
+                .openProfileMenu()
+                .openMyProfilePage()
+                .addCenter();
+        addCenterMainInformationModal.clickNextStepButton();
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(addCenterMainInformationModal
+                        .getInputNameOfCenterErrorText(), "Некоректна назва центру");
+        softAssert.assertEquals(addCenterMainInformationModal.getCreatedLocationErrorText(),
+                "Додайте і виберіть локацію");
+        softAssert.assertAll();
+    }
+    
 }
