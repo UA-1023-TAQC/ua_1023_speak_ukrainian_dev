@@ -74,13 +74,14 @@ public class AddClubModal {
         return this;
     }
 
-    public AddClubModal clickIncreaseAgeFromBtn(){
-        IncreaseAgeFromBtn.click();
-        return this;
+    private enum AgeAction{
+        INCREASE,
+        DECREASE
     }
 
-    public AddClubModal clickDecreaseAgeFromBtn(){
-        DecreaseAgeFromBtn.click();
+    public AddClubModal clickAgeFromBtn(AgeAction action){
+        SelenideElement ageBtn = (action == AgeAction.DECREASE) ? DecreaseAgeFromBtn : IncreaseAgeFromBtn;
+        ageBtn.click();
         return this;
     }
 
@@ -89,13 +90,9 @@ public class AddClubModal {
         return this;
     }
 
-    public AddClubModal clickIncreaseAgeToBtn(){
-        IncreaseAgeToBtn.click();
-        return this;
-    }
-
-    public AddClubModal clickDecreaseAgeToBtn(){
-        DecreaseAgeToBtn.click();
+    public AddClubModal clickAgeToBtn(AgeAction action){
+        SelenideElement ageBtn = (action == AgeAction.INCREASE) ? IncreaseAgeToBtn : DecreaseAgeToBtn;
+        ageBtn.click();
         return this;
     }
 

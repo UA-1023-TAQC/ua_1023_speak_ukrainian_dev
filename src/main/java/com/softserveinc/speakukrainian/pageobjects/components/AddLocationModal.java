@@ -36,10 +36,7 @@ public class AddLocationModal extends AddClubModal{
     }
 
     public AddLocationModal pickCityName(int index){
-        CityName.click();
-        if (index >= 0 && index < ListLocationName.size()){
-            ListLocationName.get(index).click();
-        }
+        clickAndPickFromList(CityName, ListLocationName, index);
         return this;
     }
 
@@ -51,14 +48,15 @@ public class AddLocationModal extends AddClubModal{
     }
 
     public AddLocationModal pickDistrictName(int index){
-        DistrictName.click();
-        if (index >= 0 && index < ListDistrictName.size()){
-            ListDistrictName.get(index).click();
-        }
+        clickAndPickFromList(DistrictName, ListDistrictName, index);
         return this;
     }
 
     public AddLocationModal pickStationName(){
+        /*
+        If you select an element from ListDistrictName, all elements from ListStationName disappear,
+        so you need to specify one thing in the tests
+         */
         StationName.click();
         return this;
     }
@@ -82,6 +80,11 @@ public class AddLocationModal extends AddClubModal{
         AddBtn.click();
     }
 
-
+    private void clickAndPickFromList(SelenideElement dropdown, ElementsCollection list, int index){
+        dropdown.click();
+        if (index >= 0 && index < list.size()){
+            list.get(index).click();
+        }
+    }
 
 }
