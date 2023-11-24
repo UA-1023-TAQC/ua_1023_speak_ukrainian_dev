@@ -19,7 +19,6 @@ public class NewsPageTest extends TestRunner {
                 .getNewsCardList()
                 .get(2);
         String newsTitle = card.getNewsTitle().text();
-        System.out.println("title:  " + newsTitle);
         card.clickOnImage().getTitle().shouldHave(text(newsTitle));
 
         //Click on third title in article blocks
