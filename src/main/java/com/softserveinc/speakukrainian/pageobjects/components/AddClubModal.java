@@ -47,6 +47,7 @@ public class AddClubModal {
     private final SelenideElement AddGallery = $x("//*[@id=\"basic\"]/div[3]/div/div/div/div/span/div/div/span");
     private final SelenideElement Description = $x("//textarea[@id='basic_description']");
     private final SelenideElement Complete = $x("//*[@id=\"basic\"]/div[5]/button[2]");
+    private final ElementsCollection ErrorMessagesAboutDescription = $$x("//div[@class='ant-form-item-explain-error']");
 
     public void clickCloseBtn(){
         CloseBtn.click();
@@ -229,5 +230,13 @@ public class AddClubModal {
     public void clickComplete(){
         Complete.click();
     }
+
+    public String[] getErrorMessagesAboutDescription(){
+        String[] msgs = new String[2];
+        msgs[0]= ErrorMessagesAboutDescription.get(0).getText();
+        msgs[1]= ErrorMessagesAboutDescription.get(1).getText();
+        return  msgs;
+    }
+
 
 }
