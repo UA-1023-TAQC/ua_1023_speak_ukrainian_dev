@@ -231,7 +231,7 @@ public class AddClubModal {
         Complete.click();
     }
 
-    public String[] getErrorMessagesAboutDescription(){
+    public String[] getStrErrorMessagesAboutDescription(){
         String[] msgs = new String[2];
             msgs[0]= ErrorMessagesAboutDescription.get(0).getText();
             msgs[1]= ErrorMessagesAboutDescription.get(1).getText();
