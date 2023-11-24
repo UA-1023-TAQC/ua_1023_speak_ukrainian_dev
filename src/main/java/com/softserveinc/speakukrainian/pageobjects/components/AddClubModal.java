@@ -233,8 +233,8 @@ public class AddClubModal {
 
     public String[] getErrorMessagesAboutDescription(){
         String[] msgs = new String[2];
-        msgs[0]= ErrorMessagesAboutDescription.get(0).getText();
-        msgs[1]= ErrorMessagesAboutDescription.get(1).getText();
+            msgs[0]= ErrorMessagesAboutDescription.get(0).getText();
+            msgs[1]= ErrorMessagesAboutDescription.get(1).getText();
         return  msgs;
     }
 

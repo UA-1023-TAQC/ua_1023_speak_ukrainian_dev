@@ -1,22 +1,17 @@
 package com.softserveinc.speakukrainian;
 
 import com.softserveinc.speakukrainian.pageobjects.components.AddClubModal;
-import com.softserveinc.speakukrainian.pageobjects.components.Header;
-import com.softserveinc.speakukrainian.pageobjects.personalcabinet.EditProfileModal;
 import com.softserveinc.speakukrainian.utils.TestRunnerWithDirector;
-import org.testng.Assert;
+import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-
-import java.util.Random;
-
-import static com.codeborne.selenide.Condition.text;
 
 public class DirectorProfilePageTest extends TestRunnerWithDirector {
 
     @Test
     public void verifyThatErroMessageAppearsWhenTheUserEntersLessThan40Symbols() {
         final String CLUB_NAME = "Про Танц(R)";
+        final String CLUB_DESCRIPTION = "This is a Club so called Про Танц(R) bt";
         final String[] expectedErrorMessagesAboutDescription = {"Некоректний опис гуртка",
                 "Опис гуртка може містити від 40 до 1500 символів."};
         final int CATEGORY_INDEX = 5;
@@ -34,12 +29,17 @@ public class DirectorProfilePageTest extends TestRunnerWithDirector {
                 .setInputAgeFrom(AGE_FROM).setInputAgeTo(AGE_TO)
                 .clickNextStepBtn();
 
-        addClub.setContactPhoneNumber(CONTACT_PHONE)
-                .clickNextStepBtn();
+        addClub.setContactPhoneNumber(CONTACT_PHONE).clickNextStepBtn();
+        addClub.setDescription(CLUB_DESCRIPTION);
 
-        addClub.setDescription(CLUB_NAME)
-                        .clickComplete();
-        Assert.assertEquals(addClub.getErrorMessagesAboutDescription(), expectedErrorMessagesAboutDescription, "");
-
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(addClub.getErrorMessagesAboutDescription(), expectedErrorMessagesAboutDescription, "");
+        addClub.getDescription().click();
+        int n = addClub.getDescription().getText().length();
+        for (int i=0; i<n; i++)
+            addClub.getDescription().sendKeys(Keys.BACK_SPACE);
+        addClub.setDescription(CLUB_DESCRIPTION.substring(1,2));
+        softAssert.assertEquals(addClub.getErrorMessagesAboutDescription(), expectedErrorMessagesAboutDescription, "");
+        softAssert.assertAll();
     }
 }
