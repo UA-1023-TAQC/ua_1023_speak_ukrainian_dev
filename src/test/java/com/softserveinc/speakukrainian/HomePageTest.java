@@ -6,6 +6,7 @@ import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
 import com.softserveinc.speakukrainian.utils.TestRunner;
 import org.testng.annotations.Test;
 
+import static com.codeborne.selenide.Condition.visible;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
@@ -21,14 +22,16 @@ public class HomePageTest extends TestRunner {
     }
 
     @Test
-    public void verifyAdvancedSearchButtonIsOpensSection() {
+    public void verifyAdvancedSearchButtonOpensTheSearchSection() {
         AdvancedSearch open = new HomePage()
                 .getHeader()
                 .clickAdvancedSearchBtn();
-        assertTrue(open.componentIsDisplayed(), "Advanced Search Component is not displayed");
+        assertTrue(open.isTitleDisplayed(), "Advanced Search Component is not displayed");
+        open.getComponent().shouldBe(visible);
         AdvancedSearch close = new HomePage()
                 .getHeader()
                 .clickAdvancedSearchBtn();
-        assertFalse(close.componentIsDisplayed(), "Advanced Search Component is displayed");
+        assertFalse(close.isTitleDisplayed(), "Advanced Search Component is displayed");
+        open.getComponent().shouldNotBe(visible);
     }
 }
