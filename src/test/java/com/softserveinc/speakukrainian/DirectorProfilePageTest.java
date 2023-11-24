@@ -34,12 +34,18 @@ public class DirectorProfilePageTest extends TestRunnerWithDirector {
 
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(addClub.getErrorMessagesAboutDescription(), expectedErrorMessagesAboutDescription, "");
+
         addClub.getDescription().click();
         int n = addClub.getDescription().getText().length();
         for (int i=0; i<n; i++)
             addClub.getDescription().sendKeys(Keys.BACK_SPACE);
-        addClub.setDescription(CLUB_DESCRIPTION.substring(1,2));
+        addClub.setDescription(CLUB_DESCRIPTION.substring(0,1));
         softAssert.assertEquals(addClub.getErrorMessagesAboutDescription(), expectedErrorMessagesAboutDescription, "");
+
+        addClub.getDescription().sendKeys(Keys.BACK_SPACE);
+        addClub.setDescription(CLUB_DESCRIPTION.substring(0,20));
+        softAssert.assertEquals(addClub.getErrorMessagesAboutDescription(), expectedErrorMessagesAboutDescription, "");
+        addClub.getDescription().sendKeys(Keys.BACK_SPACE);
         softAssert.assertAll();
     }
 }
