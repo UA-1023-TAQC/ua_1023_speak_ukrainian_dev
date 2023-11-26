@@ -4,7 +4,9 @@ import com.softserveinc.speakukrainian.pageobjects.components.Header;
 import com.softserveinc.speakukrainian.pageobjects.components.ProfileMenu;
 import com.softserveinc.speakukrainian.pageobjects.components.UserHomePage;
 import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
+
 import com.softserveinc.speakukrainian.pageobjects.personalcabinet.EditProfileModal;
+import com.softserveinc.speakukrainian.pageobjects.personalcabinet.MyProfilePage;
 import com.softserveinc.speakukrainian.pageobjects.personalcabinet.VisitorPersonalCabinetComponent;
 import com.softserveinc.speakukrainian.utils.TestRunner;
 import com.softserveinc.speakukrainian.utils.TestRunnerWithVisitor;
@@ -116,4 +118,26 @@ public class VisitorProfilePageTest extends TestRunnerWithVisitor {
                 .getErrorMessage(), "Будь ласка введіть Ваш номер телефону");
         softAssert.assertAll();
     }
+
+    @Test
+    public void verifyChangePasswordErrorMessage(){
+        EditProfileModal openEditModal = new Header()
+                .openProfileMenu()
+                .openMyProfilePage()
+                .editProfile();
+        EditProfileModal newPassword =openEditModal.changePassword("", "");
+        new EditProfileModal().submitChanges();
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(newPassword
+                .getCurrentPasswordErrorMessage()
+                .getText(), "Введіть старий пароль");
+        softAssert.assertEquals(newPassword
+                .getNewPasswordErrorMessage()
+                .getText(),"Будь ласка, введіть новий пароль");
+        softAssert.assertEquals(newPassword
+                .getConfirmPasswordErrorMessage()
+                .getText(),"Будь ласка, підтвердіть пароль");
+        softAssert.assertAll();
+    }
+
 }
