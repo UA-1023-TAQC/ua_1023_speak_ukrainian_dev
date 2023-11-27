@@ -62,7 +62,7 @@ public class DirectorProfilePageTest extends TestRunnerWithDirector {
         for (int i=0; i<21; i++)
             addClub.getDescription().sendKeys(Keys.BACK_SPACE);
 
-        addClub.getErrorMessagesAboutDescription().shouldBe(empty, Duration.ofSeconds(10)).isEmpty();
+        addClub.getErrorMessagesAboutDescription().shouldBe(empty, Duration.ofSeconds(10));
         softAssert.assertTrue(addClub.getErrorMessagesAboutDescription().isEmpty());
 
         for (int i=0; i<3; i++)
