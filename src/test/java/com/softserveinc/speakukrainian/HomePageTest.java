@@ -27,11 +27,11 @@ public class HomePageTest extends TestRunner {
                 .getHeader()
                 .clickAdvancedSearchBtn();
         assertTrue(open.isTitleDisplayed(), "Advanced Search Component is not displayed");
-        open.getComponent().shouldBe(visible);
+        open.getAdvancedSearchComponent().shouldBe(visible);
         AdvancedSearch close = new HomePage()
                 .getHeader()
                 .clickAdvancedSearchBtn();
         assertFalse(close.isTitleDisplayed(), "Advanced Search Component is displayed");
-        open.getComponent().shouldNotBe(visible);
+        open.getAdvancedSearchComponent().shouldNotBe(visible);
     }
 }

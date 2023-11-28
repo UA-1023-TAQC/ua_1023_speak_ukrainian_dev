@@ -23,7 +23,7 @@ public class AdvancedSearch {
     private final ElementsCollection categoriesCheckboxesBlock = $$("div#basic_categoriesName " +
             "input[type='checkbox']");
 
-    private static final SelenideElement ADVANCED_SEARCH_COMPONENT = $("aside");
+    private final SelenideElement AdvancedSearchComponent = $("aside");
 
     public String getTitleText() {
         return titleComponent.text();
@@ -115,10 +115,6 @@ public class AdvancedSearch {
 
     public boolean isTitleDisplayed() {
        return this.titleComponent.isDisplayed();
-    }
-
-    public SelenideElement getComponent() {
-        return ADVANCED_SEARCH_COMPONENT;
     }
 
 }
