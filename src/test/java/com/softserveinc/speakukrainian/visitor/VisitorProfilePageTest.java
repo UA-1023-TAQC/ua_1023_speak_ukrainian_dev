@@ -1,4 +1,4 @@
-package com.softserveinc.speakukrainian;
+package com.softserveinc.speakukrainian.visitor;
 
 import com.softserveinc.speakukrainian.pageobjects.components.Header;
 import com.softserveinc.speakukrainian.pageobjects.components.ProfileMenu;

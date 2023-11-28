@@ -3,13 +3,12 @@ package com.softserveinc.speakukrainian.pageobjects.components;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import lombok.Getter;
+import org.openqa.selenium.By;
 
 import java.io.File;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$$;
-import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.*;
 
 @Getter
@@ -48,6 +47,7 @@ public class AddClubModal {
     private final SelenideElement Description = $x("//textarea[@id='basic_description']");
     private final SelenideElement Complete = $x("//*[@id=\"basic\"]/div[5]/button[2]");
     private final ElementsCollection ErrorMessagesAboutDescription = $$x("//div[@class='ant-form-item-explain-error']");
+    private final SelenideElement CurrentLocation = $x("//*[@id=\"basic\"]/div[1]/div/div/div/div/div/div/div/ul/li/div/div/h4");
 
     public void clickCloseBtn(){
         CloseBtn.click();
@@ -74,13 +74,14 @@ public class AddClubModal {
         return this;
     }
 
-    public AddClubModal clickIncreaseAgeFromBtn(){
-        IncreaseAgeFromBtn.click();
-        return this;
+    private enum AgeAction{
+        INCREASE,
+        DECREASE
     }
 
-    public AddClubModal clickDecreaseAgeFromBtn(){
-        DecreaseAgeFromBtn.click();
+    public AddClubModal clickAgeFromBtn(AgeAction action){
+        SelenideElement ageBtn = (action == AgeAction.DECREASE) ? DecreaseAgeFromBtn : IncreaseAgeFromBtn;
+        ageBtn.click();
         return this;
     }
 
@@ -89,13 +90,9 @@ public class AddClubModal {
         return this;
     }
 
-    public AddClubModal clickIncreaseAgeToBtn(){
-        IncreaseAgeToBtn.click();
-        return this;
-    }
-
-    public AddClubModal clickDecreaseAgeToBtn(){
-        DecreaseAgeToBtn.click();
+    public AddClubModal clickAgeToBtn(AgeAction action){
+        SelenideElement ageBtn = (action == AgeAction.INCREASE) ? IncreaseAgeToBtn : DecreaseAgeToBtn;
+        ageBtn.click();
         return this;
     }
 
