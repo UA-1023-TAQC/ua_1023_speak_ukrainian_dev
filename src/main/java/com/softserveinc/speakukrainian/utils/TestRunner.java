@@ -19,7 +19,5 @@ public class TestRunner {
     }
 
     @BeforeMethod
-    public void navigateToUrl() {
-        homePage.open();
-    }
+    public void navigateToUrl() {homePage.open();}
 }
