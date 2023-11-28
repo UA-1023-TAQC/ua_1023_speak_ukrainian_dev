@@ -16,7 +16,7 @@ public class CitiesMenu {
     }
 
     public SelenideElement getCity(String city) {
-        return citiesMenu.$x("./li/span[contains(text(),'" + city + "')]");
+        return citiesMenu.$x("./ul/li/span[contains(text(),'" + city + "')]");
     }
 
     public ElementsCollection getListOfCities() {
