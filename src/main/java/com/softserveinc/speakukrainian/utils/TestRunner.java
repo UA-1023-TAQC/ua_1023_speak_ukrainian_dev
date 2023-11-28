@@ -5,6 +5,7 @@ import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static com.softserveinc.speakukrainian.utils.PropertyUtil.getDefaultBrowser;
 import static com.softserveinc.speakukrainian.utils.PropertyUtil.getDefaultTimeOut;
 
@@ -15,10 +16,12 @@ public class TestRunner {
     public void driverConfigurationAndTimeOut() {
         Configuration.browser = getDefaultBrowser();
         Configuration.timeout = getDefaultTimeOut() * 1000L;
+
     }
 
     @BeforeMethod
     public void navigateToUrl() {
         homePage.open();
+        getWebDriver().manage().window().maximize();
     }
 }

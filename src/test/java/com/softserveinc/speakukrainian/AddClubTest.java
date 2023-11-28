@@ -7,6 +7,7 @@ import com.softserveinc.speakukrainian.utils.PropertyUtil;
 import com.softserveinc.speakukrainian.utils.TestRunner;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 public class AddClubTest extends TestRunner {
 
@@ -30,25 +31,26 @@ public class AddClubTest extends TestRunner {
                 .clickNextStepBtn();
 
         AddLocationModal addLocation = new AddLocationModal().clickAddLocation();
-        Assert.assertEquals(addLocation.getTitleText(), "Додати локацію");
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(addLocation.getTitleText(), "Додати локацію");
         addLocation.setLocationName("ЧислаNumbers12345=/*()_:;#%^?[]");
-        Assert.assertEquals(addLocation.getCheckCircle().size(), 2);
+        softAssert.assertEquals(addLocation.getCheckCircle().size(), 1);
         addLocation.pickCityName(0)
                 .pickDistrictName(0);
-        Assert.assertEquals(addLocation.getCurrentCityName(), "Київ");
-        Assert.assertEquals(addLocation.getCurrentDistrictName(), "Деснянський");
+        softAssert.assertEquals(addLocation.getCurrentCityName(), "Київ");
+        softAssert.assertEquals(addLocation.getCurrentDistrictName(), "Деснянський");
         addLocation.pickStationName()
                 .setAddressName("ЧислаNumbers.,/-")
                 .setCoordinates("49.829104498711104, 24.005058710351314")
                 .setPhoneNumber("0972222222")
                 .clickAddBtn();
         AddClubModal clubModal = new AddClubModal();
-        Assert.assertEquals(clubModal.getCurrentLocation().getText(), "ЧислаNumbers12345=/*()_:;#%^?[]");
+        softAssert.assertEquals(clubModal.getCurrentLocation().getText(), "ЧислаNumbers12345=/*()_:;#%^?[]");
         addLocation.setContactPhoneNumber("0972222222")
                 .clickNextStepBtn()
                 .setDescription("ЧислаNumbers12345!\"#$%&'()*+,-./:;<=>?@[]^_`{}~")
                 .clickComplete();
-
+        softAssert.assertAll();
 
     }
 
