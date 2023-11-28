@@ -8,6 +8,7 @@ import org.openqa.selenium.Keys;
 import java.io.File;
 
 import static com.codeborne.selenide.Condition.value;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 @Getter
@@ -31,7 +32,7 @@ public class EditProfileModal {
     private final SelenideElement firstNameErrorMessage = $x("//div[@class='ant-form-item-explain-error']");
     private final SelenideElement lastNameErrorMessage = $x("//div[@class='ant-form-item-explain-error']");
 
-    private final SelenideElement errorMessage = $x("./div[@class='ant-form-item-explain-error']");
+    private final SelenideElement errorMessage = $x("//div[@class='ant-form-item-explain-error']");
 
     public MyProfilePage closeModal(){
         closeButton.click();
@@ -82,7 +83,7 @@ public class EditProfileModal {
     }
 
     public EditProfileModal editPhoneNumber(String newPhoneNumber){
-        phoneNumberInput.clear();
+        phoneNumberInput.sendKeys(Keys.CONTROL + "a", Keys.DELETE);
         phoneNumberInput.sendKeys(newPhoneNumber);
         return this;
     }
