@@ -3,10 +3,11 @@ package com.softserveinc.speakukrainian.pageobjects.news;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import com.softserveinc.speakukrainian.pageobjects.BasePage;
 import lombok.Getter;
 
 @Getter
-public class DetailsNewsPage {
+public class DetailsNewsPage extends BasePage {
     private final SelenideElement title = Selenide.$x("//div[@id=\"major-title\"]");
     private final SelenideElement contactFacebook = Selenide.$("span.anticon-facebook");
     private final SelenideElement contactYouTube = Selenide.$("span.anticon-youtube");
@@ -22,7 +23,7 @@ public class DetailsNewsPage {
     private final SelenideElement rightArrow = Selenide.$("span.anticon-arrow-right");
     private final SelenideElement leftArrow = Selenide.$("span.anticon-arrow-left");
 
-    public String getTitle() {
+    public String getTitleText() {
         return title.getText();
     }
 
