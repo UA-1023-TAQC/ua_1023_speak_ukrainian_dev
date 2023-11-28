@@ -3,7 +3,6 @@ package com.softserveinc.speakukrainian.pageobjects.components;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import lombok.Getter;
-import org.openqa.selenium.By;
 
 import java.io.File;
 import java.time.Duration;
@@ -18,7 +17,7 @@ public class AddClubModal {
     private final SelenideElement CloseBtn = $x("/html/body/div[6]/div/div[2]/div/div[2]/button");
     private final SelenideElement title = $x("//div[contains(text(), 'Додати гурток')]");
     private final SelenideElement ClubName = $x("//input[@id='basic_name']");
-    private final ElementsCollection Categories = $$(By.xpath("//div[@id='basic_categories']/label"));
+    private final ElementsCollection Categories = $$x("//div[@id='basic_categories']/label");
     private final SelenideElement InputAgeFrom = $x("//input[@id='basic_ageFrom']");
     private final SelenideElement IncreaseAgeFromBtn = $x("//*[@id=\"basic\"]/div[3]/div/div/div/div/span/div[1]/div/div/div/div/div/div[1]/span[1]");
     private final SelenideElement DecreaseAgeFromBtn = $x("//*[@id=\"basic\"]/div[3]/div/div/div/div/span/div[1]/div/div/div/div/div/div[1]/span[2]");
@@ -47,6 +46,7 @@ public class AddClubModal {
     private final SelenideElement AddGallery = $x("//*[@id=\"basic\"]/div[3]/div/div/div/div/span/div/div/span");
     private final SelenideElement Description = $x("//textarea[@id='basic_description']");
     private final SelenideElement Complete = $x("//*[@id=\"basic\"]/div[5]/button[2]");
+    private final ElementsCollection ErrorMessagesAboutDescription = $$x("//div[@class='ant-form-item-explain-error']");
     private final SelenideElement CurrentLocation = $x("//*[@id=\"basic\"]/div[1]/div/div/div/div/div/div/div/ul/li/div/div/h4");
 
     public void clickCloseBtn(){
@@ -227,5 +227,13 @@ public class AddClubModal {
     public void clickComplete(){
         Complete.click();
     }
+
+    public String[] getStrErrorMessagesAboutDescription(){
+        String[] msgs = new String[2];
+            msgs[0]= ErrorMessagesAboutDescription.get(0).getText();
+            msgs[1]= ErrorMessagesAboutDescription.get(1).getText();
+        return  msgs;
+    }
+
 
 }

@@ -8,7 +8,7 @@ public class HomePageTest extends TestRunner {
 
     @Test
     public void verifyTitle() {
-        LoginModal loginModal = new HomePage()
+        homePage
                 .getHeader()
                 .openGuestProfileMenu()
                 .openLogin();
