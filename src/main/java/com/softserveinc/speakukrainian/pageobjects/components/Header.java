@@ -4,6 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import com.softserveinc.speakukrainian.pageobjects.*;
 import com.softserveinc.speakukrainian.pageobjects.AboutUsPage.AboutUsPage;
 import com.softserveinc.speakukrainian.pageobjects.ClubsPage.ClubsPage;
+import com.softserveinc.speakukrainian.pageobjects.news.NewsPage;
 import lombok.Getter;
 
 import java.time.Duration;
