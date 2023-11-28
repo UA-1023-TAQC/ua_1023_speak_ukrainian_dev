@@ -15,11 +15,7 @@ public class ChallengeMovomarathonPage extends AbstractChallenge {
     private final ChallengeDayCarousel challengeDayCarousel = new ChallengeDayCarousel();
     private final ElementsCollection challengeDescriptionLinks = $$("div.challenge-description p a");
 
-    public static final SelenideElement PAGE_TITLE = $("h1");
-
-    public SelenideElement getPageTitle() {
-        return PAGE_TITLE;
-    }
+    public final SelenideElement PageTitle = $("h1");
 
     public String getPageTitleText() {
         return getPageTitle().getText();
