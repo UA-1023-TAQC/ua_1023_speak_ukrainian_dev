@@ -1,4 +1,4 @@
-package com.softserveinc.speakukrainian;
+package com.softserveinc.speakukrainian.guest;
 
 import com.softserveinc.speakukrainian.pageobjects.components.RegistrationModal.RegistrationModal;
 import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
@@ -18,7 +18,7 @@ public class RegistrationTest extends TestRunner {
         final String TEST_EMAIL = "svitlanawhite@gmail.com";
         final String TEST_PASSWORD = "12345678";
 
-        RegistrationModal registrationModal = new HomePage()
+        RegistrationModal registrationModal = homePage
                 .getHeader()
                 .openGuestProfileMenu()
                 .openRegister()

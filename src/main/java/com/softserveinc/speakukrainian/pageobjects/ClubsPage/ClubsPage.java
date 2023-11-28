@@ -2,6 +2,7 @@ package com.softserveinc.speakukrainian.pageobjects.ClubsPage;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import com.softserveinc.speakukrainian.pageobjects.BasePage;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -11,13 +12,13 @@ import static com.codeborne.selenide.Selenide.$$;
 
 
 @Getter
-public class ClubsPage {
-    private final ElementsCollection clubsCard = $$(".content-clubs-list .content-clubs-block");
+public class ClubsPage extends BasePage {
+    private final ElementsCollection clubsCard = $$(".content-clubs-list.content-clubs-block>div");
 
-    public List<ClubCard> getClubsCard() {
-        List<ClubCard> result = new ArrayList<>(clubsCard.size());
+    public List<ClubCardComponent> getClubsCard() {
+        List<ClubCardComponent> result = new ArrayList<>(clubsCard.size());
         for (SelenideElement card: clubsCard) {
-            result.add(new ClubCard(card));
+            result.add(new ClubCardComponent(card));
         }
         return result;
     }
