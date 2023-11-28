@@ -8,6 +8,7 @@ import org.openqa.selenium.Keys;
 import java.io.File;
 
 import static com.codeborne.selenide.Condition.value;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 @Getter
@@ -84,7 +85,7 @@ public class EditProfileModal {
     }
 
     public EditProfileModal editPhoneNumber(String newPhoneNumber){
-        phoneNumberInput.clear();
+        phoneNumberInput.sendKeys(Keys.CONTROL + "a", Keys.DELETE);
         phoneNumberInput.sendKeys(newPhoneNumber);
         return this;
     }

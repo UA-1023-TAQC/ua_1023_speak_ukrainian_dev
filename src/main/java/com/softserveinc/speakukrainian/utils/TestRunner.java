@@ -15,6 +15,7 @@ public class TestRunner {
     public void driverConfigurationAndTimeOut() {
         Configuration.browser = getDefaultBrowser();
         Configuration.timeout = getDefaultTimeOut() * 1000L;
+        Configuration.pageLoadTimeout = 50 * 1000L;
     }
 
     @BeforeMethod
