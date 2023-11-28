@@ -18,7 +18,7 @@ public class RegistrationTest extends TestRunner {
         final String TEST_EMAIL = "svitlanawhite@gmail.com";
         final String TEST_PASSWORD = "12345678";
 
-        RegistrationModal registrationModal = new HomePage()
+        RegistrationModal registrationModal = homePage
                 .getHeader()
                 .openGuestProfileMenu()
                 .openRegister()
