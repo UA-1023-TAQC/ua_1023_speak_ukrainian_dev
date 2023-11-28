@@ -2,6 +2,7 @@ package com.softserveinc.speakukrainian.pageobjects;
 
 import com.softserveinc.speakukrainian.pageobjects.components.Footer;
 import com.softserveinc.speakukrainian.pageobjects.components.Header;
+import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
 import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.Selenide.actions;
@@ -29,4 +30,10 @@ public abstract class BasePage {
     public Footer getFooter() {
         return new Footer();
     }
+
+    public HomePage logOutFromSystem(){
+        this.getHeader().openProfileMenu().logout();
+        return new HomePage();
+    }
+
 }
