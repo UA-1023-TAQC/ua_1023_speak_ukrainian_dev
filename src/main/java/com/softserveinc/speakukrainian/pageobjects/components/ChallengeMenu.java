@@ -13,7 +13,7 @@ public class ChallengeMenu {
     private final SelenideElement menu;
 
     public ChallengeMenu() {
-        this.menu = $x("//ul[contains(@id, 'challenge']");
+        this.menu = $x("//ul[contains(@id, 'challenge')]");
     }
 
     public ElementsCollection getListOfMenuItems() {
@@ -29,7 +29,7 @@ public class ChallengeMenu {
     }
 
     public ChallengeMovomarathonPage openMovomarathonChallenge() {
-        menu.$x(".//a[contains(text(), 'Мовомарафон')]").click();
+        menu.$x(".//a[contains(text(), 'Мовомаратон')]").click();
         return new ChallengeMovomarathonPage();
     }
 }

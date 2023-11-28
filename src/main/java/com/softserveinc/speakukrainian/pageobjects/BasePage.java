@@ -2,11 +2,12 @@ package com.softserveinc.speakukrainian.pageobjects;
 
 import com.softserveinc.speakukrainian.pageobjects.components.Footer;
 import com.softserveinc.speakukrainian.pageobjects.components.Header;
+import lombok.Getter;
 import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
 import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.Selenide.actions;
-
+@Getter
 public abstract class BasePage {
 
     protected final Header header = new Header();
