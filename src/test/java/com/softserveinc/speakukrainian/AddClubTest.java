@@ -34,7 +34,6 @@ public class AddClubTest extends TestRunner {
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(addLocation.getTitleText(), "Додати локацію");
         addLocation.setLocationName("ЧислаNumbers12345=/*()_:;#%^?[]");
-        softAssert.assertEquals(addLocation.getCheckCircle().size(), 1);
         addLocation.pickCityName(0)
                 .pickDistrictName(0);
         softAssert.assertEquals(addLocation.getCurrentCityName(), "Київ");
@@ -42,8 +41,9 @@ public class AddClubTest extends TestRunner {
         addLocation.pickStationName()
                 .setAddressName("ЧислаNumbers.,/-")
                 .setCoordinates("49.829104498711104, 24.005058710351314")
-                .setPhoneNumber("0972222222")
-                .clickAddBtn();
+                .setPhoneNumber("0972222222");
+        softAssert.assertEquals(addLocation.getCheckCircle().size(), 6);
+        addLocation.clickAddBtn();
         AddClubModal clubModal = new AddClubModal();
         softAssert.assertEquals(clubModal.getCurrentLocation().getText(), "ЧислаNumbers12345=/*()_:;#%^?[]");
         addLocation.setContactPhoneNumber("0972222222")
