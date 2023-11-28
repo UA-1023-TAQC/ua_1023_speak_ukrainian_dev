@@ -3,10 +3,9 @@ package com.softserveinc.speakukrainian.pageobjects.components;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import lombok.Getter;
-import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Selenide.$$;
-import static com.codeborne.selenide.Selenide.$x;
+
+import static com.codeborne.selenide.Selenide.*;
 
 @Getter
 public class AddLocationModal extends AddClubModal{
@@ -21,9 +20,9 @@ public class AddLocationModal extends AddClubModal{
     private final SelenideElement Coordinates = $x("//*[@id=\"coordinates\"]");
     private final SelenideElement PhoneNumber = $x("//*[@id=\"phone\"]");
     private final SelenideElement AddBtn = $x("//button[@type=\"submit\"]/span[contains(text(), 'Додати')]");
-    private final ElementsCollection CheckCircle = $$(By.xpath("//span[@aria-label=\"check-circle\"]"));
-    private final ElementsCollection ListLocationName = $$(By.xpath("//div[@class=\"rc-virtual-list-holder-inner\"]/div"));
-    private final ElementsCollection ListDistrictName = $$(By.xpath("//div[@class=\"rc-virtual-list-holder-inner\"]/div"));
+    private final ElementsCollection CheckCircle = $$x("//span[@aria-label=\"check-circle\"]");
+    private final ElementsCollection ListLocationName = $$x("//div[@class=\"rc-virtual-list-holder-inner\"]/div");
+    private final ElementsCollection ListDistrictName = $$x("//div[@class=\"rc-virtual-list-holder-inner\"]/div");
     private final SelenideElement FieldCityName = $x("//div[1]/div/div/div/div/div/div/div/span[2]");
     private final SelenideElement FieldDistrictName = $x("//div[2]/div/div/div/div/div/div/div/span[2]");
 
