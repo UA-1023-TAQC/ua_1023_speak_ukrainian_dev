@@ -4,6 +4,7 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import lombok.Getter;
 
+import static com.codeborne.selenide.Condition.disabled;
 import static com.codeborne.selenide.Selenide.*;
 
 @Getter
@@ -39,8 +40,9 @@ public class AdvancedSearch {
         return clubRadioButtonLabel.text();
     }
 
-    public void clickOnCentreRadioButton() {
+    public AdvancedSearch clickOnCentreRadioButton() {
         centreRadioButton.click();
+        return this;
     }
 
     public boolean isCentreRadioButtonSelected() {
@@ -109,5 +111,17 @@ public class AdvancedSearch {
     public AdvancedSearch setAgeInput(int age) {
         ageInput.sendKeys(String.valueOf(age));
         return this;
+    }
+
+    public boolean isAgeInputPresent() {
+        return ageInput.exists();
+    }
+
+    public boolean isRemoteCheckboxPresent() {
+        return remoteCheckbox.exists();
+    }
+
+    public boolean isCategoriesCheckboxesBlockPresent() {
+        return categoriesCheckboxesBlock.first().exists();
     }
 }
