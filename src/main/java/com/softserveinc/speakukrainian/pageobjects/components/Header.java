@@ -5,6 +5,7 @@ import com.softserveinc.speakukrainian.pageobjects.*;
 import com.softserveinc.speakukrainian.pageobjects.AboutUsPage.AboutUsPage;
 import com.softserveinc.speakukrainian.pageobjects.ClubsPage.ClubsPage;
 import com.softserveinc.speakukrainian.pageobjects.components.AdvancedSearch.AdvancedSearch;
+import com.softserveinc.speakukrainian.pageobjects.news.NewsPage;
 import lombok.Getter;
 
 import java.time.Duration;
