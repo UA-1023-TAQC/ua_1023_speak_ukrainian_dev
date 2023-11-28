@@ -4,6 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import com.softserveinc.speakukrainian.pageobjects.*;
 import com.softserveinc.speakukrainian.pageobjects.AboutUsPage.AboutUsPage;
 import com.softserveinc.speakukrainian.pageobjects.ClubsPage.ClubsPage;
+import com.softserveinc.speakukrainian.pageobjects.components.AdvancedSearch.AdvancedSearch;
 import com.softserveinc.speakukrainian.pageobjects.news.NewsPage;
 import lombok.Getter;
 
@@ -27,53 +28,62 @@ public class Header {
     private final SelenideElement userProfile = $x("//header//div[contains(@class,'user-profile')]");
     private final SelenideElement advancedSearchBtn = $x("//span[contains(@title,'Розширений пошук')]");
 
-    public ClubsPage openClubsPage(){
+    public ClubsPage openClubsPage() {
         clubs.click();
         return new ClubsPage();
     }
 
-    public ChallengeMenu openChallengeMenu(){
+    public ChallengeMenu openChallengeMenu() {
         challenge.click();
         return new ChallengeMenu();
     }
 
-    public NewsPage openNewsPage(){
+    public NewsPage openNewsPage() {
         news.click();
         return new NewsPage();
     }
 
-    public AboutUsPage openAboutPage(){
+    public AboutUsPage openAboutPage() {
         about.click();
         return new AboutUsPage();
     }
 
-    public ServicesInUkrainianPage openServicesInUkrainianPage(){
+    public ServicesInUkrainianPage openServicesInUkrainianPage() {
         servicesInUkrainian.click();
         return new ServicesInUkrainianPage();
     }
 
-    public CitiesMenu openCitiesMenu(){
+    public CitiesMenu openCitiesMenu() {
         city.click();
         return new CitiesMenu();
     }
 
-    public AddClubModal openAddClubModal(){
+    public AddClubModal openAddClubModal() {
         addClub.click();
         addClubModal.shouldBe(visible, Duration.ofSeconds(2));
         return new AddClubModal();
     }
 
-    public GuestProfileMenu openGuestProfileMenu(){
+    public GuestProfileMenu openGuestProfileMenu() {
         userProfile.click();
         return new GuestProfileMenu();
     }
 
-    public ProfileMenu openProfileMenu(){
+    public ProfileMenu openProfileMenu() {
         userProfile.click();
         return new ProfileMenu();
     }
 
-    public String getLogoURL(){
+    public String getLogoURL() {
         return logo.$x("/parent::a").getAttribute("href");
+    }
+
+    public SelenideElement getAdvancedSearchBtn() {
+        return advancedSearchBtn;
+    }
+
+    public AdvancedSearch clickAdvancedSearchBtn() {
+        getAdvancedSearchBtn().click();
+        return new AdvancedSearch();
     }
 }
