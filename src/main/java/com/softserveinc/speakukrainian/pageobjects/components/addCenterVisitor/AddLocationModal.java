@@ -31,7 +31,7 @@ public class AddLocationModal extends BasePage {
             $$x("#/html/body/div[9]/div/div/div[2]/div[1]/div/div/div");
 
     public static final SelenideElement ADD_BUTTON =
-            $x("button[class='ant-btn css-18v7s9k ant-btn-default flooded-button add-club-content-next']");
+            $x("//div[contains(@class, 'add-club-content-footer')]/button[contains(@class,'add-club-content-next')]");
     public static final SelenideElement CLOSE_BUTTON =
             $x("/html/body/div[6]/div/div[2]/div/div[2]/button");
     public static final SelenideElement LOCATION_ERROR = $("#name_help");
