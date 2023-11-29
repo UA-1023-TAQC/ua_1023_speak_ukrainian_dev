@@ -14,6 +14,7 @@ import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
 import static com.codeborne.selenide.CollectionCondition.empty;
+import static com.codeborne.selenide.Selenide.$x;
 
 
 public class DirectorProfilePageTest extends TestRunnerWithDirector {
@@ -76,7 +77,6 @@ public class DirectorProfilePageTest extends TestRunnerWithDirector {
             addClub.getDescription().sendKeys(Keys.BACK_SPACE);
         addClub.getErrorMessagesAboutDescription().shouldBe(empty);
         softAssert.assertAll();
-        addClub.clickComplete();
     }
 
     @Test
@@ -87,26 +87,11 @@ public class DirectorProfilePageTest extends TestRunnerWithDirector {
     }
     @AfterMethod
     public  void  closeWindow(){
-        addClub.clickComplete();
-        homePage
-                .getHeader()
-                .openProfileMenu()
-                .openMyProfilePage();
-        var cp = new ClubsPage()
-                .getClubsCard();
-        System.out.println((cp));
+        addClub.clickCloseBtn();
         homePage
                 .getHeader()
                 .openProfileMenu()
                 .logout();
-
-    }
-
-    @Test
-    public void verifyAddClubModalCloseButton() {
-        addClub.clickBackBtn()
-                .clickBackBtn()
-                .clickCloseBtn();
     }
 
 }

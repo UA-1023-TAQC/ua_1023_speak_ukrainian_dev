@@ -15,7 +15,7 @@ import static com.codeborne.selenide.Selenide.*;
 @Getter
 public class AddClubModal {
 
-    private final SelenideElement CloseBtn = $x("/html/body/div[6]/div/div[2]/div/div[2]/button");
+    private final SelenideElement CloseBtn = $x("/html/body/div[7]/div/div[2]/div/div[2]/button");
     private final SelenideElement title = $x("//div[contains(text(), 'Додати гурток')]");
     private final SelenideElement ClubName = $x("//input[@id='basic_name']");
     private final ElementsCollection Categories = $$x("//div[@id='basic_categories']/label");
