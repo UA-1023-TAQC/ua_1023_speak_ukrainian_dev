@@ -18,10 +18,10 @@ public abstract class BasePage {
         for (int i=0; i<count; i++) {
             actions()
                     .sendKeys(Keys.ARROW_DOWN)
-                    .sendKeys(Keys.ENTER)
                     .build()
                     .perform();
         }
+        actions().sendKeys(Keys.ENTER).build().perform();
     }
 
     public Header getHeader() {
