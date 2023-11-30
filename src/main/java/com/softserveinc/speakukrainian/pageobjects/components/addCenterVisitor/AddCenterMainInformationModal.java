@@ -1,5 +1,6 @@
 package com.softserveinc.speakukrainian.pageobjects.components.addCenterVisitor;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import lombok.Getter;
 
@@ -85,6 +86,20 @@ public class AddCenterMainInformationModal extends BaseComponent {
     public AddCenterContactsModal clickAddLocation(){
         getAddLocation().click();
         return new AddCenterContactsModal();
+    }
+
+    public AddLocationModal openAddLocationModal(){
+        getAddLocation().click();
+        return new AddLocationModal();
+    }
+
+    public static boolean isNewLocationPresent(String locationName) {
+        try {
+            $x("//span[contains(text(), '" + locationName + "')]").shouldBe(Condition.visible);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public SelenideElement getCreatedLocation() {
