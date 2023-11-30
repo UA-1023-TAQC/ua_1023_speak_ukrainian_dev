@@ -6,6 +6,7 @@ import com.softserveinc.speakukrainian.pageobjects.BasePage;
 import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
 import lombok.Getter;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
 @Getter
@@ -36,9 +37,9 @@ public class AddLocationModal extends BasePage {
             $x("/html/body/div[6]/div/div[2]/div/div[2]/button");
     public static final SelenideElement LOCATION_ERROR = $("#name_help");
     public static final SelenideElement CITY_NAME_ERROR = $("#cityName_help");
-    public static final SelenideElement GEOGRAPHICAL_COORDINATES_ERROR = $x("#address_help");
-    public static final SelenideElement PHONE_ERROR = $("#coordinates_help");
-    public static final SelenideElement ADDRESS_ERROR = $("#phone_help");
+    public static final SelenideElement ADDRESS_ERROR = $("#address_help");
+    public static final SelenideElement GEOGRAPHICAL_COORDINATES_ERROR = $("#coordinates_help");
+    public static final SelenideElement PHONE_ERROR = $("#phone_help");
 
 
     public SelenideElement getModalTitle() {
@@ -75,9 +76,13 @@ public class AddLocationModal extends BasePage {
     }
 
     public AddLocationModal clickCityDropDown(int count) {
-        getCity().click();
+        getCityNameDropdown().click();
         pressArrowDown(count);
         return this;
+    }
+
+    public SelenideElement getCityNameDropdown() {
+        return DROPDOWN_CITY_NAME;
     }
 
     public SelenideElement getCityDistrict() {
@@ -211,9 +216,9 @@ public class AddLocationModal extends BasePage {
         return getAddButton().getText();
     }
 
-    public AddCenterContactsModal clickAddButton(){
+    public AddCenterMainInformationModal clickAddButton(){
         getAddButton().click();
-        return new AddCenterContactsModal();
+        return new AddCenterMainInformationModal();
     }
 
     public SelenideElement getCloseButton() {
@@ -225,4 +230,29 @@ public class AddLocationModal extends BasePage {
         return new HomePage();
     }
 
+    public static boolean isLocationErrorDisplayed() {
+        return LOCATION_ERROR.has(text("Некоректна назва локації"));
+    }
+
+    public static boolean isCityNameErrorDisplayed() {
+        return CITY_NAME_ERROR.has(text("Це поле є обов'язковим"));
+    }
+
+    public static boolean isAddressErrorDisplayed() {
+        return ADDRESS_ERROR.has(text("Це поле є обов'язковим\n" +
+                "Некоректна адреса"));
+    }
+
+    public static boolean isGeographicalCoordinatesErrorDisplayed() {
+        return GEOGRAPHICAL_COORDINATES_ERROR.has(text("Некоректні координати"));
+    }
+
+    public static boolean isPhoneErrorDisplayed() {
+        return PHONE_ERROR.has(text("Це поле є обов'язковим"));
+    }
+
+    public static boolean areErrorsDisplayed() {
+        return isLocationErrorDisplayed() || isCityNameErrorDisplayed() || isAddressErrorDisplayed() ||
+                isGeographicalCoordinatesErrorDisplayed() || isPhoneErrorDisplayed();
+    }
 }
