@@ -9,7 +9,6 @@ import com.softserveinc.speakukrainian.pageobjects.personalcabinet.EditProfileMo
 import com.softserveinc.speakukrainian.pageobjects.personalcabinet.MyProfilePage;
 import com.softserveinc.speakukrainian.pageobjects.personalcabinet.VisitorPersonalCabinetComponent;
 import com.softserveinc.speakukrainian.utils.TestRunner;
-import com.softserveinc.speakukrainian.utils.TestRunnerWithAdmin;
 import com.softserveinc.speakukrainian.utils.TestRunnerWithVisitor;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -20,7 +19,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.softserveinc.speakukrainian.utils.PropertyUtil.getVisitorEmail;
 import static com.softserveinc.speakukrainian.utils.PropertyUtil.getVisitorPassword;
 
-public class VisitorProfilePageTest extends TestRunnerWithAdmin {
+public class VisitorProfilePageTest extends TestRunnerWithVisitor {
 
     @Test
     public void verifyVisitorCanOpenApplicationsPage() {
