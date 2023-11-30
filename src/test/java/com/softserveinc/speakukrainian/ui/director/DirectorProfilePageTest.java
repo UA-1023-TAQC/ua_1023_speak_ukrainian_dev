@@ -1,8 +1,4 @@
-<<<<<<<< HEAD:src/test/java/com/softserveinc/speakukrainian/director/DirectorProfilePageTest.java
-package com.softserveinc.speakukrainian.director;
-========
-package com.softserveinc.speakukrainian.ui;
->>>>>>>> dev:src/test/java/com/softserveinc/speakukrainian/ui/DirectorProfilePageTest.java
+package com.softserveinc.speakukrainian.ui.director;
 
 import com.softserveinc.speakukrainian.pageobjects.components.AddClubModal;
 import com.softserveinc.speakukrainian.utils.TestRunnerWithDirector;
