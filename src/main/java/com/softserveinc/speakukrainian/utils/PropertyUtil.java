@@ -51,4 +51,8 @@ public class PropertyUtil {
 
     public static String getAdminPassword() { return getProperty("admin.password"); }
 
+    public static String getDbUrl() { return getProperty("db.url"); }
+    public static String getDbUserName() { return getProperty("db.user.name"); }
+    public static String getDbUserPassword() { return getProperty("db.user.password"); }
+
 }

@@ -1,10 +1,8 @@
-package com.softserveinc.speakukrainian.guest;
+package com.softserveinc.speakukrainian.ui.guest;
 
 import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
 import com.softserveinc.speakukrainian.utils.TestRunner;
 import org.testng.annotations.Test;
-
-import static com.codeborne.selenide.Condition.text;
 
 public class MovomarathonPage extends TestRunner {
 
