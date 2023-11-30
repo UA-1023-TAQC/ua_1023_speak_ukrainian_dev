@@ -1,23 +1,13 @@
-package com.softserveinc.speakukrainian.visitor;
+package com.softserveinc.speakukrainian.ui.visitor;
 
 import com.softserveinc.speakukrainian.pageobjects.components.Header;
-import com.softserveinc.speakukrainian.pageobjects.components.ProfileMenu;
-import com.softserveinc.speakukrainian.pageobjects.components.UserHomePage;
-import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
 
 import com.softserveinc.speakukrainian.pageobjects.personalcabinet.EditProfileModal;
-import com.softserveinc.speakukrainian.pageobjects.personalcabinet.MyProfilePage;
-import com.softserveinc.speakukrainian.pageobjects.personalcabinet.VisitorPersonalCabinetComponent;
-import com.softserveinc.speakukrainian.utils.TestRunner;
 import com.softserveinc.speakukrainian.utils.TestRunnerWithVisitor;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.Assertion;
 import org.testng.asserts.SoftAssert;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.softserveinc.speakukrainian.utils.PropertyUtil.getVisitorEmail;
-import static com.softserveinc.speakukrainian.utils.PropertyUtil.getVisitorPassword;
 
 public class VisitorProfilePageTest extends TestRunnerWithVisitor {
 
