@@ -86,4 +86,9 @@ public class Header {
         getAdvancedSearchBtn().click();
         return new AdvancedSearch();
     }
+
+    public Header clickLogo(){
+        getLogo().click();
+        return this;
+    }
 }

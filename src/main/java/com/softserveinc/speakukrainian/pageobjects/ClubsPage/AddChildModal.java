@@ -2,8 +2,6 @@ package com.softserveinc.speakukrainian.pageobjects.ClubsPage;
 
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Condition.empty;
-import static com.codeborne.selenide.Condition.value;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 

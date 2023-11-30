@@ -2,9 +2,9 @@ package com.softserveinc.speakukrainian.pageobjects.components.AdvancedSearch;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import com.softserveinc.speakukrainian.pageobjects.ClubsPage.ClubsPage;
 import lombok.Getter;
 
-import static com.codeborne.selenide.Condition.disabled;
 import static com.codeborne.selenide.Selenide.*;
 
 @Getter
@@ -25,6 +25,19 @@ public class AdvancedSearch {
             "input[type='checkbox']");
 
     private final SelenideElement AdvancedSearchComponent = $("aside");
+
+
+    public final SelenideElement sortBlock = $("div.club-list-control");
+
+    public ClubsPage clickSortByAlphabetOrRating(String sortBy) {
+        getSortBlock().$x(".//span[contains(text(), '" + sortBy + "')]").click();
+        return new ClubsPage();
+    }
+
+    public ClubsPage clickArrowOfChangeSorting(String arrowUpOrDown) {
+        getSortBlock().$x("//span[@aria-label= '" + arrowUpOrDown + "']").click(); //arrow-up or arrow-down
+        return new ClubsPage();
+    }
 
     public String getTitleText() {
         return titleComponent.text();
