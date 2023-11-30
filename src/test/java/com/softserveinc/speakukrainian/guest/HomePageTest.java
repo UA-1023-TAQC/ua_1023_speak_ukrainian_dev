@@ -1,5 +1,4 @@
 package com.softserveinc.speakukrainian.guest;
-package com.softserveinc.speakukrainian;
 
 import com.softserveinc.speakukrainian.pageobjects.components.AdvancedSearch.AdvancedSearch;
 import com.softserveinc.speakukrainian.pageobjects.components.LoginModal;

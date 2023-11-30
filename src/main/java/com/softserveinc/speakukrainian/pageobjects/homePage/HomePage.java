@@ -9,6 +9,7 @@ import com.softserveinc.speakukrainian.pageobjects.components.Header;
 import lombok.Getter;
 
 import static com.codeborne.selenide.Selenide.*;
+import static com.softserveinc.speakukrainian.utils.PropertyUtil.getAdminHomePageUrl;
 import static com.softserveinc.speakukrainian.utils.PropertyUtil.getHomePageUrl;
 
 @Getter
@@ -41,6 +42,10 @@ public class HomePage extends BasePage {
         return this;
     }
 
+    public HomePage openAdmin() {
+        Selenide.open(getAdminHomePageUrl());
+        return this;
+    }
     public String getClubsHeaderButtonText() {
         return getClubsHeaderButton().getText();
     }

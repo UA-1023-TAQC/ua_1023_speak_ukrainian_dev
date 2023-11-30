@@ -23,6 +23,10 @@ public class PropertyUtil {
         return getProperty("home.base.url");
     }
 
+    public static String getAdminHomePageUrl() {
+        return getProperty("home.base.admin.url");
+    }
+
     public static int getDefaultTimeOut() {
         return Integer.parseInt(getProperty("default.driver.timeout"));
     }
