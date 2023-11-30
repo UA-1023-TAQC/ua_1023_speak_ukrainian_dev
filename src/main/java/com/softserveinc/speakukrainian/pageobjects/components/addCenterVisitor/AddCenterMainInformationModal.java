@@ -17,7 +17,7 @@ public class AddCenterMainInformationModal extends BaseComponent {
     public static final SelenideElement CREATED_LOCATION =
             $x("//button[@class='ant-btn css-18v7s9k ant-btn-default add-location-btn']");
     public static final SelenideElement CHECKBOX_LOCATION = $x("//input[@class='ant-checkbox-input']");
-    public static final SelenideElement ERROR_LOCATION = $x("//span[contains(text(), 'Локації')]");
+    public static final SelenideElement ERROR_LOCATION = $("div#basic_locations_help");
     public static final SelenideElement TOOLTIP = $("div[role='tooltip']");
 
 

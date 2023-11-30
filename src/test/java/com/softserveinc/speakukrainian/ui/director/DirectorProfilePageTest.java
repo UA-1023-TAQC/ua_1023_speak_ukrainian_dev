@@ -1,4 +1,4 @@
-package com.softserveinc.speakukrainian.ui;
+package com.softserveinc.speakukrainian.ui.director;
 
 import com.softserveinc.speakukrainian.pageobjects.components.AddClubModal;
 import com.softserveinc.speakukrainian.utils.TestRunnerWithDirector;

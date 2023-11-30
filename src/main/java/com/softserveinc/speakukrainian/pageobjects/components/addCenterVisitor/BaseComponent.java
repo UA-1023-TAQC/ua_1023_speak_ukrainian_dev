@@ -4,10 +4,11 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.softserveinc.speakukrainian.pageobjects.BasePage;
 import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
+import lombok.Getter;
 
-import static com.codeborne.selenide.Selenide.$$x;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
 
+@Getter
 public class BaseComponent extends BasePage {
 
     public static final SelenideElement TITLE_MODAL =
@@ -17,6 +18,8 @@ public class BaseComponent extends BasePage {
     public static final SelenideElement NEXT_STEP_BUTTON = $x("//span[contains(text(), 'Наступний крок')]");
     public static final SelenideElement BACK_BUTTON = $x("//span[contains(text(), 'Назад')]");
     public static final SelenideElement CLOSE_WINDOW_BUTTON = $x("//button[@aria-label]");
+    public final SelenideElement closeAddCenterModalButton = $(".addCenter button.ant-modal-close");
+
     public ElementsCollection getListMenuItems(){
         return MENU_ITEMS;
     }
