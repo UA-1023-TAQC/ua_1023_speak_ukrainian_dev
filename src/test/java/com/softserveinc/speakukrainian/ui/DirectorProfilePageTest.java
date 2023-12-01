@@ -40,7 +40,7 @@ public class DirectorProfilePageTest extends TestRunnerWithDirector {
     }
 
     @Test
-    public void verifyThatErroMessageAppearsWhenTheUserEntersLessThan40Symbols() {
+    public void verifyThatErroMessageAppearsWhenTheUserEntersLessThan40SymbolsOrMoreThan1500Symbols() {
         addClub.setDescription(CLUB_DESCRIPTION.substring(0, 39));
 
         SoftAssert softAssert = new SoftAssert();
