@@ -27,6 +27,8 @@ public class Header {
     private final SelenideElement addClubModal = $x("//div[contains(text(), 'Додати гурток')]/ancestor::div[@role='dialog']");
     private final SelenideElement userProfile = $x("//header//div[contains(@class,'user-profile')]");
     private final SelenideElement advancedSearchBtn = $x("//span[contains(@title,'Розширений пошук')]");
+    private final SelenideElement inputSearch = $x("//input[@class='ant-select-selection-search-input']");
+    private final SelenideElement inputSearchBtn = $x("//span[@class='anticon anticon-search advanced-icon']");
 
     public ClubsPage openClubsPage() {
         clubs.click();
@@ -90,5 +92,15 @@ public class Header {
     public Header clickLogo(){
         getLogo().click();
         return this;
+    }
+
+    public Header setValueInputSearch(String value){
+        getInputSearch().setValue(value);
+        return this;
+    }
+
+    public ClubsPage clickSearch(String value){
+        getInputSearchBtn().click();
+        return new ClubsPage();
     }
 }
