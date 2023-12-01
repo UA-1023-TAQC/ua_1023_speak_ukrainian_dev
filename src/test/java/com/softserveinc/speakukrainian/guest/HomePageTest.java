@@ -1,15 +1,20 @@
 package com.softserveinc.speakukrainian.guest;
 package com.softserveinc.speakukrainian;
 
+import com.softserveinc.speakukrainian.pageobjects.ClubsPage.ClubsPage;
 import com.softserveinc.speakukrainian.pageobjects.components.AdvancedSearch.AdvancedSearch;
+import com.softserveinc.speakukrainian.pageobjects.components.Header;
 import com.softserveinc.speakukrainian.pageobjects.components.LoginModal;
 import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
 import com.softserveinc.speakukrainian.utils.TestRunner;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+import java.util.concurrent.TimeUnit;
 
 import static com.codeborne.selenide.Condition.visible;
-import static org.testng.Assert.assertFalse;
-import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.*;
 
 public class HomePageTest extends TestRunner {
 
@@ -34,5 +39,42 @@ public class HomePageTest extends TestRunner {
                 .clickAdvancedSearchBtn();
         assertFalse(close.isTitleDisplayed(), "Advanced Search Component is displayed");
         open.getAdvancedSearchComponent().shouldNotBe(visible);
+    }
+
+    @DataProvider(name = "searchTexts")
+    public Object[][] getSearchTexts() {
+        String searchText = "abcdeabcdeabcdeabcdeabcdeabcdeab" +
+                "cdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdea" +
+                "bcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcde" +
+                "abcdeabcdeabcdeabcdeabcdeabcd";
+        return new Object[][]{
+                {"a"},
+                {searchText},
+                {searchText + "a"}
+        };
+    }
+
+    @Test
+    public void verifySearchFieldBehaviorForInvalidNumberOfSymbolsEntered(){
+        String text1 = "a";
+        Header header = homePage.getHeader();
+        header.setSearchClub(text1);
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(header.getSearchClubInputLength(), text1.length());
+
+        String text2 = text1 + "bcdeabcdeabcdeabcdeabcdeabcdeab" +
+                "cdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdea" +
+                "bcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcde" +
+                "abcdeabcdeabcdeabcdeabcdeabcde";
+        header.setSearchClub(text2);
+        softAssert.assertEquals(header.getSearchClubInputLength(), text2.length());
+        ClubsPage clubsPage = new ClubsPage();
+        softAssert.assertEquals(clubsPage.getClubsNotFoundText(),"За критеріями пошуку гуртків не знайдено");
+
+        String text3 = text2 + "a";
+        header.setSearchClub(text3);
+        softAssert.assertEquals(header.getSearchClubInputLength(), text3.length());
+        softAssert.assertEquals(clubsPage.getClubsNotFoundText(),"За критеріями пошуку гуртків не знайдено");
+        softAssert.assertAll();
     }
 }
