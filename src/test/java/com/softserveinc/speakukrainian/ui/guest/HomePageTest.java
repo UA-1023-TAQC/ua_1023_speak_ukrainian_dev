@@ -1,17 +1,12 @@
-package com.softserveinc.speakukrainian.guest;
-package com.softserveinc.speakukrainian;
+package com.softserveinc.speakukrainian.ui.guest;
 
 import com.softserveinc.speakukrainian.pageobjects.ClubsPage.ClubsPage;
 import com.softserveinc.speakukrainian.pageobjects.components.AdvancedSearch.AdvancedSearch;
 import com.softserveinc.speakukrainian.pageobjects.components.Header;
-import com.softserveinc.speakukrainian.pageobjects.components.LoginModal;
 import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
 import com.softserveinc.speakukrainian.utils.TestRunner;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-
-import java.util.concurrent.TimeUnit;
 
 import static com.codeborne.selenide.Condition.visible;
 import static org.testng.Assert.*;
@@ -39,19 +34,6 @@ public class HomePageTest extends TestRunner {
                 .clickAdvancedSearchBtn();
         assertFalse(close.isTitleDisplayed(), "Advanced Search Component is displayed");
         open.getAdvancedSearchComponent().shouldNotBe(visible);
-    }
-
-    @DataProvider(name = "searchTexts")
-    public Object[][] getSearchTexts() {
-        String searchText = "abcdeabcdeabcdeabcdeabcdeabcdeab" +
-                "cdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdea" +
-                "bcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcde" +
-                "abcdeabcdeabcdeabcdeabcdeabcd";
-        return new Object[][]{
-                {"a"},
-                {searchText},
-                {searchText + "a"}
-        };
     }
 
     @Test
