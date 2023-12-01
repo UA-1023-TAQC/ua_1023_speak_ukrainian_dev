@@ -27,6 +27,8 @@ public class Header {
     private final SelenideElement addClubModal = $x("//div[contains(text(), 'Додати гурток')]/ancestor::div[@role='dialog']");
     private final SelenideElement userProfile = $x("//header//div[contains(@class,'user-profile')]");
     private final SelenideElement advancedSearchBtn = $x("//span[contains(@title,'Розширений пошук')]");
+    private final SelenideElement searchClubInput = $x("//input[contains(@class,'ant-select-selection-search-input')]");
+    private final SelenideElement searchBtn = $x("//span[@class='anticon anticon-search advanced-icon']");
 
     public ClubsPage openClubsPage() {
         clubs.click();
@@ -85,5 +87,20 @@ public class Header {
     public AdvancedSearch clickAdvancedSearchBtn() {
         getAdvancedSearchBtn().click();
         return new AdvancedSearch();
+    }
+
+    public Header setSearchClub(String text){
+        searchClubInput.clear();
+        searchClubInput.sendKeys(text);
+        return this;
+    }
+
+    public int getSearchClubInputLength(){
+        return searchClubInput.getAttribute("value").length();
+    }
+
+    public ClubsPage clickSearchBtn(){
+        searchBtn.click();
+        return new ClubsPage();
     }
 }
