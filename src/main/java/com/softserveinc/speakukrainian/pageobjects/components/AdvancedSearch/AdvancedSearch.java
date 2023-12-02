@@ -1,5 +1,7 @@
 package com.softserveinc.speakukrainian.pageobjects.components.AdvancedSearch;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.softserveinc.speakukrainian.pageobjects.ClubsPage.ClubsPage;
@@ -34,8 +36,8 @@ public class AdvancedSearch {
         return new ClubsPage();
     }
 
-    public ClubsPage clickArrowOfChangeSorting(String arrowUpOrDown) {
-        getSortBlock().$x("//span[@aria-label= '" + arrowUpOrDown + "']").click(); //arrow-up or arrow-down
+    public ClubsPage clickArrowUpOrDown(String upOrDown){
+        getSortBlock().$x(".//span[@aria-label='" + upOrDown + "']").click(); //arrow-up or arrow-down
         return new ClubsPage();
     }
 
@@ -69,8 +71,9 @@ public class AdvancedSearch {
         return centreRadioButtonLabel.text();
     }
 
-    public void clickOnCityDropDownMenu(){
+    public AdvancedSearch clickOnCityDropDownMenu(){
         cityDropDownMenu.click();
+        return this;
     }
 
     public AdvancedSearch selectCityFromDropDown(String cityName){
@@ -108,8 +111,9 @@ public class AdvancedSearch {
         return remoteCheckbox.isSelected();
     }
 
-    public void clickOnCategoriesCheckbox(int index) {
+    public AdvancedSearch clickOnCategoriesCheckbox(int index) {
         categoriesCheckboxesBlock.get(index).click();
+        return this;
     }
 
     public boolean isCategoriesCheckboxSelectedByIndex(int index) {
