@@ -31,15 +31,10 @@ public class AdvancedSearch {
 
     public final SelenideElement sortBlock = $("div.club-list-control");
 
-    public ClubsPage clickSortByAlphabetOrRating(String sortBy) {
-        getSortBlock().$x(".//span[contains(text(), '" + sortBy + "')]").click();
-        return new ClubsPage();
+    public SortingBlock getSortBlock(){
+        return new SortingBlock(sortBlock);
     }
 
-    public ClubsPage clickArrowUpOrDown(String upOrDown){
-        getSortBlock().$x(".//span[@aria-label='" + upOrDown + "']").click(); //arrow-up or arrow-down
-        return new ClubsPage();
-    }
 
     public String getTitleText() {
         return titleComponent.text();

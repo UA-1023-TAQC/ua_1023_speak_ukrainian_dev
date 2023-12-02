@@ -4,8 +4,7 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import lombok.Getter;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Objects;
 
 @Getter
 public class ClubCardComponent {
@@ -32,19 +31,15 @@ public class ClubCardComponent {
         return new ClubDetailPage();
     }
 
-    public List<String> getCountOfRating() {
-        List<String> res = new ArrayList<>(getRatingList().size());
+    public Integer getCountOfRating() {
         int count = 0;
-        String i;
         for (SelenideElement rate : ratingList) {
 
-//            res.add(rate.getAttribute("aria-checked"));
-//            List<String> my = rate.getAttribute("aria-checked");
-            if (rate.getAttribute("aria-checked").equals("false")) ;
-                res.add(rate.getAttribute("aria-checked"));
-
+            if (Objects.equals(rate.getAttribute("aria-checked"), "true")) {
+                count++;
+            }
         }
-        return res;
+        return count;
 
     }
 

@@ -1,14 +1,17 @@
 package com.softserveinc.speakukrainian.guest;
 
 import com.softserveinc.speakukrainian.pageobjects.ClubsPage.ClubCardComponent;
+import com.softserveinc.speakukrainian.pageobjects.ClubsPage.ClubsPage;
 import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
 import com.softserveinc.speakukrainian.utils.TestRunner;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
+import static com.codeborne.selenide.Selenide.refresh;
 import static org.testng.Assert.assertEquals;
 
 public class ClubsPageTest extends TestRunner {
@@ -75,24 +78,41 @@ public class ClubsPageTest extends TestRunner {
 
 
 
-        ClubCardComponent ls =  new HomePage()
+        List<ClubCardComponent> ls =  new HomePage()
                 .getHeader()
                 .clickAdvancedSearchBtn()
                 .clickOnCityDropDownMenu()
                 .selectCityFromDropDown("Харків")
-                .clickSortByAlphabetOrRating("за алфавітом")
-                .getClubsCard()
-                .get(1);
-        String clubName = ls.getClubNameText();
-//        List<List<String>> expectedSortItemsRating = new ArrayList<>();
-//        for (ClubCardComponent tmp : ls) {
-//
-//            expectedSortItemsRating.add(tmp.getCountOfRating());
-//        }
+                .getSortBlock()
+                .clickSortByAlphabetOrRating("за рейтингом")
+                .getClubsCard();
 
-        System.out.println("count" + clubName);
-//        System.out.println("count" + expectedSortItemsRating.size());
-//        System.out.println("counts" + ls.size());
+        List<Integer> actualSortItemsRating = new ArrayList<>();
+        for (ClubCardComponent tmp : ls) {
+
+            actualSortItemsRating.add(tmp.getCountOfRating());
+        }
+
+        System.out.println("count" +  actualSortItemsRating);
+        System.out.println("count" + actualSortItemsRating.size());
+        System.out.println("counts" + ls.size());
+
+        refresh();
+
+                homePage
+                .getHeader()
+                .clickAdvancedSearchBtn()
+                .clickOnCityDropDownMenu()
+                .selectCityFromDropDown("Харків");
+
+        List<ClubCardComponent> ls1 = new ClubsPage()
+                .getClubsCard();
+        List<Integer> expectedSortItemsRating = new ArrayList<>();
+        for (ClubCardComponent tmp : ls1) {
+            expectedSortItemsRating.add(tmp.getCountOfRating());
+        }
+        Collections.sort(expectedSortItemsRating);
+        System.out.println("count" +  expectedSortItemsRating);
     }
 
 }
