@@ -2,6 +2,7 @@ package com.softserveinc.speakukrainian.guest;
 
 import com.softserveinc.speakukrainian.pageobjects.ClubsPage.ClubCardComponent;
 import com.softserveinc.speakukrainian.pageobjects.ClubsPage.ClubsPage;
+import com.softserveinc.speakukrainian.pageobjects.components.AdvancedSearch.AdvancedSearch;
 import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
 import com.softserveinc.speakukrainian.utils.TestRunner;
 import org.testng.annotations.BeforeMethod;
@@ -26,93 +27,116 @@ public class ClubsPageTest extends TestRunner {
 
     @Test
     public void testSortClubsCart() {
-//        List<ClubCardComponent> clubsCardsExpectedList;
-//        List<ClubCardComponent> clubsCardsActualList;
-//
-//        clubsCardsActualList = new HomePage()
-//                .getHeader()
-//                .clickAdvancedSearchBtn()
-//                .clickOnCityDropDownMenu()
-//                .selectCityFromDropDown("Харків")
-//                .clickSortByAlphabetOrRating("за алфавітом")
-//                .getClubsCard();
-//
-//        List<String> actualSortItems = new ArrayList<>();
-//        for (ClubCardComponent tmp : clubsCardsActualList) {
-//            actualSortItems.add(tmp.getClubNameText());
-//        }
-//
-//        refresh();
-////        Configuration.pageLoadStrategy = "normal";
-//
-//        homePage
-//                .getHeader()
-//                .clickAdvancedSearchBtn()
-//                .clickOnCityDropDownMenu()
-//                .selectCityFromDropDown("Харків");
-//
-//        clubsCardsExpectedList = new ClubsPage()
-//                .getClubsCard();
-//        List<String> expectedSortItems = new ArrayList<>();
-//        for (ClubCardComponent tmp : clubsCardsExpectedList) {
-//            expectedSortItems.add(tmp.getClubNameText());
-//        }
-//
-//        Collections.sort(expectedSortItems);
-//        assertEquals(expectedSortItems, actualSortItems);
-//
-//        clubsCardsActualList = new AdvancedSearch()
-//                .clickArrowUpOrDown("arrow-up")
-//                .getClubsCard();
-//
-//        List<String> actualSortItemsReverse = new ArrayList<>();
-//        for (ClubCardComponent tmp : clubsCardsActualList) {
-//            actualSortItemsReverse.add(tmp.getClubNameText());
-//        }
-//
-//        Collections.reverse(expectedSortItems);
-//
-//        assertEquals(expectedSortItems, actualSortItemsReverse);
+        List<ClubCardComponent> clubsCardsExpectedListByAlphabet;
+        List<ClubCardComponent> clubsCardsActualListByAlphabet;
 
-
-
-
-
-        List<ClubCardComponent> ls =  new HomePage()
+        clubsCardsActualListByAlphabet = new HomePage()
                 .getHeader()
                 .clickAdvancedSearchBtn()
                 .clickOnCityDropDownMenu()
                 .selectCityFromDropDown("Харків")
                 .getSortBlock()
-                .clickSortByAlphabetOrRating("за рейтингом")
+                .clickSortByAlphabetOrRating("за алфавітом")
                 .getClubsCard();
 
-        List<Integer> actualSortItemsRating = new ArrayList<>();
-        for (ClubCardComponent tmp : ls) {
-
-            actualSortItemsRating.add(tmp.getCountOfRating());
+        List<String> actualSortItemsByAlphabet = new ArrayList<>();
+        for (ClubCardComponent tmp : clubsCardsActualListByAlphabet) {
+            actualSortItemsByAlphabet.add(tmp.getClubNameText());
         }
 
-        System.out.println("count" +  actualSortItemsRating);
-        System.out.println("count" + actualSortItemsRating.size());
-        System.out.println("counts" + ls.size());
-
         refresh();
+//        Configuration.pageLoadStrategy = "normal";
 
-                homePage
+        homePage
                 .getHeader()
                 .clickAdvancedSearchBtn()
                 .clickOnCityDropDownMenu()
                 .selectCityFromDropDown("Харків");
 
-        List<ClubCardComponent> ls1 = new ClubsPage()
+        clubsCardsExpectedListByAlphabet = new ClubsPage()
                 .getClubsCard();
-        List<Integer> expectedSortItemsRating = new ArrayList<>();
-        for (ClubCardComponent tmp : ls1) {
-            expectedSortItemsRating.add(tmp.getCountOfRating());
+        List<String> expectedSortItemsByAlphabet = new ArrayList<>();
+        for (ClubCardComponent tmp : clubsCardsExpectedListByAlphabet) {
+            expectedSortItemsByAlphabet.add(tmp.getClubNameText());
         }
-        Collections.sort(expectedSortItemsRating);
-        System.out.println("count" +  expectedSortItemsRating);
+
+        Collections.sort(expectedSortItemsByAlphabet);
+        assertEquals(expectedSortItemsByAlphabet, actualSortItemsByAlphabet);
+
+        clubsCardsActualListByAlphabet = new AdvancedSearch()
+                .getSortBlock()
+                .clickArrowUpOrDown("arrow-up")
+                .getClubsCard();
+
+        List<String> actualSortItemsReverse = new ArrayList<>();
+        for (ClubCardComponent tmp : clubsCardsActualListByAlphabet) {
+            actualSortItemsReverse.add(tmp.getClubNameText());
+        }
+
+        Collections.reverse(expectedSortItemsByAlphabet);
+
+        assertEquals(expectedSortItemsByAlphabet, actualSortItemsReverse);
+
+
+
+
+
+
+
+//        refresh();
+//
+//                homePage
+//                .getHeader()
+//                .clickAdvancedSearchBtn()
+//                .clickOnCityDropDownMenu()
+//                .selectCityFromDropDown("Харків");
+
+        List<ClubCardComponent> clubsCardsExpectedListByRating = new ClubsPage()
+                .getClubsCard();
+        List<Integer> expectedSortItemsByRating = new ArrayList<>();
+        for (ClubCardComponent tmp : clubsCardsExpectedListByRating) {
+            expectedSortItemsByRating.add(tmp.getCountOfRating());
+        }
+        Collections.sort(expectedSortItemsByRating);
+        System.out.println("count" +  expectedSortItemsByRating);
+
+
+        List<ClubCardComponent> clubsCardsActualListByRating =  new AdvancedSearch()
+//                .getHeader()
+//                .clickAdvancedSearchBtn()
+//                .clickOnCityDropDownMenu()
+//                .selectCityFromDropDown("Харків")
+                .getSortBlock()
+                .clickSortByAlphabetOrRating("за рейтингом")
+                .getClubsCard();
+
+        List<Integer> actualSortItemsByRating = new ArrayList<>();
+        for (ClubCardComponent tmp : clubsCardsActualListByRating) {
+
+            actualSortItemsByRating.add(tmp.getCountOfRating());
+        }
+
+        System.out.println("count" +  actualSortItemsByRating);
+        System.out.println("count" + actualSortItemsByRating.size());
+        System.out.println("counts" + clubsCardsActualListByRating.size());
+
+        assertEquals(expectedSortItemsByRating, actualSortItemsByRating);
+
+
+        Collections.reverse(expectedSortItemsByRating);
+
+        List<ClubCardComponent> clubsCardsActualListByRatingReverse =  new AdvancedSearch()
+                .getSortBlock()
+                .clickArrowUpOrDown("arrow-down")
+                .getClubsCard();
+
+        List<Integer> actualSortItemsByRatingReverse = new ArrayList<>();
+        for (ClubCardComponent tmp : clubsCardsActualListByRatingReverse) {
+
+            actualSortItemsByRatingReverse.add(tmp.getCountOfRating());
+        }
+
+        assertEquals(expectedSortItemsByRating, actualSortItemsByRatingReverse);
     }
 
 }
