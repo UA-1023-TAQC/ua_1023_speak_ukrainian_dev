@@ -34,13 +34,11 @@ public class ClubCardComponent {
     public Integer getCountOfRating() {
         int count = 0;
         for (SelenideElement rate : ratingList) {
-
             if (Objects.equals(rate.getAttribute("aria-checked"), "true")) {
                 count++;
             }
         }
         return count;
-
     }
 
 }

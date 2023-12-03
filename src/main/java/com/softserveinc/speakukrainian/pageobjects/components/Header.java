@@ -86,5 +86,4 @@ public class Header {
         getAdvancedSearchBtn().click();
         return new AdvancedSearch();
     }
-
 }

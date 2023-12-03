@@ -29,7 +29,6 @@ public class ClubsPageTest extends TestRunner {
     public void testSortClubsCart() {
         List<ClubCardComponent> clubsCardsExpectedListByAlphabet;
         List<ClubCardComponent> clubsCardsActualListByAlphabet;
-
         clubsCardsActualListByAlphabet = new HomePage()
                 .getHeader()
                 .clickAdvancedSearchBtn()
@@ -38,7 +37,6 @@ public class ClubsPageTest extends TestRunner {
                 .getSortBlock()
                 .clickSortByAlphabetOrRating("за алфавітом")
                 .getClubsCard();
-
         List<String> actualSortItemsByAlphabet = new ArrayList<>();
         for (ClubCardComponent tmp : clubsCardsActualListByAlphabet) {
             actualSortItemsByAlphabet.add(tmp.getClubNameText());
@@ -51,14 +49,12 @@ public class ClubsPageTest extends TestRunner {
                 .clickAdvancedSearchBtn()
                 .clickOnCityDropDownMenu()
                 .selectCityFromDropDown("Харків");
-
         clubsCardsExpectedListByAlphabet = new ClubsPage()
                 .getClubsCard();
         List<String> expectedSortItemsByAlphabet = new ArrayList<>();
         for (ClubCardComponent tmp : clubsCardsExpectedListByAlphabet) {
             expectedSortItemsByAlphabet.add(tmp.getClubNameText());
         }
-
         Collections.sort(expectedSortItemsByAlphabet);
         assertEquals(expectedSortItemsByAlphabet, actualSortItemsByAlphabet);
 
@@ -66,7 +62,6 @@ public class ClubsPageTest extends TestRunner {
                 .getSortBlock()
                 .clickArrowUpOrDown("arrow-up")
                 .getClubsCard();
-
         List<String> actualSortItemsReverse = new ArrayList<>();
         for (ClubCardComponent tmp : clubsCardsActualListByAlphabet) {
             actualSortItemsReverse.add(tmp.getClubNameText());
@@ -81,17 +76,14 @@ public class ClubsPageTest extends TestRunner {
             expectedSortItemsByRating.add(tmp.getCountOfRating());
         }
         Collections.sort(expectedSortItemsByRating);
-
         List<ClubCardComponent> clubsCardsActualListByRating =  new AdvancedSearch()
                 .getSortBlock()
                 .clickSortByAlphabetOrRating("за рейтингом")
                 .getClubsCard();
-
         List<Integer> actualSortItemsByRating = new ArrayList<>();
         for (ClubCardComponent tmp : clubsCardsActualListByRating) {
             actualSortItemsByRating.add(tmp.getCountOfRating());
         }
-
         assertEquals(expectedSortItemsByRating, actualSortItemsByRating);
 
         Collections.reverse(expectedSortItemsByRating);
@@ -99,13 +91,10 @@ public class ClubsPageTest extends TestRunner {
                 .getSortBlock()
                 .clickArrowUpOrDown("arrow-down")
                 .getClubsCard();
-
         List<Integer> actualSortItemsByRatingReverse = new ArrayList<>();
         for (ClubCardComponent tmp : clubsCardsActualListByRatingReverse) {
-
             actualSortItemsByRatingReverse.add(tmp.getCountOfRating());
         }
-
         assertEquals(expectedSortItemsByRating, actualSortItemsByRatingReverse);
     }
 
