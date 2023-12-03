@@ -24,7 +24,6 @@ public class ClubsPageTest extends TestRunner {
                 .openClubsPage();
     }
 
-
     @Test
     public void testSortClubsCart() {
         List<ClubCardComponent> clubsCardsExpectedListByAlphabet;

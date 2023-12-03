@@ -3,10 +3,10 @@ package com.softserveinc.speakukrainian.pageobjects.components.AdvancedSearch;
 import com.codeborne.selenide.SelenideElement;
 import com.softserveinc.speakukrainian.pageobjects.ClubsPage.ClubsPage;
 
-public class SortingBlock{
+public class SortingBlockComponent {
 
     public SelenideElement node;
-    public SortingBlock(SelenideElement sortBlock) {
+    public SortingBlockComponent(SelenideElement sortBlock) {
         this.node = sortBlock;
     }
 
@@ -15,8 +15,8 @@ public class SortingBlock{
         return new ClubsPage();
     }
 
-    public ClubsPage clickArrowUpOrDown(String upOrDown){
-        this.node.$x(".//span[@aria-label='" + upOrDown + "']").click(); //arrow-up or arrow-down
+    public ClubsPage clickArrowUpOrDown(String arrowUpOrDown){
+        this.node.$x(".//span[@aria-label='" + arrowUpOrDown + "']").click(); //arrow-up or arrow-down
         return new ClubsPage();
     }
 }

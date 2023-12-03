@@ -1,10 +1,7 @@
 package com.softserveinc.speakukrainian.pageobjects.components.AdvancedSearch;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import com.softserveinc.speakukrainian.pageobjects.ClubsPage.ClubsPage;
 import lombok.Getter;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -27,12 +24,10 @@ public class AdvancedSearch {
             "input[type='checkbox']");
 
     private final SelenideElement AdvancedSearchComponent = $("aside");
-
-
     public final SelenideElement sortBlock = $("div.club-list-control");
 
-    public SortingBlock getSortBlock(){
-        return new SortingBlock(sortBlock);
+    public SortingBlockComponent getSortBlock(){
+        return new SortingBlockComponent(sortBlock);
     }
 
 
