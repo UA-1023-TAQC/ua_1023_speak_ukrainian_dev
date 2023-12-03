@@ -5,11 +5,9 @@ import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
 import com.softserveinc.speakukrainian.utils.TestRunnerWithAdmin;
 import com.softserveinc.speakukrainian.pageobjects.components.addCenterVisitor.AddLocationModal;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.page;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class LocationComponentTest extends TestRunnerWithAdmin {
     private AddLocationModal addLocationModal;
@@ -25,9 +23,7 @@ public class LocationComponentTest extends TestRunnerWithAdmin {
     public void logoutFromAccount() {
         HomePage homePage = page(HomePage.class);
         homePage.open()
-                .getHeader()
-                .openProfileMenu()
-                .logout();
+                .logOutFromSystem();
     }
 
     @Test(description = "[TUA-159] Verify that a user can add location to the list of locations after filling in only mandatory fields with valid data")
