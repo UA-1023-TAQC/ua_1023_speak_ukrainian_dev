@@ -7,17 +7,17 @@ default.driver.timeout=10
 default.browser=chrome
 
 
-admin.email=admin@gmail.com
-admin.password=admin
+admin.email=email@gmail.com
+admin.password=password
 
-user.email=yonixag616@othao.com
-user.password=Qwer!234
+user.email=email@gmail.com
+user.password=password
 
-lead.email=dokas52314@newnime.com
-lead.password=Qwer!234
+lead.email=email@gmail.com
+lead.password=password
 
-db.url=jdbc:postgresql://185.156.43.101:5432/su_dev_2
-db.user.name=su_teachua_test
-db.user.password=jKsUjok57JsqLk9k287
+db.url=jdbc:postgresql://host:port/db_name
+db.user.name=userName
+db.user.password=password
 
 ```
