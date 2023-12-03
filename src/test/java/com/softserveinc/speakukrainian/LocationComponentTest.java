@@ -22,6 +22,14 @@ public class LocationComponentTest extends TestRunnerWithAdmin {
                 .openAddLocationModal();
     }
 
+    public void logoutFromAccount() {
+        HomePage homePage = page(HomePage.class);
+        homePage.open()
+                .getHeader()
+                .openProfileMenu()
+                .logout();
+    }
+
     @Test(description = "[TUA-159] Verify that a user can add location to the list of locations after filling in only mandatory fields with valid data")
     public void verifyAddLocationMandatoryFieldsValid() {
         String locationName = "Test Location #1";
@@ -33,16 +41,13 @@ public class LocationComponentTest extends TestRunnerWithAdmin {
                 .clickAddButton();
         Assert.assertTrue(AddCenterMainInformationModal.isNewLocationPresent(locationName),
                 "New location: " + locationName + "not created");
+        logoutFromAccount();
     }
 
     @Test(description = "[TUA-160] Verify that a 'Керівник' cannot add location to the list of locations after leaving all mandatory and optional fields empty")
     public void verifyAddLocationInvalid() {
         addLocationModal.clickAddButton();
         Assert.assertTrue(AddLocationModal.areErrorsDisplayed(), "Errors should be displayed for empty fields");
-    }
-
-    @AfterMethod
-    public void refreshPage() {
-        getWebDriver().navigate().refresh();
+        logoutFromAccount();
     }
 }
