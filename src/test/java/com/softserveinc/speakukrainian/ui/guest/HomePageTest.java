@@ -1,4 +1,4 @@
-package com.softserveinc.speakukrainian.guest;
+package com.softserveinc.speakukrainian.ui.guest;
 
 import com.softserveinc.speakukrainian.pageobjects.components.AdvancedSearch.AdvancedSearch;
 import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;

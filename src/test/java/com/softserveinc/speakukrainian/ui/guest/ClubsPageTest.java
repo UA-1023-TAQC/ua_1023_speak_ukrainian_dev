@@ -1,4 +1,4 @@
-package com.softserveinc.speakukrainian.guest;
+package com.softserveinc.speakukrainian.ui.guest;
 
 import com.softserveinc.speakukrainian.pageobjects.ClubsPage.ClubCardComponent;
 import com.softserveinc.speakukrainian.pageobjects.ClubsPage.ClubsPage;
@@ -45,7 +45,6 @@ public class ClubsPageTest extends TestRunner {
         }
 
         refresh();
-//        Configuration.pageLoadStrategy = "normal";
 
         homePage
                 .getHeader()
@@ -72,24 +71,8 @@ public class ClubsPageTest extends TestRunner {
         for (ClubCardComponent tmp : clubsCardsActualListByAlphabet) {
             actualSortItemsReverse.add(tmp.getClubNameText());
         }
-
         Collections.reverse(expectedSortItemsByAlphabet);
-
         assertEquals(expectedSortItemsByAlphabet, actualSortItemsReverse);
-
-
-
-
-
-
-
-//        refresh();
-//
-//                homePage
-//                .getHeader()
-//                .clickAdvancedSearchBtn()
-//                .clickOnCityDropDownMenu()
-//                .selectCityFromDropDown("Харків");
 
         List<ClubCardComponent> clubsCardsExpectedListByRating = new ClubsPage()
                 .getClubsCard();
@@ -98,33 +81,20 @@ public class ClubsPageTest extends TestRunner {
             expectedSortItemsByRating.add(tmp.getCountOfRating());
         }
         Collections.sort(expectedSortItemsByRating);
-        System.out.println("count" +  expectedSortItemsByRating);
-
 
         List<ClubCardComponent> clubsCardsActualListByRating =  new AdvancedSearch()
-//                .getHeader()
-//                .clickAdvancedSearchBtn()
-//                .clickOnCityDropDownMenu()
-//                .selectCityFromDropDown("Харків")
                 .getSortBlock()
                 .clickSortByAlphabetOrRating("за рейтингом")
                 .getClubsCard();
 
         List<Integer> actualSortItemsByRating = new ArrayList<>();
         for (ClubCardComponent tmp : clubsCardsActualListByRating) {
-
             actualSortItemsByRating.add(tmp.getCountOfRating());
         }
 
-        System.out.println("count" +  actualSortItemsByRating);
-        System.out.println("count" + actualSortItemsByRating.size());
-        System.out.println("counts" + clubsCardsActualListByRating.size());
-
         assertEquals(expectedSortItemsByRating, actualSortItemsByRating);
 
-
         Collections.reverse(expectedSortItemsByRating);
-
         List<ClubCardComponent> clubsCardsActualListByRatingReverse =  new AdvancedSearch()
                 .getSortBlock()
                 .clickArrowUpOrDown("arrow-down")

@@ -1,4 +1,4 @@
-package com.softserveinc.speakukrainian;
+package com.softserveinc.speakukrainian.ui.guest;
 
 import com.softserveinc.speakukrainian.pageobjects.ClubsPage.ClubCardComponent;
 import com.softserveinc.speakukrainian.pageobjects.ClubsPage.ClubDetailPage;
