@@ -1,10 +1,14 @@
 package com.softserveinc.speakukrainian.pageobjects.components.AdvancedSearch;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import lombok.Getter;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import static com.codeborne.selenide.Condition.disabled;
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 @Getter
@@ -23,6 +27,8 @@ public class AdvancedSearch {
     private final SelenideElement subwayStationDropDownMenu = $x("//*[@id='basic']/div[4]");
     private final ElementsCollection categoriesCheckboxesBlock = $$("div#basic_categoriesName " +
             "input[type='checkbox']");
+    private final SelenideElement sortByList = $x("//input[@value='LIST']/ancestor::label");
+    private final SelenideElement centersSortByList = $x("//div[@class='content-center-list false']");
 
     private final SelenideElement AdvancedSearchComponent = $("aside");
 
@@ -116,6 +122,11 @@ public class AdvancedSearch {
         return this;
     }
 
+    public AdvancedSearch clickSortByList(){
+        sortByList.click();
+        return this;
+    }
+
     public boolean isCityDropDownPresent() {
         return cityDropDownMenu.exists();
     }
@@ -142,6 +153,11 @@ public class AdvancedSearch {
 
     public boolean isTitleDisplayed() {
        return this.titleComponent.isDisplayed();
+    }
+
+    public boolean isCentersSortByList(){
+        centersSortByList.shouldBe(visible);
+       return this.centersSortByList.isDisplayed();
     }
 
 }

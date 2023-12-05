@@ -6,6 +6,9 @@ import com.softserveinc.speakukrainian.utils.TestRunner;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
+
 public class AdvancedSearchTest extends TestRunner {
 
     @Test
@@ -48,5 +51,21 @@ public class AdvancedSearchTest extends TestRunner {
         softAssert.assertTrue(advancedSearch.isCategoriesCheckboxesBlockPresent());
 
         softAssert.assertAll();
+    }
+
+    @Test
+    public void centersDisplayAsList(){
+
+        AdvancedSearch advancedSearch = new HomePage()
+                .getHeader()
+                .clickAdvancedSearchBtn();
+
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertTrue(advancedSearch.isTitleDisplayed());
+        softAssert.assertTrue(advancedSearch.isClubRadioButtonSelected());
+        advancedSearch.clickOnCentreRadioButton();
+        softAssert.assertFalse(advancedSearch.isCentreRadioButtonSelected());
+        advancedSearch.clickSortByList();
+        softAssert.assertTrue(advancedSearch.isCentersSortByList());
     }
 }
