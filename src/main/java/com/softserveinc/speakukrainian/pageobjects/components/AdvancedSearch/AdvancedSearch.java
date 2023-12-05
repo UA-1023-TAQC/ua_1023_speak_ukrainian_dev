@@ -1,12 +1,10 @@
 package com.softserveinc.speakukrainian.pageobjects.components.AdvancedSearch;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import lombok.Getter;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import java.time.Duration;
+import static com.codeborne.selenide.Condition.disabled;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
