@@ -40,9 +40,7 @@ public class ClubsPageTest extends TestRunner {
         for (ClubCardComponent tmp : clubsCardsActualListByAlphabet) {
             actualSortItemsByAlphabet.add(tmp.getClubNameText());
         }
-
         refresh();
-
         homePage
                 .getHeader()
                 .clickAdvancedSearchBtn()
