@@ -5,6 +5,7 @@ import com.softserveinc.speakukrainian.pageobjects.*;
 import com.softserveinc.speakukrainian.pageobjects.AboutUsPage.AboutUsPage;
 import com.softserveinc.speakukrainian.pageobjects.ClubsPage.ClubsPage;
 import com.softserveinc.speakukrainian.pageobjects.components.AdvancedSearch.AdvancedSearch;
+import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
 import com.softserveinc.speakukrainian.pageobjects.news.NewsPage;
 import lombok.Getter;
 
@@ -85,5 +86,10 @@ public class Header {
     public AdvancedSearch clickAdvancedSearchBtn() {
         getAdvancedSearchBtn().click();
         return new AdvancedSearch();
+    }
+
+    public HomePage clickLogo(){
+        getLogo().click();
+        return new HomePage();
     }
 }
