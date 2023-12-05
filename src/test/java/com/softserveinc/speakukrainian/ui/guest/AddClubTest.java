@@ -1,4 +1,4 @@
-package com.softserveinc.speakukrainian.ui;
+package com.softserveinc.speakukrainian.ui.guest;
 
 import com.softserveinc.speakukrainian.pageobjects.components.AddClubModal;
 import com.softserveinc.speakukrainian.pageobjects.components.AddLocationModal;
