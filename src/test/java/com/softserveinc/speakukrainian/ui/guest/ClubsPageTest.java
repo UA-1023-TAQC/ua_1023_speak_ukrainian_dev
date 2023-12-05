@@ -24,7 +24,7 @@ public class ClubsPageTest extends TestRunner {
                 .openClubsPage();
     }
 
-    @Test
+    @Test(description = "TUA-103: Verify that sorting for advanced search works correctly")
     public void testSortClubsCart() {
         List<ClubCardComponent> clubsCardsExpectedListByAlphabet;
         List<ClubCardComponent> clubsCardsActualListByAlphabet;
