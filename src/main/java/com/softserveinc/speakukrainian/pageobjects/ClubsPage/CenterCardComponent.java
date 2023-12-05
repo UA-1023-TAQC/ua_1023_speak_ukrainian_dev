@@ -6,14 +6,14 @@ import lombok.Getter;
 @Getter
 public class CenterCardComponent {
     public SelenideElement node;
-    private final SelenideElement clubName;
+    private final SelenideElement centerName;
 
     public CenterCardComponent(SelenideElement card) {
         this.node = card;
-        this.clubName = node.$("div.center-name");
+        this.centerName = node.$("div.center-name");
     }
 
-    public String getClubNameText(){
-        return clubName.text();
+    public String getCenterNameText(){
+        return centerName.text();
     }
 }

@@ -5,12 +5,11 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.softserveinc.speakukrainian.utils.jdbc.entity.ClubEntity.parseRow;
 
 @Data
 public class CenterEntity {
-    private static final String ALL_FIELDS = "id, center_external_id, contacts, description, name, " +
-            "url_background_picture, url_logo, url_web, user_id, club_count, rating";
+    private static final String ALL_FIELDS = " id, center_external_id, contacts, description, name, " +
+            "url_background_picture, url_logo, url_web, user_id, club_count, rating ";
 
     public static final String SELECT_ALL = "SELECT" + ALL_FIELDS + "FROM centers ORDER BY id;";
 
@@ -41,7 +40,7 @@ public class CenterEntity {
         center.setUrlWeb(row.get(7));
         center.setUserId(Long.parseLong(row.get(8) == null ? "0" : row.get(8)));
         center.setClubCount(Long.parseLong(row.get(9) == null ? "0" : row.get(9)));
-        center.setRating(Double.parseDouble(row.get(10)));
+        center.setRating(Double.parseDouble(row.get(10) == null ? "0" : row.get(10)));
         return center;
     }
 
