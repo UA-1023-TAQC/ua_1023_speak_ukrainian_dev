@@ -24,7 +24,7 @@ public class ClubsPageTest extends TestRunner {
                 .openClubsPage();
     }
 
-    @Test
+    @Test(description = "TUA-103: Verify that sorting for advanced search works correctly")
     public void testSortClubsCart() {
         List<ClubCardComponent> clubsCardsExpectedListByAlphabet;
         List<ClubCardComponent> clubsCardsActualListByAlphabet;
@@ -40,12 +40,8 @@ public class ClubsPageTest extends TestRunner {
         for (ClubCardComponent tmp : clubsCardsActualListByAlphabet) {
             actualSortItemsByAlphabet.add(tmp.getClubNameText());
         }
-
         refresh();
-
-        homePage
-                .getHeader()
-                .clickAdvancedSearchBtn()
+        new AdvancedSearch()
                 .clickOnCityDropDownMenu()
                 .selectCityFromDropDown("Харків");
         clubsCardsExpectedListByAlphabet = new ClubsPage()
