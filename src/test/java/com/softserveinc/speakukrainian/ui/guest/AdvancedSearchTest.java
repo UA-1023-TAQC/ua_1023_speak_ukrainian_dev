@@ -17,6 +17,8 @@ import static org.testng.Assert.assertEquals;
 
 public class AdvancedSearchTest extends TestRunner {
 
+
+
     @Test
     // https://jira.softserve.academy/projects/TUA/issues/TUA-510
     public void centerRadiobuttonDisablesParameters(){
