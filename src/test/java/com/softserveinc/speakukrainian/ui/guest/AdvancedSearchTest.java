@@ -13,9 +13,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+<<<<<<< HEAD
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.refresh;
 import static org.testng.Assert.*;
+=======
+import static com.codeborne.selenide.Selenide.refresh;
+>>>>>>> 0a722f668727d83346f2803a8ed605c17b4e8670
 import static org.testng.Assert.assertEquals;
 
 public class AdvancedSearchTest extends TestRunner {
@@ -62,6 +66,7 @@ public class AdvancedSearchTest extends TestRunner {
         softAssert.assertAll();
     }
 
+<<<<<<< HEAD
     @Test
     public void verifyAdvancedSearchButtonOpensTheSearchSection() {
         AdvancedSearch open = new HomePage()
@@ -76,6 +81,8 @@ public class AdvancedSearchTest extends TestRunner {
         open.getAdvancedSearchComponent().shouldNotBe(visible);
     }
 
+=======
+>>>>>>> 0a722f668727d83346f2803a8ed605c17b4e8670
     @Test(description = "TUA-103: Verify that sorting for advanced search works correctly")
     public void testSortClubsCart() {
         List<ClubCardComponent> clubsCardsExpectedListByAlphabet;
@@ -152,4 +159,8 @@ public class AdvancedSearchTest extends TestRunner {
                 .clickLogo();
         refresh();
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0a722f668727d83346f2803a8ed605c17b4e8670
 }
