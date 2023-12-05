@@ -25,6 +25,11 @@ public class AdvancedSearch {
             "input[type='checkbox']");
 
     private final SelenideElement AdvancedSearchComponent = $("aside");
+    public final SelenideElement sortBlock = $("div.club-list-control");
+
+    public SortingBlockComponent getSortBlock(){
+        return new SortingBlockComponent(sortBlock);
+    }
 
     public String getTitleText() {
         return titleComponent.text();
@@ -56,8 +61,9 @@ public class AdvancedSearch {
         return centreRadioButtonLabel.text();
     }
 
-    public void clickOnCityDropDownMenu(){
+    public AdvancedSearch clickOnCityDropDownMenu(){
         cityDropDownMenu.click();
+        return this;
     }
 
     public AdvancedSearch selectCityFromDropDown(String cityName){
@@ -95,8 +101,9 @@ public class AdvancedSearch {
         return remoteCheckbox.isSelected();
     }
 
-    public void clickOnCategoriesCheckbox(int index) {
+    public AdvancedSearch clickOnCategoriesCheckbox(int index) {
         categoriesCheckboxesBlock.get(index).click();
+        return this;
     }
 
     public boolean isCategoriesCheckboxSelectedByIndex(int index) {

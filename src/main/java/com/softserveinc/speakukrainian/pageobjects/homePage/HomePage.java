@@ -5,7 +5,6 @@ import com.codeborne.selenide.SelenideElement;
 import com.softserveinc.speakukrainian.pageobjects.BasePage;
 import com.softserveinc.speakukrainian.pageobjects.ClubsPage.ClubsPage;
 import com.softserveinc.speakukrainian.pageobjects.SpeakingClub;
-import com.softserveinc.speakukrainian.pageobjects.components.Header;
 import lombok.Getter;
 
 import static com.codeborne.selenide.Selenide.*;
