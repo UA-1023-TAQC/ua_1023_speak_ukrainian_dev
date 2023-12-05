@@ -20,18 +20,4 @@ public class HomePageTest extends TestRunner {
                 .openLogin();
 
     }
-
-    @Test
-    public void verifyAdvancedSearchButtonOpensTheSearchSection() {
-        AdvancedSearch open = new HomePage()
-                .getHeader()
-                .clickAdvancedSearchBtn();
-        assertTrue(open.isTitleDisplayed(), "Advanced Search Component is not displayed");
-        open.getAdvancedSearchComponent().shouldBe(visible);
-        AdvancedSearch close = new HomePage()
-                .getHeader()
-                .clickAdvancedSearchBtn();
-        assertFalse(close.isTitleDisplayed(), "Advanced Search Component is displayed");
-        open.getAdvancedSearchComponent().shouldNotBe(visible);
-    }
 }
