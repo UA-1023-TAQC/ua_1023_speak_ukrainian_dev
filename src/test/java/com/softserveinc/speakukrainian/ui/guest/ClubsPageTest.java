@@ -1,6 +1,6 @@
 package com.softserveinc.speakukrainian.ui.guest;
 
-import com.softserveinc.speakukrainian.pageobjects.ClubsPage.ClubCardComponent;
+import пшеcom.softserveinc.speakukrainian.pageobjects.ClubsPage.ClubCardComponent;
 import com.softserveinc.speakukrainian.pageobjects.ClubsPage.ClubsPage;
 import com.softserveinc.speakukrainian.pageobjects.components.AdvancedSearch.AdvancedSearch;
 import com.softserveinc.speakukrainian.pageobjects.homePage.HomePage;
