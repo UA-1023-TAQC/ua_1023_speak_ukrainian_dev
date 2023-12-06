@@ -16,4 +16,8 @@ public class CenterService {
         return centerDAO.selectFirsSixCentersAscendingByName();
     }
 
+    public List<CenterEntity> getFirstSixCentersDescendingByName(){
+        return centerDAO.selectFirsSixCentersDescendingByName();
+    }
+
 }

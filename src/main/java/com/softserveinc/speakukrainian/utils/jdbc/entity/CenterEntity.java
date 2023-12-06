@@ -16,6 +16,9 @@ public class CenterEntity {
     public static final String SELECT_FIRST_SIX_CENTERS_ASC = "SELECT" + ALL_FIELDS
             + "FROM centers ORDER BY name LIMIT 6;";
 
+    public static final String SELECT_FIRST_SIX_CENTERS_DESC = "SELECT" + ALL_FIELDS
+            + "FROM centers ORDER BY name DESC LIMIT 6;";
+
     private long id;
     private long centerExternalId;
     private String contacts;
