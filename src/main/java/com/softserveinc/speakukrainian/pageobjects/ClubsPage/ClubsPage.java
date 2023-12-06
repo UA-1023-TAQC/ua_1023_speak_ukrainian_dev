@@ -17,10 +17,6 @@ public class ClubsPage extends BasePage {
 
     private final ElementsCollection centersCard = $$x("//div[@class='content-center-list content-center-block']/div");
 
-    private final SelenideElement sortByAlphabet = $x("//span[@class='control-sort-option'] [contains(text(),'алфавіт')]");
-
-    private final SelenideElement sortByRating = $x("//span[@class='control-sort-option'] [contains(text(),'рейтинг')]");
-
     private final SelenideElement sixthCenterCard = $x("//div[@class='content-center-list content-center-block']/div[6]");
 
     public List<ClubCardComponent> getClubsCard() {
