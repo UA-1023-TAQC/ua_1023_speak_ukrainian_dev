@@ -93,12 +93,12 @@ public class AdvancedSearchTest extends TestRunner {
                 .getSortBlock()
                 .clickArrowUpOrDown("arrow-up")
                 .getClubsCard();
-        List<String> actualSortItemsReverse = new ArrayList<>();
+        List<String> actualSortItemsDecreasing = new ArrayList<>();
         for (ClubCardComponent tmp : clubsCardsActualListByAlphabet) {
-            actualSortItemsReverse.add(tmp.getClubNameText());
+            actualSortItemsDecreasing.add(tmp.getClubNameText());
         }
         Collections.reverse(expectedSortItemsByAlphabet);
-        assertEquals(expectedSortItemsByAlphabet, actualSortItemsReverse);
+        assertEquals(expectedSortItemsByAlphabet, actualSortItemsDecreasing);
 
         List<ClubCardComponent> clubsCardsExpectedListByRating = new ClubsPage()
                 .getClubsCard();
@@ -118,15 +118,15 @@ public class AdvancedSearchTest extends TestRunner {
         assertEquals(expectedSortItemsByRating, actualSortItemsByRating);
 
         Collections.reverse(expectedSortItemsByRating);
-        List<ClubCardComponent> clubsCardsActualListByRatingReverse =  new AdvancedSearch()
+        List<ClubCardComponent> clubsCardsActualListByRatingDecreasing =  new AdvancedSearch()
                 .getSortBlock()
                 .clickArrowUpOrDown("arrow-down")
                 .getClubsCard();
-        List<Integer> actualSortItemsByRatingReverse = new ArrayList<>();
-        for (ClubCardComponent tmp : clubsCardsActualListByRatingReverse) {
-            actualSortItemsByRatingReverse.add(tmp.getCountOfRating());
+        List<Integer> actualSortItemsByRatingDecreasing = new ArrayList<>();
+        for (ClubCardComponent tmp : clubsCardsActualListByRatingDecreasing) {
+            actualSortItemsByRatingDecreasing.add(tmp.getCountOfRating());
         }
-        assertEquals(expectedSortItemsByRating, actualSortItemsByRatingReverse);
+        assertEquals(expectedSortItemsByRating, actualSortItemsByRatingDecreasing);
     }
 
     @AfterMethod
