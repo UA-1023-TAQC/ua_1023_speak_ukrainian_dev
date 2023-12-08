@@ -41,7 +41,6 @@ public class Header {
         return new ClubsPage();
     }
 
-
     public ClubsPage openClubsPage() {
         clubs.click();
         return new ClubsPage();

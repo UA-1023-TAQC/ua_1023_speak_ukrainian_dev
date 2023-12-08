@@ -49,6 +49,7 @@ public class ClubsPageTest extends TestRunner {
         List<String> expectedClubsListName = new ArrayList<>();
         for(ClubEntity expected: expectedClubList){
             expectedClubsListName.add(expected.getName());
+            assertEquals(expected.getName(), clubName);
         }
 
         assertEquals(expectedClubsListName.size(), actualClubsListName.size());

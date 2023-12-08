@@ -24,5 +24,4 @@ public class ClubService {
         return clubDAO.selectLocation(location);
     }
 
-
 }
