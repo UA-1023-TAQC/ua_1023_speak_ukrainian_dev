@@ -28,6 +28,20 @@ public class Header {
     private final SelenideElement userProfile = $x("//header//div[contains(@class,'user-profile')]");
     private final SelenideElement advancedSearchBtn = $x("//span[contains(@title,'Розширений пошук')]");
 
+    private final SelenideElement searchField = $x("//input[@type='search']");
+    private final SelenideElement searchFieldBtn = $x("//span[@aria-label='search']");
+
+    public Header setValueInput(String value){
+        getSearchField().setValue(value);
+        return this;
+    }
+
+    public ClubsPage clickSearchFieldBtn(){
+        getSearchFieldBtn().click();
+        return new ClubsPage();
+    }
+
+
     public ClubsPage openClubsPage() {
         clubs.click();
         return new ClubsPage();

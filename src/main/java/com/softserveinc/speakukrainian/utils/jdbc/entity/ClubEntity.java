@@ -15,6 +15,12 @@ public class ClubEntity {
 
     public static final String SELECT_ALL_WHERE_NAME_LIKE =  "SELECT" + ALL_FIELDS + "FROM clubs WHERE name LIKE '%s%%';";
 
+    public static final String SELECT_ALL_WHERE_LOCATION_LIKE =  "SELECT" + ALL_FIELDS +
+            "FROM clubs as cl " +
+            "JOIN locations l ON cl.id = l.club_id " +
+            "JOIN cities ct ON l.city_id = ct.id " +
+            "WHERE ct.name = '%s'";
+
     private long userId;
     private int ageFrom;
     private int ageTo;
@@ -33,6 +39,7 @@ public class ClubEntity {
     private String urlLogo;
     private String urlWeb;
     private String workTime;
+
 
     public static ClubEntity parseRow(List<String> row) {
         ClubEntity club = new ClubEntity();
