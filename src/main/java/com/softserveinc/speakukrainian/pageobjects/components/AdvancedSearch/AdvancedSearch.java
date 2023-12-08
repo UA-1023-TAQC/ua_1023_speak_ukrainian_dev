@@ -4,7 +4,6 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import lombok.Getter;
 
-import static com.codeborne.selenide.Condition.disabled;
 import static com.codeborne.selenide.Selenide.*;
 
 @Getter
@@ -23,6 +22,14 @@ public class AdvancedSearch {
     private final SelenideElement subwayStationDropDownMenu = $x("//*[@id='basic']/div[4]");
     private final ElementsCollection categoriesCheckboxesBlock = $$("div#basic_categoriesName " +
             "input[type='checkbox']");
+
+    private final SelenideElement sortByAlphabet = $x("//span[@class='control-sort-option'] [contains(text(),'алфавіт')]");
+
+    private final SelenideElement sortByRating = $x("//span[@class='control-sort-option'] [contains(text(),'за рейтингом')]");
+
+    private final SelenideElement sortArrowUp = $x("//span[@class='anticon anticon-arrow-up control-sort-arrow']");
+
+    private final SelenideElement sortArrowDown = $x("//span[@class='anticon anticon-arrow-down control-sort-arrow']");
 
     private final SelenideElement AdvancedSearchComponent = $("aside");
 
@@ -142,6 +149,26 @@ public class AdvancedSearch {
 
     public boolean isTitleDisplayed() {
        return this.titleComponent.isDisplayed();
+    }
+
+    public AdvancedSearch clickOnSortByAlphabet(){
+        sortByAlphabet.click();
+        return this;
+    }
+
+    public AdvancedSearch clickOnSortByRating(){
+        sortByRating.click();
+        return this;
+    }
+
+    public AdvancedSearch clickOnSortArrowUp(){
+        sortArrowUp.click();
+        return this;
+    }
+
+    public AdvancedSearch clickOnSortArrowDown(){
+        sortArrowDown.click();
+        return this;
     }
 
 }
