@@ -25,7 +25,7 @@ public class AdvancedSearch {
 
     private final SelenideElement sortByAlphabet = $x("//span[@class='control-sort-option'] [contains(text(),'алфавіт')]");
 
-    private final SelenideElement sortByRating = $x("//span[@class='control-sort-option'] [contains(text(),'рейтинг')]");
+    private final SelenideElement sortByRating = $x("//span[@class='control-sort-option'] [contains(text(),'за рейтингом')]");
 
     private final SelenideElement sortArrowUp = $x("//span[@class='anticon anticon-arrow-up control-sort-arrow']");
 
