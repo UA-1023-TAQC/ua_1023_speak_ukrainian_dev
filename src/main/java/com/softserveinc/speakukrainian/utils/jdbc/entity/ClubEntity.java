@@ -40,7 +40,6 @@ public class ClubEntity {
     private String urlWeb;
     private String workTime;
 
-
     public static ClubEntity parseRow(List<String> row) {
         ClubEntity club = new ClubEntity();
         club.setId(Long.parseLong(row.get(0)));

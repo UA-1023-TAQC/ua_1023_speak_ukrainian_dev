@@ -27,11 +27,13 @@ public class ClubsPageTest extends TestRunner {
 
     @Test
     public void testSearchResultByLocationDB(){
-        String clubName = "Комунальний позашкільний навчальний заклад \"Центр позашкільної роботи №3\" Дніпровської міської ради";
+        String location = "Дніпро";
+        String clubName = "Комунальний позашкільний навчальний заклад \"Центр позашкільної роботи №3\" " +
+                "Дніпровської міської ради";
         new ClubsPage()
                 .getHeader()
                 .openCitiesMenu()
-                .chooseCity("Дніпро");
+                .chooseCity(location);
 
         List<ClubCardComponent> listResult = new HomePage()
                 .getHeader()
@@ -44,7 +46,6 @@ public class ClubsPageTest extends TestRunner {
             actualClubsListName.add(tmp.getClubAddressText());
         }
 
-        String location = "Дніпро";
         List<ClubEntity> expectedClubList = clubService.getAllByLocation(location);
         List<String> expectedClubsListName = new ArrayList<>();
         for(ClubEntity expected: expectedClubList){
@@ -54,6 +55,5 @@ public class ClubsPageTest extends TestRunner {
 
         assertEquals(expectedClubsListName.size(), actualClubsListName.size());
         assertEquals(expectedClubsListName, actualClubsListName);
-
     }
 }
