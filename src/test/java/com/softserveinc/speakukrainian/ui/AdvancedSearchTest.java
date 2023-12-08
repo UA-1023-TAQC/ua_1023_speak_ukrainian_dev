@@ -69,7 +69,7 @@ public class AdvancedSearchTest extends TestRunner {
         List<String> listOfCenters = new ArrayList<>();
 
         for (CenterCardComponent center : centers){
-            String rating = center.getNode().getAttribute("tabindex");
+            String rating = center.getCenterNameText();
             listOfCenters.add(rating);
         }
 
@@ -78,7 +78,7 @@ public class AdvancedSearchTest extends TestRunner {
 
         softAssert.assertEquals(listOfCenters.size(), centersInDatabase.size());
         for (int i = 0; i < listOfCenters.size(); i++){
-            softAssert.assertEquals(listOfCenters.get(i), centersInDatabase.get(i).getRating());
+            softAssert.assertEquals(listOfCenters.get(i), centersInDatabase.get(i).getName());
         }
 
         new AdvancedSearch().clickOnSortArrowUp();
@@ -87,7 +87,7 @@ public class AdvancedSearchTest extends TestRunner {
         List<String> listOfCentersDescending = new ArrayList<>();
 
         for (CenterCardComponent center : centersDescending){
-            String rating = center.getNode().getAttribute("tabindex");
+            String rating = center.getCenterNameText();
             listOfCentersDescending.add(rating);
         }
 
@@ -95,7 +95,7 @@ public class AdvancedSearchTest extends TestRunner {
 
         softAssert.assertEquals(listOfCentersDescending.size(), centersInDatabaseDescending.size());
         for (int i = 0; i < listOfCentersDescending.size(); i++){
-            softAssert.assertEquals(listOfCentersDescending.get(i), centersInDatabaseDescending.get(i).getRating());
+            softAssert.assertEquals(listOfCentersDescending.get(i), centersInDatabaseDescending.get(i).getName());
         }
         softAssert.assertAll();
     }
