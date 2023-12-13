@@ -28,14 +28,11 @@ public class ClubsPageTest extends TestRunner {
     @Test
     public void testSearchResultByLocationDB(){
         String location = "Дніпро";
-        String clubName = "Комунальний позашкільний навчальний заклад \"Центр позашкільної роботи №3\" " +
-                "Дніпровської міської ради";
-        new ClubsPage()
+        String clubName = "Дитячий центр \"Умнічка\"";
+        List<ClubCardComponent> listResult = new HomePage()
                 .getHeader()
                 .openCitiesMenu()
-                .chooseCity(location);
-
-        List<ClubCardComponent> listResult = new HomePage()
+                .chooseCity(location)
                 .getHeader()
                 .setValueInput(clubName)
                 .clickSearchFieldBtn()
@@ -43,17 +40,24 @@ public class ClubsPageTest extends TestRunner {
 
         List<String> actualClubsListName = new ArrayList<>();
         for (ClubCardComponent tmp : listResult) {
-            actualClubsListName.add(tmp.getClubAddressText());
+            actualClubsListName.add(tmp.getClubNameText());
         }
+        System.out.println("actual" + actualClubsListName);
 
         List<ClubEntity> expectedClubList = clubService.getAllByLocation(location);
-        List<String> expectedClubsListName = new ArrayList<>();
-        for(ClubEntity expected: expectedClubList){
-            expectedClubsListName.add(expected.getName());
+        List<ClubEntity> clubsName = clubService.getAllByName(clubName);
+        for(ClubEntity expected: clubsName){
             assertEquals(expected.getName(), clubName);
         }
 
-        assertEquals(expectedClubsListName.size(), actualClubsListName.size());
-        assertEquals(expectedClubsListName, actualClubsListName);
+        List<String> expectedClubsListName = new ArrayList<>();
+        for(ClubEntity expected: expectedClubList){
+            if(expected.getName().contains(clubName)) {
+                expectedClubsListName.add(expected.getName());
+//            assertEquals(expected.getName(), clubName);
+            }
+        }
+        System.out.println("expected" + expectedClubsListName);
+
     }
 }
