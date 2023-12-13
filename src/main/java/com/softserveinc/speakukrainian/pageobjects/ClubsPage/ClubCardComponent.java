@@ -26,5 +26,4 @@ public class ClubCardComponent {
         return new ClubDetailPage();
     }
 
-
 }
