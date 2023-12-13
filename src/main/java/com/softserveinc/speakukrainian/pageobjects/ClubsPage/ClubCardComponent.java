@@ -26,8 +26,5 @@ public class ClubCardComponent {
         return new ClubDetailPage();
     }
 
-    public String getClubAddressText(){
-        return clubAddress.text();
-    }
 
 }

@@ -18,6 +18,7 @@ public class ClubEntity {
     private static final String ALL_FIELDS_CLUBS_AS_CL = " cl.id, cl.age_from, cl.age_to, cl.center_external_id, cl.club_external_id," +
             "cl.contacts, cl.description, cl.is_approved, cl.is_online, cl.name, cl.rating, cl.url_background, cl.url_logo, cl.url_web," +
             "cl.work_time, cl.center_id, cl.user_id, cl.feedback_count ";
+
     public static final String SELECT_ALL_WHERE_LOCATION_LIKE =  "SELECT" + ALL_FIELDS_CLUBS_AS_CL +
             "FROM clubs as cl " +
             "JOIN locations l ON cl.id = l.club_id " +
