@@ -19,4 +19,9 @@ public class ClubService {
     public List<ClubEntity> getAllByName(String name){
         return clubDAO.selectName(name);
     }
+
+    public List<ClubEntity> getAllByLocation(String location){
+        return clubDAO.selectLocation(location);
+    }
+
 }
